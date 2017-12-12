@@ -1,0 +1,44 @@
+{
+  "name": "finance-app",
+  "version": "1.0.0",
+  "description": "A Google Chrome new tab extension to calculate finances",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chingu-voyage3/geckos-08.git"
+  },
+  "keywords": [
+    "chrome-extension",
+    "new-tab-page",
+    "finance",
+    "money",
+    "budget"
+  ],
+  "author": "Chingu Cohorts (Voyage3-Geckos-08)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chingu-voyage3/geckos-08/issues"
+  },
+  "homepage": "https://github.com/chingu-voyage3/geckos-08#readme",
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ],
+  "devDependencies": {
+    "browser-sync": "^2.18.13",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-cache": "^1.0.1",
+    "gulp-cssnano": "^2.1.2",
+    "gulp-if": "^2.0.2",
+    "gulp-imagemin": "^4.0.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^3.0.0",
+    "gulp-useref": "^3.1.3",
+    "require-dir": "^0.3.2",
+    "run-sequence": "^2.2.0"
+  }
+}
