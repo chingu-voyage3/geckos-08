@@ -1,0 +1,54 @@
+{
+	// see https://developer.chrome.com/extensions
+	// and https://developer.chrome.com/extensions/manifest
+
+	// Required
+	"manifest_version": 2,
+	"name": "My Extension",
+	"version": "1.0",
+
+	// Recommended
+	"description": "A plain text description",
+	"icons": {
+		"16": "assets/images/icon16.png",
+		"24": "assets/images/icon48.png",
+		"32": "assets/images/icon128.png"
+	},
+
+	// Pick one (or none)
+	"browser_action": {
+		"default_icon": {	// optional
+			"16": "assets/images/icon16.png",	 // optional
+			"24": "assets/images/icon48.png",	 // optional
+			"32": "assets/images/icon128.png"	// optional
+		},
+		"default_title": "Finance App"	// optional; shown in tooltip
+		},
+
+	// Optional
+	"author": ["Shea Fitzek", "Seong Kim", "Steven Bowen", "Jake West"],
+	"background": {
+		"scripts": ["js/background.js"],
+		// Recommended
+		"persistent": false
+	},
+	"chrome_ui_overrides": {
+		"newtab": "index.html"
+	},
+	"content_security_policy": "policyString",
+	"devtools_page": "devtools.html",
+	"externally_connectable": {
+		"matches": ["*://*.example.com/*"]
+	},
+	"homepage_url": "http://path/to/homepage",
+	"incognito": "split",
+	"offline_enabled": true,
+	"optional_permissions": ["tabs"],
+	"options_page": "options.html",
+	"options_ui": {
+		"chrome_style": true,
+		"page": "options.html"
+	},
+	"permissions": ["background", "storage", "tabs", "http://*.google.com/", "https://*.google.com/"],
+	"short_name": "Short Name"
+}

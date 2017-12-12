@@ -1,0 +1,39 @@
+// $color1: #99ff99;
+// $color2: #cdcdcd;
+// $color3: #4b367c;
+
+*,
+*:before,
+*:after {
+	box-sizing: border-box;
+	outline: 1px solid red;
+}
+
+html,
+body {
+	min-height: 100vh;
+	margin: 0;
+}
+
+html {
+	background: url(https://cdn-media-2.lifehack.org/wp-content/files/2016/04/21153410/00025154.jpg)
+		no-repeat center center fixed;
+	background-size: cover;
+}
+
+body {
+	display: grid;
+	grid-template: 5rem 1fr 5rem / 100%;
+}
+
+.main-header {
+	grid-area: 1 / 1 / 2 / -1;
+}
+
+.content {
+	grid-area: 2 / 1 / -2 / -1;
+}
+
+.main-footer {
+	grid-area: -2 / 1 / -1 / -1;
+}
