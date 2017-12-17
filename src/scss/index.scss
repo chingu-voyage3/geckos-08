@@ -1,6 +1,7 @@
 // $color1: #99ff99;
 // $color2: #cdcdcd;
 // $color3: #4b367c;
+
 *,
 *:before,
 *:after {
@@ -21,7 +22,7 @@ html {
 }
 
 body {
-  font-family: 'Bellefair', cursive;
+	font-family: 'Bellefair', cursive;
 	display: grid;
 	grid-template: 7rem 1fr 5rem / 100%;
 }
@@ -30,7 +31,7 @@ body {
 	grid-area: 1 / 1 / 2 / -1;
 
 	h1 {
-    font-size: 2.5rem;
+		font-size: 2.5rem;
 		text-align: center;
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
@@ -66,7 +67,7 @@ body {
 			flex-wrap: nowrap;
 
 			ul {
-        border-radius: 5px;
+				border-radius: 5px;
 				display: flex;
 				flex-direction: column;
 				flex-wrap: nowrap;
@@ -90,16 +91,18 @@ body {
 						border-bottom: 1px solid #888;
 					}
 
-          &:first-of-type {
-            a {
-              border-radius: 5px 5px 0 0;
-            }
-          }
-          &:last-of-type {
-            a {
-              border-radius: 0 0 5px 5px;
-            }
-          }
+					&:first-of-type {
+						a {
+							border-radius: 5px 5px 0 0;
+						}
+					}
+
+					&:last-of-type {
+						a {
+							border-radius: 0 0 5px 5px;
+						}
+					}
+
 					a {
 						display: flex;
 						flex-direction: column;
@@ -141,7 +144,6 @@ body {
 								text-shadow: none;
 							}
 						}
-
 					}
 				}
 			}
@@ -165,13 +167,13 @@ form {
 	}
 
 	fieldset {
-    border-radius: 5px;
+		border-radius: 5px;
 		margin: 0 0.75rem;
 
 		legend {
 			padding: 0.2rem 0.5rem;
 			border: 1px solid green;
-      border-radius: 5px;
+			border-radius: 5px;
 			color: white;
 			background: rgba(0, 76, 0, 0.5);
 			text-align: right;
@@ -191,9 +193,8 @@ form {
 
 			&:not(:last-of-type) {
 				p {
-          border-radius: 5px;
-					//text-align: right;
-          margin: .7rem auto;
+					border-radius: 5px;
+					margin: .7rem auto;
 					padding: 0.25rem 0.25rem 0.25rem .75rem;
 				}
 
@@ -205,21 +206,21 @@ form {
 				i {
 					color: #666;
 					padding: 0 0.25rem;
-					transition: .5s color;
+					transition: .5s color text-shadow;
 
 					&:last-of-type {
 						color: transparent;
 
 						&:hover {
-							color: #666;
+							color: rgba(255, 0, 0, 0.5);
+							text-shadow: 0 0 2px white;
 						}
 					}
 				}
 
 				input[type="number"] {
-          border-radius: 5px;
+					border-radius: 5px;
 					font-family: monospace;
-					// direction: rtl;
 					padding-right: 0.25rem;
 
 					&::-webkit-inner-spin-button,
@@ -232,20 +233,20 @@ form {
 
 			&:last-of-type {
 				p {
-          border-radius: 5px;
+					border-radius: 5px;
 					padding: 0.25rem;
-          text-align: center;
+					text-align: center;
 				}
 
 				input[type="text"] {
-          border-radius: 5px;
+					border-radius: 5px;
 					padding-left: 0.25rem;
 				}
 			}
 		}
 
 		p {
-      color: #f6f6f6;
+			color: #f6f6f6;
 			background: rgba(0, 0, 0, 0.25);
 		}
 
@@ -255,8 +256,7 @@ form {
 			}
 
 			&:focus {
-        box-shadow: 0 0 2pt 1pt green;
-				//outline: 2px solid green;
+				box-shadow: 0 0 2pt 1pt green;
 			}
 		}
 

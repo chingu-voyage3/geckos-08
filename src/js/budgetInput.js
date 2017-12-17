@@ -39,18 +39,17 @@
 	}
 
 	function preventInvalid(e) {
-		//var key = e.charCode ? e.charCode : e.keyCode;
-    let key = e.key;
+		let key = e.key;
 
 		if (key == '.') {
 			e.preventDefault();
 		} else if (key == 'e') {
-      e.preventDefault();
-    } else if (key == '+') {
-      e.preventDefault();
-    } else if (key == '-') {
-      e.preventDefault();
-    }
+			e.preventDefault();
+		} else if (key == '+') {
+			e.preventDefault();
+		} else if (key == '-') {
+			e.preventDefault();
+		}
 	}
 
 	function setMaxNumberLength(e) {
