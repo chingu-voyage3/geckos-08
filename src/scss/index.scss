@@ -1,12 +1,11 @@
 // $color1: #99ff99;
 // $color2: #cdcdcd;
 // $color3: #4b367c;
-
 *,
 *:before,
 *:after {
 	box-sizing: border-box;
-	outline: 1px solid red;
+	// outline: 1px solid red;
 }
 
 html,
@@ -28,12 +27,220 @@ body {
 
 .main-header {
 	grid-area: 1 / 1 / 2 / -1;
+
+	h1 {
+		text-align: center;
+		background: url(https://cdn-media-2.lifehack.org/wp-content/files/2016/04/21153410/00025154.jpg);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		text-shadow: 0 0 0 rgba(0, 76, 0, 0.5);
+	}
 }
 
 .content {
+	display: grid;
+	grid-template: 100% / 1fr 1fr;
 	grid-area: 2 / 1 / -2 / -1;
+	padding: 0 10rem 0 10rem;
+
+	.budget-input {
+		display: grid;
+		grid-template: 100% / 1fr 1fr;
+		grid-area: 1 / 1 / -1 / 2;
+
+		.budget-input {
+			padding: 0.5rem;
+
+			.income-items {
+			}
+		}
+
+		.budget-categories {
+			padding: 0.75rem;
+		}
+
+		sidebar {
+			display: flex;
+			flex-direction: column;
+			flex-wrap: nowrap;
+
+			ul {
+				display: flex;
+				flex-direction: column;
+				flex-wrap: nowrap;
+				justify-content: flex-start;
+				align-content: flex-start;
+				align-items: stretch;
+				list-style: none;
+				background-color: rgba(0, 0, 0, 0.25);
+				padding: 0;
+				margin: 0;
+
+				li {
+					display: flex;
+					flex-wrap: nowrap;
+					flex-basis: 3.5rem;
+					line-height: 3.5rem;
+					font-family: 'Oswald', sans-serif;
+					font-size: 1.25rem;
+
+					&:not(:last-of-type) {
+						border-bottom: 1px solid #888;
+					}
+
+					a {
+						display: flex;
+						flex-direction: column;
+						justify-content: center;
+						align-items: stretch;
+						flex: 1;
+						padding-left: 1rem;
+						text-decoration: none;
+						color: black;
+						transition: .3s background-color;
+
+						> i:before {
+							padding-right: 0.5rem;
+						}
+
+						&.active-link {
+							background-color: rgba(0, 76, 0, 0.75);
+							color: white;
+							cursor: default;
+
+							> i:before {
+								color: white;
+							}
+						}
+
+						&:not(.active-link) {
+							> i {
+								text-shadow: 0 0 5px white;
+								&:before {
+									color: black;
+								}
+							}
+						}
+
+						&:hover:not(.active-link) {
+							background-color: rgba(102, 102, 102, 0.75);
+
+							> i {
+								text-shadow: none;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.budget-display {
+		grid-area: 1 / 2 / -1 / -1;
+	}
 }
 
 .main-footer {
 	grid-area: -2 / 1 / -1 / -1;
+}
+
+form {
+	display: none;
+
+	&.active-form {
+		display: block;
+	}
+
+	fieldset {
+		margin: 0 0.75rem;
+
+		legend {
+			padding: 0.2rem 0.5rem;
+			border: 1px solid green;
+			color: white;
+			background: rgba(0, 76, 0, 0.5);
+			text-align: right;
+		}
+
+		label {
+			div {
+				display: flex;
+				flex-direction: column;
+				align-items: flex-end;
+
+				&:last-of-type {
+					flex-direction: row;
+					justify-content: space-between;
+				}
+			}
+
+			&:not(:last-of-type) {
+				p {
+					text-align: right;
+					padding-right: 0.25rem;
+				}
+
+				div {
+					justify-content: flex-end;
+					align-items: center;
+				}
+
+				i {
+					color: #666;
+					padding: 0 0.25rem;
+					transition: .5s color;
+
+					&:last-of-type {
+						color: transparent;
+
+						&:hover {
+							color: #666;
+						}
+					}
+				}
+
+				input[type="number"] {
+					font-family: monospace;
+					// direction: rtl;
+					padding-right: 0.25rem;
+
+					&::-webkit-inner-spin-button,
+					&::-webkit-outer-spin-button {
+						-webkit-appearance: none;
+						margin: 0;
+					}
+				}
+			}
+
+			&:last-of-type {
+				p {
+					padding-left: 0.25rem;
+				}
+
+				input[type="text"] {
+					padding-left: 0.25rem;
+				}
+			}
+		}
+
+		p {
+			color: white;
+			background: rgba(0, 0, 0, 0.25);
+		}
+
+		input {
+			&:valid {
+				color: green;
+			}
+
+			&:focus {
+				outline: 2px solid green;
+			}
+		}
+
+		input[type="number"] {
+			text-align: right;
+			position: relative;
+		}
+	}
 }

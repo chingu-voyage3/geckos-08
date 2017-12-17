@@ -11,7 +11,7 @@
 
 		<link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico?nocache"/>
 
-		<!-- <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" /> -->
+		<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 
 		<!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bellefair|Rakkas|Share"> -->
 
@@ -25,23 +25,151 @@
 	<body>
 
 		<header class="main-header">
-			<nav>
-			</nav>
+			<h1>
+				Geckos Budget App
+			</h1>
 		</header>
 
 		<main class="content">
 
-			<sidebar>
-			</sidebar>
+			<section class="budget-input">
 
-			<section>
-				Hello World XXXXXXXXXXXX
+				<div class="budget-categories">
+
+					<sidebar>
+
+						<ul>
+							<li class="budget-nav income">
+								<a href="#" class="active-link">
+									<i class="fa fa-money" aria-hidden="true">Income</i>
+								</a>
+							</li>
+
+							<li class="budget-nav housing">
+								<a href="#">
+										<i class="fa fa-home" aria-hidden="true">Housing</i>
+								</a>
+							</li>
+
+							<li class="budget-nav transportation">
+								<a href="#">
+										<i class="fa fa-car" aria-hidden="true">Transportation</i>
+								</a>
+							</li>
+
+							<li class="budget-nav education">
+								<a href="#">
+										<i class="fa fa-graduation-cap" aria-hidden="true">Education</i>
+								</a>
+							</li>
+
+							<li class="budget-nav loans-credit-cards">
+								<a href="#">
+										<i class="fa fa-credit-card-alt" aria-hidden="true">Loans & Credit Cards</i>
+								</a>
+							</li>
+
+							<li class="budget-nav savings-investing">
+								<a href="#">
+										<i class="fa fa-bank" aria-hidden="true">Savings & Investing</i>
+								</a>
+							</li>
+
+							<li class="budget-nav miscellaneous">
+								<a href="#">
+										<i class="fa fa-paperclip " aria-hidden="true">Miscellaneous</i>
+								</a>
+							</li>
+
+							<li class="budget-nav add-item">
+								<a href="#">
+										<i class="fa fa-plus-square" aria-hidden="true">Add Item</i>
+								</a>
+							</li>
+
+						</ul>
+
+					</sidebar>
+
+				</div>
+
+				<div class="income-items">
+
+					<form name="income-form" class="income-form income active-form">
+
+						<fieldset name="income" form="income-form">
+							<legend>Income</legend>
+
+							<label for="income-salary">
+								<p>Salary / Wages</p>
+								<div>
+									<i class="fa fa-usd" aria-hidden="true"></i>
+									<input type="number" id="income-salary" name="income-salary" placeholder="Amount" step="1" pattern="[1-9][0-9]*" value="" size="12" maxlength="12" autofocus>
+									<i class="fa fa-trash" aria-hidden="true"></i>
+								</div>
+							</label>
+
+							<label for="income-other">
+								<p>Other</p>
+								<div>
+									<i class="fa fa-usd" aria-hidden="true"></i>
+									<input type="number" id="income-other" name="income-other" placeholder="Amount" value="" size="12" maxlength="12">
+									<i class="fa fa-trash" aria-hidden="true"></i>
+								</div>
+							</label>
+
+							<label for="income-salary-add-item">
+								<p>Add Line Item</p>
+								<div>
+									<input type="text" id="income-salary-add-item" name="income-salary-add-item" placeholder="Item Name" required>
+									<button type="submit">Add Item</button>
+								</div>
+							</label>
+
+						</fieldset>
+
+					</form>
+
+					<form name="housing-form" class="housing-form housing">
+
+						<fieldset name="housing" form="housing-form">
+							<legend>Housing / Utilities</legend>
+
+							<label for="expense-housing">
+								<p>Housing</p>
+								<div>
+									<i class="fa fa-usd" aria-hidden="true"></i>
+									<input type="number" id="expense-housing" name="expense-housing" placeholder="Amount" value="" size="12" maxlength="12">
+									<i class="fa fa-trash" aria-hidden="true"></i>
+								</div>
+							</label>
+
+							<label for="expense-other">
+								<p>Electric</p>
+								<div>
+									<i class="fa fa-usd" aria-hidden="true"></i>
+									<input type="number" id="expense-electric" name="expense-electric" placeholder="Amount" value="" size="12" maxlength="12">
+									<i class="fa fa-trash" aria-hidden="true"></i>
+								</div>
+							</label>
+
+							<label for="expense-housing-add-item">
+								<p>Add Line Item</p>
+								<div>
+									<input type="text" id="expense-housing-add-item" placeholder="Item Name" required>
+									<button type="submit">Add Item</button>
+								</div>
+							</label>
+
+						</fieldset>
+
+					</form>
+
+				</div>
+
 			</section>
 
-			<section>
-			</section>
-
-			<section>
+			<section class="budget-display">
 			</section>
 
 		</main>
@@ -54,6 +182,8 @@
 		<!-- gulp-useref 'scripts' task to concat .js files -->
 		<!-- build:js js/scripts.min.js -->
 		<script type="text/javascript" src="js/index.js"></script>
+		<script type="text/javascript" src="js/budgetInput.js"></script>
+		<script type="text/javascript" src="js/budgetInput.js"></script>
 		<!-- endbuild -->
 
 	</body>
