@@ -79,12 +79,11 @@ body {
 				margin: 0;
 
 				li {
-          border-radius: 5px;
 					display: flex;
 					flex-wrap: nowrap;
 					flex-basis: 3.5rem;
 					line-height: 3.5rem;
-					//font-family: 'Oswald', sans-serif;
+					font-family: 'Oswald', sans-serif;
 					font-size: 1.25rem;
 
 					&:not(:last-of-type) {
@@ -96,7 +95,11 @@ body {
               border-radius: 5px 5px 0 0;
             }
           }
-
+          &:last-of-type {
+            a {
+              border-radius: 0 0 5px 5px;
+            }
+          }
 					a {
 						display: flex;
 						flex-direction: column;

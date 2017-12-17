@@ -56,16 +56,18 @@ body {
         padding: 0;
         margin: 0; }
         .content .budget-input sidebar ul li {
-          border-radius: 5px;
           display: flex;
           flex-wrap: nowrap;
           flex-basis: 3.5rem;
           line-height: 3.5rem;
+          font-family: 'Oswald', sans-serif;
           font-size: 1.25rem; }
           .content .budget-input sidebar ul li:not(:last-of-type) {
             border-bottom: 1px solid #888; }
           .content .budget-input sidebar ul li:first-of-type a {
             border-radius: 5px 5px 0 0; }
+          .content .budget-input sidebar ul li:last-of-type a {
+            border-radius: 0 0 5px 5px; }
           .content .budget-input sidebar ul li a {
             display: flex;
             flex-direction: column;
