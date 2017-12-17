@@ -38,12 +38,19 @@
 		});
 	}
 
-	function preventDecimal(e) {
-		var key = e.charCode ? e.charCode : e.keyCode;
+	function preventInvalid(e) {
+		//var key = e.charCode ? e.charCode : e.keyCode;
+    let key = e.key;
 
-		if (key == 46) {
+		if (key == '.') {
 			e.preventDefault();
-		}
+		} else if (key == 'e') {
+      e.preventDefault();
+    } else if (key == '+') {
+      e.preventDefault();
+    } else if (key == '-') {
+      e.preventDefault();
+    }
 	}
 
 	function setMaxNumberLength(e) {
@@ -53,7 +60,7 @@
 	}
 
 	function validateNumberInput(e) {
-		preventDecimal(e);
+		preventInvalid(e);
 		setMaxNumberLength(e);
 	}
 })();
