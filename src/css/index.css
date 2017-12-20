@@ -161,3 +161,29 @@ form {
     form fieldset input[type="number"] {
       text-align: right;
       position: relative; }
+    form fieldset .hr-style {
+      border-top: 3px double rgba(0, 0, 0, 0.5);
+      margin-top: 1rem; }
+    form fieldset .nav-btns {
+      display: flex;
+      justify-content: center;
+      margin-top: .8rem; }
+      form fieldset .nav-btns .nav-btn {
+        background: transparent;
+        border: none;
+        border-radius: 4px;
+        color: #FFF;
+        cursor: pointer;
+        display: inline-block;
+        font-size: .8rem;
+        margin: 0 .4rem;
+        padding: .3rem .6rem;
+        text-align: center; }
+      form fieldset .nav-btns .next {
+        background-color: rgba(48, 166, 74, 0.6); }
+        form fieldset .nav-btns .next:hover:after {
+          content: "\2192"; }
+      form fieldset .nav-btns .previous {
+        background-color: rgba(253, 192, 47, 0.6); }
+        form fieldset .nav-btns .previous:hover:before {
+          content: "\2190"; }
