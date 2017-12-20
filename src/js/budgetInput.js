@@ -1,44 +1,45 @@
-(function() {
-	'use strict';
+'use strict';
 
-	const links = [...document.querySelectorAll(`.budget-nav a`)];
+const budgetInput = {
 
-	const icons = [...document.querySelectorAll(`.budget-nav a i`)];
+	links : [...document.querySelectorAll(`.budget-nav a`)],
 
-	const forms = [...document.querySelectorAll(`.income-items form`)];
+	icons : [...document.querySelectorAll(`.budget-nav a i`)],
 
-	const numberInputs = [
+	forms : [...document.querySelectorAll(`.income-items form`)],
+
+	numberInputs : [
 		...document.querySelectorAll(`.income-items input[type="number"]`),
-	];
+	],
+  
+	setActiveLink(e, anchor ) {
+    let currentTarget = null;
+    // For btn handler
+    if( e === null) {
+      currentTarget = anchor;
+    } else {
+      currentTarget = e.currentTarget;
+    }
 
-	links.forEach((link) => {
-		link.addEventListener(`click`, setActiveLink);
-	});
-
-	numberInputs.forEach((numberInput) => {
-		numberInput.addEventListener(`keypress`, validateNumberInput, false);
-	});
-
-	function setActiveLink(e) {
-		links.forEach((link) => {
+		budgetInput.links.forEach((link) => {
 			link.classList.remove(`active-link`);
 		});
 
-		e.currentTarget.classList.add(`active-link`);
+		currentTarget.classList.add(`active-link`);
 
-		forms.forEach((form) => {
+		budgetInput.forms.forEach((form) => {
 			form.classList.remove(`active-form`);
 		});
 
-		forms.forEach((form) => {
+		budgetInput.forms.forEach((form) => {
 			form.classList
 				.item(0)
-				.includes(e.currentTarget.parentNode.classList.item(1)) &&
+				.includes(currentTarget.parentNode.classList.item(1)) &&
 				form.classList.add(`active-form`);
 		});
-	}
-
-	function preventInvalid(e) {
+	},
+ 
+	preventInvalid(e) {
 		let key = e.key;
 
 		if (key == '.') {
@@ -50,16 +51,31 @@
 		} else if (key == '-') {
 			e.preventDefault();
 		}
-	}
+	},
 
-	function setMaxNumberLength(e) {
+	setMaxNumberLength(e) {
 		if (e.target.value.length >= 12) {
 			e.preventDefault();
 		}
-	}
+	},
 
-	function validateNumberInput(e) {
-		preventInvalid(e);
-		setMaxNumberLength(e);
-	}
-})();
+	validateNumberInput(e) {
+		budgetInput.preventInvalid(e);
+		budgetInput.setMaxNumberLength(e);
+	},
+
+  init() {
+
+    budgetInput.links.forEach((link) => {
+      link.addEventListener(`click`, budgetInput.setActiveLink);
+    });
+
+    budgetInput.numberInputs.forEach((numberInput) => {
+      numberInput.addEventListener(`keypress`, budgetInput.validateNumberInput, 
+      false);
+    });
+  }
+   
+};
+
+
