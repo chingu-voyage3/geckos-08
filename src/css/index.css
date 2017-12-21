@@ -76,19 +76,16 @@ form {
         font-size: .8rem;
         margin: 0 .4rem;
         padding: .3rem .6rem;
-        text-align: center; }
+        text-align: center;
+        width: 7rem; }
       form fieldset .nav-btns .next {
         background-color: rgba(48, 166, 74, 0.6); }
         form fieldset .nav-btns .next:hover {
           background-color: #30a64a; }
-          form fieldset .nav-btns .next:hover:after {
-            content: "\2192"; }
       form fieldset .nav-btns .previous {
         background-color: rgba(253, 192, 47, 0.6); }
         form fieldset .nav-btns .previous:hover {
           background-color: #fdc02f; }
-          form fieldset .nav-btns .previous:hover:before {
-            content: "\2190"; }
 
 *,
 *:before,
