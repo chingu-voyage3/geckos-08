@@ -2,7 +2,6 @@
 
 const onReady = ( ) => {
   budgetInput.init();
-  navBtns.init();
 };
 
 // Check if the DOMContentLoaded has already been completed
