@@ -1,6 +1,7 @@
 'use strict';
 
 const onReady = ( ) => {
+  budgetApp.nav.createNav();
   budgetInput.init();
   navBtns.init();
 };
