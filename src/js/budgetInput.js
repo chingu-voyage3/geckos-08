@@ -1,44 +1,15 @@
+// If budgetApp is undefined, assign new obj
+// else use existing budgetApp obj
+var budgetApp = budgetApp || {};
+
 'use strict';
 
-const budgetInput = {
+budgetApp.input = {
 
-	links : [...document.querySelectorAll(`.budget-nav a`)],
+  nav : document.getElementById('budget-nav'),
 
-	icons : [...document.querySelectorAll(`.budget-nav a i`)],
+  form: document.getElementById('test-form'),
 
-	forms : [...document.querySelectorAll(`.income-items form`)],
-
-	numberInputs : [
-		...document.querySelectorAll(`.income-items input[type="number"]`),
-	],
-  
-	setActiveLink(e, anchor ) {
-    let currentTarget = null;
-    // For btn handler
-    if( e === null) {
-      currentTarget = anchor;
-    } else {
-      currentTarget = e.currentTarget;
-    }
-
-		budgetInput.links.forEach((link) => {
-			link.classList.remove(`active-link`);
-		});
-
-		currentTarget.classList.add(`active-link`);
-
-		budgetInput.forms.forEach((form) => {
-			form.classList.remove(`active-form`);
-		});
-
-		budgetInput.forms.forEach((form) => {
-			form.classList
-				.item(0)
-				.includes(currentTarget.parentNode.classList.item(1)) &&
-				form.classList.add(`active-form`);
-		});
-	},
- 
 	preventInvalid(e) {
 		let key = e.key;
 
@@ -60,26 +31,51 @@ const budgetInput = {
 	},
 
 	validateNumberInput(e) {
-		budgetInput.preventInvalid(e);
-		budgetInput.setMaxNumberLength(e);
+		budgetApp.input.preventInvalid(e);
+		budgetApp.input.setMaxNumberLength(e);
 	},
 
   init() {
 
-    budgetInput.links.forEach((link) => {
-      link.addEventListener(`click`, budgetInput.setActiveLink);
-    });
-
-    budgetInput.numberInputs.forEach((numberInput) => {
-      numberInput.addEventListener(`keypress`, budgetInput.validateNumberInput, 
-      false);
-    });
+    budgetApp
+      .input
+      .form
+      .addEventListener(
+        `keypress`, 
+        budgetApp.input.validateNumberInput, 
+        false);
   }
    
 };
 
-const navBtns = {
+budgetApp.navBtns = {
   buttons : [...document.querySelectorAll(`.nav-btn`)],
+
+  updateDisplay(){
+    // If at first category
+    if( budgetApp.currentCategory === 0 ){
+      // Hide previous btn
+        document
+        .getElementsByClassName(`previous`)
+        [0]
+        .classList
+        .add(`hidden`);
+    // If at last category before `Add Category`
+    } else if ( budgetApp.currentCategory 
+                === (budgetApp.categories.length - 1) ) {
+      // Hide next btn
+        document
+        .getElementsByClassName(`next`)
+        [0]
+        .classList
+        .add(`hidden`);
+    } else {
+      // Show all
+      budgetApp.navBtns.buttons.forEach( button => {
+      button.classList.remove(`hidden`);
+      });
+    }
+  },
 
   btnCheck( btn ) {
     return btn.classList.item(1);
@@ -88,61 +84,50 @@ const navBtns = {
   btnHandler( e ) {
     e.preventDefault();
 
+    // Get btn
     const btn  = e.target;
-    // Check if next or previous
-    const direction = navBtns.btnCheck( btn );
 
-    // Store category
-    const category = btn.parentNode
-      .classList
-      .item( 1 );
+    // Check if next or previous
+    const direction = budgetApp.navBtns.btnCheck( btn );
 
     if( direction === 'next' ) {
-      // Get next anchor element
-      let next = null;
+      // Set form to next
+      let next = budgetApp.currentCategory + 1;
+      // Check for end of ul
+      if( next > budgetApp.categories.length - 1){
+        budgetApp.currentCategory = budgetApp.categories.length - 1;
+      }  else {
+        budgetApp.currentCategory += 1;
+      }
 
-      budgetInput.links.forEach( link => {
-        let linkCategory = link.parentNode
-          .classList
-          .item( 1 );
+     } else {
+      // Set form to previous 
+       let prev = budgetApp.currentCategory - 1;
 
-        if( linkCategory === category ) {
-          next = link.parentNode
-            .nextElementSibling
-            .querySelectorAll( 'a' )
-            [0];
-        }
-      });
+       // Check for beginning of ul
+       if( prev < 0){
+         budgetApp.currentCategory = 0;
+       } else {
+         budgetApp.currentCategory = prev;
+       }
+     }
 
-      // Set active link
-      budgetInput.setActiveLink( null, next );
+    // Update btn display
+    budgetApp.navBtns.updateDisplay();
 
-    } else {
-      // Get previous anchor element
-      let prev = null;
+    // Update form
+    budgetApp.forms.updateForm();
 
-      budgetInput.links.forEach( link => {
-        let linkCategory = link.parentNode
-          .classList
-          .item( 1 );
+    // Get current category idx
+    const idx = budgetApp.currentCategory;
 
-        if( linkCategory === category ) {
-          prev = link.parentNode
-            .previousElementSibling
-            .querySelectorAll( 'a' )
-            [0];
-        }
-      });
-
-      // Set active link
-      budgetInput.setActiveLink( null, prev );
-    }
-    
+    // Update side nav display
+    budgetApp.nav.updateNavDisplay( idx );
   },
 
   init() {
-    navBtns.buttons.forEach( btn => {
-      btn.addEventListener( `click`, navBtns.btnHandler );
+    budgetApp.navBtns.buttons.forEach( btn => {
+      btn.addEventListener( `click`, budgetApp.navBtns.btnHandler );
     });
   }
 };
