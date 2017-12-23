@@ -28,6 +28,7 @@ form {
 					flex-direction: row;
 					justify-content: space-between;
 				}
+        
 			}
 
 			&:not(:last-of-type) {
@@ -60,6 +61,7 @@ form {
 				input[type="number"] {
 					border-radius: 5px;
 					font-family: monospace;
+          margin-left: 0.25rem;
 					padding-right: 0.25rem;
 
 					&::-webkit-inner-spin-button,
@@ -130,7 +132,6 @@ form {
       }
       
       .hidden {
-        pointer-events: none;
         visibility: hidden;
       }
 

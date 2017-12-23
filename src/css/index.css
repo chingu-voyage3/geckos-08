@@ -38,6 +38,7 @@ form {
     form fieldset label:not(:last-of-type) input[type="number"] {
       border-radius: 5px;
       font-family: monospace;
+      margin-left: 0.25rem;
       padding-right: 0.25rem; }
       form fieldset label:not(:last-of-type) input[type="number"]::-webkit-inner-spin-button, form fieldset label:not(:last-of-type) input[type="number"]::-webkit-outer-spin-button {
         -webkit-appearance: none;
@@ -79,7 +80,6 @@ form {
         text-align: center;
         width: 7rem; }
       form fieldset .nav-btns .hidden {
-        pointer-events: none;
         visibility: hidden; }
       form fieldset .nav-btns .next {
         background-color: rgba(48, 166, 74, 0.6); }
