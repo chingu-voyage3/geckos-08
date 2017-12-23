@@ -77,10 +77,10 @@ budgetApp.forms = {
     budgetApp.forms.clearForm();
 
     // Get current category index
-    let index = budgetApp.currentCategory;
+    const index = budgetApp.currentCategory;
 
     // Get category
-    let category = budgetApp.categories[index];
+    const category = budgetApp.categories[index];
     
     // Get form name and classes
     budgetApp.forms.form.setAttribute( `name`, category.form.name ); 
