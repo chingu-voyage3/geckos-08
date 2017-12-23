@@ -39,58 +39,13 @@
 
 					<sidebar>
 
-						<ul>
-							<li class="budget-nav income">
-								<a href="#" class="active-link">
-									<i class="fa fa-money" aria-hidden="true">Income</i>
-								</a>
-							</li>
-
-							<li class="budget-nav housing">
-								<a href="#">
-										<i class="fa fa-home" aria-hidden="true">Housing</i>
-								</a>
-							</li>
-
-							<li class="budget-nav transportation">
-								<a href="#">
-										<i class="fa fa-car" aria-hidden="true">Transportation</i>
-								</a>
-							</li>
-
-							<li class="budget-nav education">
-								<a href="#">
-										<i class="fa fa-graduation-cap" aria-hidden="true">Education</i>
-								</a>
-							</li>
-
-							<li class="budget-nav loans-credit-cards">
-								<a href="#">
-										<i class="fa fa-credit-card-alt" aria-hidden="true">Loans & Credit Cards</i>
-								</a>
-							</li>
-
-							<li class="budget-nav savings-investing">
-								<a href="#">
-										<i class="fa fa-bank" aria-hidden="true">Savings & Investing</i>
-								</a>
-							</li>
-
-							<li class="budget-nav miscellaneous">
-								<a href="#">
-										<i class="fa fa-paperclip " aria-hidden="true">Miscellaneous</i>
-								</a>
-							</li>
-
-							<li class="budget-nav add-item">
-								<a href="#">
-										<i class="fa fa-plus-square" aria-hidden="true">Add Category</i>
-								</a>
-							</li>
-
-						</ul>
-
             <ul id="budget-nav">
+              <!-- Add li elements in budgetCategories.js -->
+              <li class="budget-nav add-item">
+                <a href="#">
+                  <i class="fa fa-plus-square">Add Category</i>
+                </a>
+              </li>
             </ul>
 
 					</sidebar>
@@ -99,10 +54,12 @@
 
 				<div class="income-items">
 
-					<form name="income-form" class="income-form income active-form">
+				<!--	<form name="income-form" class="income-form income active-form"
+      id="test-form"> -->
+          <form name="" class="" id="test-form">
 
-						<fieldset name="income" form="income-form">
-							<legend>Income</legend>
+						<fieldset name="income" form="income-form" id="fieldset">
+							<legend id="legend">Income</legend>
 
 							<label for="income-salary">
 								<p>Salary / Wages</p>
@@ -122,7 +79,7 @@
 								</div>
 							</label>
 
-							<label for="income-add-item">
+							<label for="add-item">
 								<p>Add Line Item</p>
 								<div>
 									<input type="text" id="income-add-item" name="income-add-item" placeholder="Item Name">
@@ -133,358 +90,8 @@
               <hr class="hr-style">
 
               <div class="nav-btns income">
+                <button class="nav-btn previous hidden">Previous</button>
                 <button class="nav-btn next">Next</button>
-              </div>
-
-						</fieldset>
-
-					</form>
-
-					<form name="housing-form" class="housing-form housing">
-
-						<fieldset name="housing" form="housing-form">
-							<legend>Housing</legend>
-
-							<label for="expense-housing">
-								<p>Housing</p>
-								<div>
-									<i class="fa fa-usd" aria-hidden="true"></i>
-									<input type="number" id="expense-housing" name="expense-housing" placeholder="Amount" value="" size="12" maxlength="12">
-									<i class="fa fa-trash" aria-hidden="true"></i>
-								</div>
-							</label>
-
-							<label for="expense-housing-insurance">
-								<p>Insurance</p>
-								<div>
-									<i class="fa fa-usd" aria-hidden="true"></i>
-									<input type="number" id="expense-housing-insurance" name="expense-housing-insurance" placeholder="Amount" value="" size="12" maxlength="12">
-									<i class="fa fa-trash" aria-hidden="true"></i>
-								</div>
-							</label>
-
-
-							<label for="expense-housing-utilities">
-								<p>Utilities</p>
-								<div>
-									<i class="fa fa-usd" aria-hidden="true"></i>
-									<input type="number" id="expense-housing-utilities" name="expense-housing-utilities" placeholder="Amount" value="" size="12" maxlength="12">
-									<i class="fa fa-trash" aria-hidden="true"></i>
-								</div>
-							</label>
-
-							<label for="expense-housing-cable-internet">
-								<p>Cable / Internet</p>
-								<div>
-									<i class="fa fa-usd" aria-hidden="true"></i>
-									<input type="number" id="expense-housing-cable-internet" name="expense-housing-cable-internet" placeholder="Amount" value="" size="12" maxlength="12">
-									<i class="fa fa-trash" aria-hidden="true"></i>
-								</div>
-							</label>
-
-							<label for="expense-housing-maintenance">
-								<p>Maintenance</p>
-								<div>
-									<i class="fa fa-usd" aria-hidden="true"></i>
-									<input type="number" id="expense-housing-maintenance" name="expense-housing-maintenance" placeholder="Amount" value="" size="12" maxlength="12">
-									<i class="fa fa-trash" aria-hidden="true"></i>
-								</div>
-							</label>
-
-							<label for="expense-housing-add-item">
-								<p>Add Line Item</p>
-								<div>
-									<input type="text" id="expense-housing-add-item" placeholder="Item Name">
-									<button type="submit">Add Item</button>
-								</div>
-							</label>
-
-              <hr class="hr-style">
-
-              <div class="nav-btns housing">
-                <button class="nav-btn previous">Previous</button>
-                <button class="nav-btn next">Next</button>
-              </div>
-
-						</fieldset>
-
-					</form>
-
-					<form name="transportation-form" class="transportation-form transportation">
-
-						<fieldset name="transportation" form="transportation-form">
-							<legend>Transportation</legend>
-
-							<label for="expense-transportation-payment">
-								<p>Payment</p>
-								<div>
-									<i class="fa fa-usd" aria-hidden="true"></i>
-									<input type="number" id="expense-transportation-payment" name="expense-transportation-payment" placeholder="Amount" value="" size="12" maxlength="12">
-									<i class="fa fa-trash" aria-hidden="true"></i>
-								</div>
-							</label>
-
-							<label for="expense-transportation-insurance">
-								<p>Insurance</p>
-								<div>
-									<i class="fa fa-usd" aria-hidden="true"></i>
-									<input type="number" id="expense-transportation-insurance" name="expense-transportation-insurance" placeholder="Amount" value="" size="12" maxlength="12">
-									<i class="fa fa-trash" aria-hidden="true"></i>
-								</div>
-							</label>
-
-							<label for="expense-transportation-fuel">
-								<p>Fuel</p>
-								<div>
-									<i class="fa fa-usd" aria-hidden="true"></i>
-									<input type="number" id="expense-transportation-fuel" name="expense-transportation-fuel" placeholder="Amount" value="" size="12" maxlength="12">
-									<i class="fa fa-trash" aria-hidden="true"></i>
-								</div>
-							</label>
-
-							<label for="expense-transportation-maintenance">
-								<p>Maintenance</p>
-								<div>
-									<i class="fa fa-usd" aria-hidden="true"></i>
-									<input type="number" id="expense-transportation-maintenance" name="expense-transportation-maintenance" placeholder="Amount" value="" size="12" maxlength="12">
-									<i class="fa fa-trash" aria-hidden="true"></i>
-								</div>
-							</label>
-
-							<label for="expense-transportation-add-item">
-								<p>Add Line Item</p>
-								<div>
-									<input type="text" id="expense-transportation-add-item" placeholder="Item Name">
-									<button type="submit">Add Item</button>
-								</div>
-							</label>
-
-              <hr class="hr-style">
-
-              <div class="nav-btns transportation">
-                <button class="nav-btn previous">Previous</button>
-                <button class="nav-btn next">Next</button>
-              </div>
-
-						</fieldset>
-
-					</form>
-
-					<form name="education-form" class="education-form education">
-
-						<fieldset name="education" form="education-form">
-							<legend>Education</legend>
-
-							<label for="expense-education-tuition">
-								<p>Tuition</p>
-								<div>
-									<i class="fa fa-usd" aria-hidden="true"></i>
-									<input type="number" id="expense-education-tuition" name="expense-education-tuition" placeholder="Amount" value="" size="12" maxlength="12">
-									<i class="fa fa-trash" aria-hidden="true"></i>
-								</div>
-							</label>
-
-							<label for="expense-education-supplies">
-								<p>Supplies</p>
-								<div>
-									<i class="fa fa-usd" aria-hidden="true"></i>
-									<input type="number" id="expense-education-supplies" name="expense-education-supplies" placeholder="Amount" value="" size="12" maxlength="12">
-									<i class="fa fa-trash" aria-hidden="true"></i>
-								</div>
-							</label>
-
-							<label for="expense-education-loans">
-								<p>Student Loans</p>
-								<div>
-									<i class="fa fa-usd" aria-hidden="true"></i>
-									<input type="number" id="expense-education-loans" name="expense-education-loans" placeholder="Amount" value="" size="12" maxlength="12">
-									<i class="fa fa-trash" aria-hidden="true"></i>
-								</div>
-							</label>
-
-							<label for="expense-education-add-item">
-								<p>Add Line Item</p>
-								<div>
-									<input type="text" id="expense-education-add-item" placeholder="Item Name">
-									<button type="submit">Add Item</button>
-								</div>
-							</label>
-
-              <hr class="hr-style">
-
-              <div class="nav-btns education">
-                <button class="nav-btn previous"> Previous</button>
-                <button class="nav-btn next">Next </button>
-              </div>
-
-						</fieldset>
-
-					</form>
-
-					<form name="loans-credit-cards-form" class="loans-credit-cards-form loans-credit-cards">
-
-						<fieldset name="loans-credit-cards" form="loans-credit-cards-form">
-							<legend>Loans / Credit Cards</legend>
-
-							<label for="expense-loans">
-								<p>Loans Payment</p>
-								<div>
-									<i class="fa fa-usd" aria-hidden="true"></i>
-									<input type="number" id="expense-loans" name="expense-loans" placeholder="Amount" value="" size="12" maxlength="12">
-									<i class="fa fa-trash" aria-hidden="true"></i>
-								</div>
-							</label>
-
-							<label for="expense-credit-cards">
-								<p>Credit Cards</p>
-								<div>
-									<i class="fa fa-usd" aria-hidden="true"></i>
-									<input type="number" id="expense-credit-cards" name="expense-credit-cards" placeholder="Amount" value="" size="12" maxlength="12">
-									<i class="fa fa-trash" aria-hidden="true"></i>
-								</div>
-							</label>
-
-							<label for="expense-loans-credit-cards-add-item">
-								<p>Add Line Item</p>
-								<div>
-									<input type="text" id="expense-loans-credit-cards-add-item" placeholder="Item Name">
-									<button type="submit">Add Item</button>
-								</div>
-							</label>
-
-              <hr class="hr-style">
-
-              <div class="nav-btns loans-credit-cards">
-                <button class="nav-btn previous">Previous</button>
-                <button class="nav-btn next">Next</button>
-              </div>
-
-						</fieldset>
-
-					</form>
-
-					<form name="savings-investing-form" class="savings-investing-form savings-investing">
-
-						<fieldset name="savings-investing" form="savings-investing-form">
-							<legend>Savings / Investing</legend>
-
-							<label for="savings-investing-retirement">
-								<p>Retirement</p>
-								<div>
-									<i class="fa fa-usd" aria-hidden="true"></i>
-									<input type="number" id="savings-investing-retirement" name="savings-investing-retirement" placeholder="Amount" value="" size="12" maxlength="12">
-									<i class="fa fa-trash" aria-hidden="true"></i>
-								</div>
-							</label>
-
-							<label for="savings-investing-emergency">
-								<p>Emergency</p>
-								<div>
-									<i class="fa fa-usd" aria-hidden="true"></i>
-									<input type="number" id="savings-investing-emergency" name="savings-investing-emergency" placeholder="Amount" value="" size="12" maxlength="12">
-									<i class="fa fa-trash" aria-hidden="true"></i>
-								</div>
-							</label>
-
-							<label for="savings-investing-stocks">
-								<p>Stocks</p>
-								<div>
-									<i class="fa fa-usd" aria-hidden="true"></i>
-									<input type="number" id="savings-investing-stocks" name="savings-investing-stocks" placeholder="Amount" value="" size="12" maxlength="12">
-									<i class="fa fa-trash" aria-hidden="true"></i>
-								</div>
-							</label>
-
-							<label for="savings-investing-add-item">
-								<p>Add Line Item</p>
-								<div>
-									<input type="text" id="savings-investing-add-item" placeholder="Item Name">
-									<button type="submit">Add Item</button>
-								</div>
-							</label>
-
-              <hr class="hr-style">
-
-              <div class="nav-btns savings-investing">
-                <button class="nav-btn previous">Previous</button>
-                <button class="nav-btn next">Next</button>
-              </div>
-
-						</fieldset>
-
-					</form>
-
-					<form name="miscellaneous-form" class="miscellaneous-form miscellaneous">
-
-						<fieldset name="miscellaneous" form="miscellaneous-form">
-							<legend>Miscellaneous</legend>
-
-							<label for="miscellaneous-entertainment">
-								<p>Entertainment</p>
-								<div>
-									<i class="fa fa-usd" aria-hidden="true"></i>
-									<input type="number" id="miscellaneous-entertainment" name="miscellaneous-entertainment" placeholder="Amount" value="" size="12" maxlength="12">
-									<i class="fa fa-trash" aria-hidden="true"></i>
-								</div>
-							</label>
-
-							<label for="miscellaneous-clothing">
-								<p>Clothing</p>
-								<div>
-									<i class="fa fa-usd" aria-hidden="true"></i>
-									<input type="number" id="miscellaneous-clothing" name="miscellaneous-clothing" placeholder="Amount" value="" size="12" maxlength="12">
-									<i class="fa fa-trash" aria-hidden="true"></i>
-								</div>
-							</label>
-
-							<label for="miscellaneous-travel">
-								<p>Travel</p>
-								<div>
-									<i class="fa fa-usd" aria-hidden="true"></i>
-									<input type="number" id="miscellaneous-travel" name="miscellaneous-travel" placeholder="Amount" value="" size="12" maxlength="12">
-									<i class="fa fa-trash" aria-hidden="true"></i>
-								</div>
-							</label>
-
-							<label for="miscellaneous-medical">
-								<p>Medical</p>
-								<div>
-									<i class="fa fa-usd" aria-hidden="true"></i>
-									<input type="number" id="miscellaneous-medical" name="miscellaneous-medical" placeholder="Amount" value="" size="12" maxlength="12">
-									<i class="fa fa-trash" aria-hidden="true"></i>
-								</div>
-							</label>
-
-							<label for="miscellaneous-personal-care">
-								<p>Personal Care</p>
-								<div>
-									<i class="fa fa-usd" aria-hidden="true"></i>
-									<input type="number" id="miscellaneous-personal-care" name="miscellaneous-personal-care" placeholder="Amount" value="" size="12" maxlength="12">
-									<i class="fa fa-trash" aria-hidden="true"></i>
-								</div>
-							</label>
-
-							<label for="miscellaneous-pet-supplies">
-								<p>Pet Supplies</p>
-								<div>
-									<i class="fa fa-usd" aria-hidden="true"></i>
-									<input type="number" id="miscellaneous-pet-supplies" name="miscellaneous-pet-supplies" placeholder="Amount" value="" size="12" maxlength="12">
-									<i class="fa fa-trash" aria-hidden="true"></i>
-								</div>
-							</label>
-
-							<label for="miscellaneous-add-item">
-								<p>Add Line Item</p>
-								<div>
-									<input type="text" id="miscellaneous-add-item" placeholder="Item Name">
-									<button type="submit">Add Item</button>
-								</div>
-							</label>
-
-              <hr class="hr-style">
-
-              <div class="nav-btns miscellaneous">
-                <button class="nav-btn previous">Previous</button>
               </div>
 
 						</fieldset>
@@ -505,8 +112,9 @@
 
 		<!-- gulp-useref 'scripts' task to concat .js files -->
 		<!-- build:js js/scripts.min.js -->
-		<script type="text/javascript" src="js/categories.js"></script>
-		<script type="text/javascript" src="js/nav.js"></script>
+		<script type="text/javascript" src="js/budgetCategories.js"></script>
+		<script type="text/javascript" src="js/budgetNav.js"></script>
+    <script type="text/javascript" src="js/budgetForms.js"></script>
 		<script type="text/javascript" src="js/budgetInput.js"></script>
 		<script type="text/javascript" src="js/index.js"></script>
 		<!-- endbuild -->
