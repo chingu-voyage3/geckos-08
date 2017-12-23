@@ -106,10 +106,4 @@ budgetApp.nav = {
 
   },
 
-   registerListeners() {
-    budgetApp.nav.ul.addEventListener( `click`, budgetApp.nav.updateNav );
-    budgetApp.input.init();
-    budgetApp.navBtns.init();
-  }
-
 };

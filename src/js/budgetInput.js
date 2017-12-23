@@ -34,18 +34,7 @@ budgetApp.input = {
 		budgetApp.input.preventInvalid(e);
 		budgetApp.input.setMaxNumberLength(e);
 	},
-
-  init() {
-
-    budgetApp
-      .input
-      .form
-      .addEventListener(
-        `keypress`, 
-        budgetApp.input.validateNumberInput, 
-        false);
-  }
-   
+  
 };
 
 budgetApp.navBtns = {
@@ -125,10 +114,5 @@ budgetApp.navBtns = {
     budgetApp.nav.updateNavDisplay( idx );
   },
 
-  init() {
-    budgetApp.navBtns.buttons.forEach( btn => {
-      btn.addEventListener( `click`, budgetApp.navBtns.btnHandler );
-    });
-  }
 };
 

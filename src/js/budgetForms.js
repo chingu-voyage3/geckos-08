@@ -82,20 +82,21 @@ budgetApp.forms = {
     // Get category
     let category = budgetApp.categories[index];
     
+    // Get form name and classes
     budgetApp.forms.form.setAttribute( `name`, category.form.name ); 
     budgetApp.forms.form.className = `${category.form.classlist} active-form`;
 
     // Get fieldset
     const fieldset = document.getElementById('fieldset');
 
-    // Set fieldset name and form attributes
+    // Set fieldset name and form attribute
     fieldset.setAttribute( `name`, category.classname );
     fieldset.setAttribute( `form`, `${category.classname}-form` );
 
     // Set legend name
     document.getElementById('legend').innerText = category.name;
 
-    // Get add item element
+    // Get `add-item` label
     const addItemElement = document.querySelector(`[for=add-item]`);
 
     // Iterate through inputs 
@@ -104,7 +105,7 @@ budgetApp.forms = {
       // Create label 
       let label = budgetApp.forms.createLabel( obj, idx );
 
-      // Append to fieldset before addItem node
+      // Append to fieldset above addItem label
       if ( addItemElement.parentNode ) {
         addItemElement.parentNode.insertBefore( label, addItemElement );
       }
