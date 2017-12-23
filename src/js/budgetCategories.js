@@ -120,7 +120,7 @@ budgetApp.categories = [
     icon: "fa fa-credit-card-alt",
     form: {
       name: "loans-credit-cards-form",
-      classlist: "loans-credit-cards-form loans-credit"
+      classlist: "loans-credit-cards-form loans-credit",
     },
     inputs: [
       {

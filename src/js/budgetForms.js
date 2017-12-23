@@ -78,6 +78,7 @@ budgetApp.forms = {
 
     // Get current category index
     const index = budgetApp.currentCategory;
+    console.log( index );
 
     // Get category
     const category = budgetApp.categories[index];

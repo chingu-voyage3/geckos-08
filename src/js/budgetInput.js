@@ -67,7 +67,7 @@ budgetApp.navBtns = {
   },
 
   btnCheck( btn ) {
-    return btn.classList.item(1);
+    return btn.innerText;
   },
 
   btnHandler( e ) {
@@ -79,19 +79,19 @@ budgetApp.navBtns = {
     // Check if next or previous
     const direction = budgetApp.navBtns.btnCheck( btn );
 
-    if( direction === 'next' ) {
+    if( direction === 'Next' ) {
       // Set form to next
-      let next = budgetApp.currentCategory + 1;
+      let next = +budgetApp.currentCategory + 1;
       // Check for end of ul
-      if( next > budgetApp.categories.length - 1){
-        budgetApp.currentCategory = budgetApp.categories.length - 1;
+      if( next > (budgetApp.categories.length - 1) ){
+        budgetApp.currentCategory = (budgetApp.categories.length - 1);
       }  else {
-        budgetApp.currentCategory += 1;
+        budgetApp.currentCategory = next;
       }
 
      } else {
       // Set form to previous 
-       let prev = budgetApp.currentCategory - 1;
+       let prev = (+budgetApp.currentCategory - 1);
 
        // Check for beginning of ul
        if( prev < 0){
