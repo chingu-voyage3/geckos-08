@@ -9,7 +9,7 @@ budgetApp.currentCategory = 0;
 
 // Event listeners
 budgetApp.listeners = {
-  btnHandler: budgetApp.navBtns.btnHandler,
+  btnHandler: budgetApp.input.btnHandler,
   updateNav: budgetApp.nav.updateNav,
   validateNumberInput: budgetApp.input.validateNumberInput,
 };
@@ -23,7 +23,7 @@ budgetApp.init = ( listeners ) => {
 
   // Register button listener
   budgetApp
-    .navBtns
+    .input
     .buttons
     .forEach( btn => {
     btn.addEventListener( `click`, listeners.btnHandler );

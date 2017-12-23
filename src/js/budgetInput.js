@@ -10,6 +10,8 @@ budgetApp.input = {
 
   form: document.getElementById('test-form'),
 
+  buttons : [...document.querySelectorAll(`.nav-btn`)],
+
 	preventInvalid(e) {
 		let key = e.key;
 
@@ -34,13 +36,8 @@ budgetApp.input = {
 		budgetApp.input.preventInvalid(e);
 		budgetApp.input.setMaxNumberLength(e);
 	},
-  
-};
 
-budgetApp.navBtns = {
-  buttons : [...document.querySelectorAll(`.nav-btn`)],
-
-  updateDisplay(){
+  updateBtns(){
     // If at first category
     if( budgetApp.currentCategory === 0 ){
       // Hide previous btn
@@ -60,7 +57,7 @@ budgetApp.navBtns = {
         .add(`hidden`);
     } else {
       // Show all
-      budgetApp.navBtns.buttons.forEach( button => {
+      budgetApp.input.buttons.forEach( button => {
       button.classList.remove(`hidden`);
       });
     }
@@ -77,7 +74,7 @@ budgetApp.navBtns = {
     const btn  = e.target;
 
     // Check if next or previous
-    const direction = budgetApp.navBtns.btnCheck( btn );
+    const direction = budgetApp.input.btnCheck( btn );
 
     if( direction === 'Next' ) {
       // Set form to next
@@ -102,7 +99,7 @@ budgetApp.navBtns = {
      }
 
     // Update btn display
-    budgetApp.navBtns.updateDisplay();
+    budgetApp.input.updateBtns();
 
     // Update form
     budgetApp.forms.updateForm();
@@ -112,7 +109,7 @@ budgetApp.navBtns = {
 
     // Update side nav display
     budgetApp.nav.updateNavDisplay( idx );
-  },
+  }
 
 };
 

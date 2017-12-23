@@ -77,7 +77,7 @@ budgetApp.nav = {
     e.target.closest(`a`).className = `active-link`;
     
     // Update buttons
-    budgetApp.navBtns.updateDisplay();
+    budgetApp.input.updateBtns();
 
     // Update form
     budgetApp.forms.updateForm();
