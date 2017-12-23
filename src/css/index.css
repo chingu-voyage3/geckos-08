@@ -78,6 +78,9 @@ form {
         padding: .3rem .6rem;
         text-align: center;
         width: 7rem; }
+      form fieldset .nav-btns .hidden {
+        pointer-events: none;
+        visibility: hidden; }
       form fieldset .nav-btns .next {
         background-color: rgba(48, 166, 74, 0.6); }
         form fieldset .nav-btns .next:hover {
