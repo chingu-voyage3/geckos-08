@@ -7,6 +7,9 @@ var budgetApp = budgetApp || {};
 // Tracker for current category
 budgetApp.currentCategory = 0;
 
+// Tracker for current currency
+budgetApp.currency = 'USD';
+
 // Event listeners
 budgetApp.listeners = {
   btnHandler: budgetApp.input.btnHandler,
