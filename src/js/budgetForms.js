@@ -6,7 +6,7 @@ var budgetApp = budgetApp || {};
 
 budgetApp.forms = {
 
-  form: document.getElementById(`test-form`),
+  form: document.getElementById(`form`),
 
   fieldset: document.getElementById(`fieldset`),
 
@@ -31,11 +31,8 @@ budgetApp.forms = {
           input.setAttribute( `type`, `number`);
           input.setAttribute( `id`, obj.name );
           input.setAttribute( `placeholder`, `Amount` );
-          input.setAttribute( `pattern`, `[1-9][0-9]*`);
           input.setAttribute( `name`, obj.name );
           input.setAttribute( `data-idx`, idx );
-          input.setAttribute( `max-length`, `12`);
-          input.setAttribute( `size`, `12` );
 
     // Create trash icon
     const i = document.createElement( `i` );

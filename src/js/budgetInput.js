@@ -8,7 +8,7 @@ budgetApp.input = {
 
   nav : document.getElementById('budget-nav'),
 
-  form: document.getElementById('test-form'),
+  form: document.getElementById('form'),
 
   buttons : [...document.querySelectorAll(`.nav-btn`)],
 
