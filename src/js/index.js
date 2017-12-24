@@ -41,8 +41,6 @@ budgetApp.init = ( listeners ) => {
 },
 
 budgetApp.onReady = () => {
-  // Create nav
-  budgetApp.nav.createNav();
 
   // Update form to show first nav category
   budgetApp.forms.updateForm( 0 );
