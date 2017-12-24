@@ -46,6 +46,12 @@ budgetApp.input = {
         [0]
         .classList
         .add(`hidden`);
+      // Show next btn
+        document
+        .getElementsByClassName(`next`)
+        [0]
+        .classList
+        .remove(`hidden`);
     // If at last category before `Add Category`
     } else if ( budgetApp.currentCategory 
                 === (budgetApp.categories.length - 1) ) {
@@ -55,6 +61,13 @@ budgetApp.input = {
         [0]
         .classList
         .add(`hidden`);
+
+      // Show previous btn
+      document
+      .getElementsByClassName(`previous`)
+      [0]
+      .classList
+      .remove(`hidden`);
     } else {
       // Show all
       budgetApp.input.buttons.forEach( button => {
@@ -98,11 +111,11 @@ budgetApp.input = {
        }
      }
 
-    // Update btn display
-    budgetApp.input.updateBtns();
-
     // Update form
     budgetApp.forms.updateForm();
+
+    // Update btn display
+    budgetApp.input.updateBtns();
 
     // Get current category idx
     const idx = budgetApp.currentCategory;

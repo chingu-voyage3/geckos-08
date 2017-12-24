@@ -62,10 +62,10 @@ budgetApp.nav = {
     const newIdx = e.target.closest(`li`).getAttribute(`data-idx`);
 
     // Get old category idx
-    const oldIdx =  budgetApp.currentCategory;
+    const oldIdx =  +budgetApp.currentCategory;
     
     // Update state
-    budgetApp.currentCategory = newIdx;
+    budgetApp.currentCategory = +newIdx;
 
     // Clear old active categories
     const inactives = budgetApp.nav.ul.querySelectorAll(`a`);
@@ -76,12 +76,12 @@ budgetApp.nav = {
     // Set next category as active
     e.target.closest(`a`).className = `active-link`;
     
-    // Update buttons
-    budgetApp.input.updateBtns();
-
     // Update form
     budgetApp.forms.updateForm();
-  },
+
+    // Update buttons
+    budgetApp.input.updateBtns();
+ },
 
   // For button events
   updateNavDisplay( idx ){
