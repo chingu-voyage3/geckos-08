@@ -28,7 +28,6 @@ form {
 					flex-direction: row;
 					justify-content: space-between;
 				}
-        
 			}
 
 			&:not(:last-of-type) {
@@ -61,7 +60,7 @@ form {
 				input[type="number"] {
 					border-radius: 5px;
 					font-family: monospace;
-          margin-left: 0.25rem;
+					margin-left: 0.25rem;
 					padding-right: 0.25rem;
 
 					&::-webkit-inner-spin-button,
@@ -82,12 +81,12 @@ form {
 				input[type="text"] {
 					border-radius: 5px;
 					padding-left: 0.25rem;
-          width: 10rem;
+					width: 10rem;
 				}
 
-        button {
-          width: 5rem;
-        }
+				button {
+					width: 5rem;
+				}
 			}
 		}
 
@@ -111,52 +110,49 @@ form {
 			position: relative;
 		}
 
-    .hr-style {
-      border-top: 3px double rgba(0, 0, 0, 0.5);
-      margin-top: 1rem;
-    }
+		.hr-style {
+			border-top: 3px double rgba(0, 0, 0, 0.5);
+			margin-top: 1rem;
+		}
 
-    
-    .nav-btns {
-      display: flex;
-      justify-content: center;
-      margin-top: .8rem;
+		.nav-btns {
+			display: flex;
+			justify-content: center;
+			margin-top: .8rem;
 
-      .nav-btn {
-        background: transparent;
-        border: none;
-        border-radius: 4px;
-        color: #FFF;
-        cursor: pointer;
-        display: inline-block;
-        font-size: .8rem;
-        margin: 0 .4rem;
-        padding: .3rem .6rem;
-        text-align: center;
-        width: 7rem;
-      }
-      
-      .hidden {
-        visibility: hidden;
-      }
+			.nav-btn {
+				background: transparent;
+				border: none;
+				border-radius: 4px;
+				color: #fff;
+				cursor: pointer;
+				display: inline-block;
+				font-size: .8rem;
+				margin: 0 .4rem;
+				padding: .3rem .6rem;
+				text-align: center;
+				width: 7rem;
+			}
 
-      .next {
-        background-color: rgba(48, 166, 74, 0.6);
+			.hidden {
+				visibility: hidden;
+			}
 
-        &:hover {
-          background-color: rgb(48, 166, 74);
-        }
-      }
+			.next {
+				background-color: rgba(48, 166, 74, 0.6);
 
-      .previous {
-        background-color: rgba(253, 192, 47, 0.6);
+				&:hover {
+					background-color: rgb(48, 166, 74);
+				}
+			}
 
-        &:hover {
-          background-color: rgb(253, 192, 47);
+			.previous {
+				background-color: rgba(253, 192, 47, 0.6);
 
-        }
-      }
-
-    }
+				&:hover {
+					background-color: rgb(253, 192, 47);
+				}
+			}
+		}
 	}
 }

@@ -13,8 +13,7 @@
 
 		<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 
-		 <link rel="stylesheet"
-     href="https://fonts.googleapis.com/css?family=Bellefair|Rakkas|Share"> 
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bellefair|Rakkas|Share"> 
 
 		<!-- gulp-useref 'styles' task to concat .css files -->
 		<!-- build:css css/styles.min.css -->
@@ -39,14 +38,14 @@
 
 					<sidebar>
 
-            <ul id="budget-nav">
-              <!-- Add li elements in budgetCategories.js -->
-              <li class="budget-nav add-item">
-                <a href="#">
-                  <i class="fa fa-plus-square">Add Category</i>
-                </a>
-              </li>
-            </ul>
+					<ul class="budget-nav">
+						<!-- Add li elements in budgetCategories.js -->
+						<li class="budget-nav add-item">
+							<a href="#">
+							<i class="fa fa-plus-square">Add Category</i>
+							</a>
+						</li>
+					</ul>
 
 					</sidebar>
 
@@ -54,26 +53,25 @@
 
 				<div class="income-items">
 
-          <form name="" class="" id="test-form">
+				<form name="" class="test-form">
 
-						<fieldset name="income" form="income-form" id="fieldset">
-							<legend id="legend"></legend>
-
+						<fieldset name="income" form="income-form" class="fieldset">
+							<legend class="legend"></legend>
 
 							<label for="add-item">
 								<p>Add Line Item</p>
 								<div>
-									<input type="text" id="add-item" name="add-item" placeholder="Item Name">
+									<input type="text" id="add-item" class="add-item" name="add-item" placeholder="Item Name">
 									<button type="submit">Add Item</button>
 								</div>
 							</label>
 
-              <hr class="hr-style">
+							<hr class="hr-style">
 
-              <div class="nav-btns">
-                <button class="nav-btn previous hidden">Previous</button>
-                <button class="nav-btn next">Next</button>
-              </div>
+							<div class="nav-btns">
+								<button class="nav-btn previous hidden">Previous</button>
+								<button class="nav-btn next">Next</button>
+							</div>
 
 						</fieldset>
 
@@ -95,7 +93,7 @@
 		<!-- build:js js/scripts.min.js -->
 		<script type="text/javascript" src="js/budgetCategories.js"></script>
 		<script type="text/javascript" src="js/budgetNav.js"></script>
-    <script type="text/javascript" src="js/budgetForms.js"></script>
+		<script type="text/javascript" src="js/budgetForms.js"></script>
 		<script type="text/javascript" src="js/budgetInput.js"></script>
 		<script type="text/javascript" src="js/index.js"></script>
 		<!-- endbuild -->
