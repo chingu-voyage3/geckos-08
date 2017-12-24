@@ -9,6 +9,7 @@ budgetApp.categories = [
     name: "Income",
     classname: "income",
     icon: "fa fa-money",
+    idx: "0",
     form: {
       name: "income-form",
       classlist: "income-form income",
@@ -34,6 +35,7 @@ budgetApp.categories = [
     name: "Housing",
     classname: "housing",
     icon: "fa fa-home",
+    idx: "1",
     form: {
       name: "housing-form",
       classlist: "housing-form housing",
@@ -66,6 +68,7 @@ budgetApp.categories = [
     name: "Transportation",
     classname: "transportation",
     icon: "fa fa-car",
+    idx: "2",
     form: {
       name: "transportation-form",
       classlist: "transportation-form transportation",
@@ -94,6 +97,7 @@ budgetApp.categories = [
     name: "Education",
     classname: "education",
     icon: "fa fa-graduation-cap",
+    idx: "3",
     form: {
       name: "education-form",
       classlist: "education-form education"
@@ -118,6 +122,7 @@ budgetApp.categories = [
     name: "Loans & Credit Cards",
     classname: "loans-credit-cards",
     icon: "fa fa-credit-card-alt",
+    idx: "4",
     form: {
       name: "loans-credit-cards-form",
       classlist: "loans-credit-cards-form loans-credit",
@@ -138,6 +143,7 @@ budgetApp.categories = [
     name: "Savings & Investing",
     classname: "savings-investing",
     icon: "fa fa-bank",
+    idx: "5",
     form: {
       name: "savings-investing-form",
       classlist: "savings-investing-form savings-investing"
@@ -162,6 +168,7 @@ budgetApp.categories = [
     name: "Miscellaneous",
     classname: "miscellaneous",
     icon: "fa fa-paperclip",
+    idx: "6",
     form: {
       name: "miscellaneous-form",
       classlist: "miscellaneous-form miscellaneous"
