@@ -9,7 +9,13 @@ budgetApp.input = {
 
 	form                : document.querySelector('.test-form'),
 
+<<<<<<< HEAD
+  form: document.getElementById('form'),
+
+  buttons : [...document.querySelectorAll(`.nav-btn`)],
+=======
 	buttons             : [...document.querySelectorAll(`.nav-btn`)],
+>>>>>>> temp-branch
 
 	preventInvalid(e) {
 		const prohibitedKeys = [`.`, `+`, `-`, `e`];
