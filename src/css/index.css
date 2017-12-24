@@ -49,7 +49,10 @@ form {
       text-align: center; }
     form fieldset label:last-of-type input[type="text"] {
       border-radius: 5px;
-      padding-left: 0.25rem; }
+      padding-left: 0.25rem;
+      width: 10rem; }
+    form fieldset label:last-of-type button {
+      width: 5rem; }
     form fieldset p {
       color: #f6f6f6;
       background: rgba(0, 0, 0, 0.25); }
