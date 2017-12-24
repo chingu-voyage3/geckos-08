@@ -38,6 +38,59 @@
 
 					<sidebar>
 
+<<<<<<< HEAD
+            <ul id="budget-nav">
+
+              <li data-idx="0" class="budget-nav income">
+                <a href="#" class="active-link">
+                  <i class="fa fa-money" aria-hidden="true">Income</i>
+                </a>
+              </li>
+
+               <li data-idx="1" class="budget-nav housing">
+                <a href="#">
+                  <i class="fa fa-home" aria-hidden="true">Housing</i>
+                </a>
+              </li>
+
+              <li data-idx="2" class="budget-nav transportation">
+                <a href="#">
+                  <i class="fa fa-car" aria-hidden="true">Transportation</i>
+                </a>
+              </li>
+
+              <li data-idx="3" class="budget-nav education">
+                <a href="#">
+                  <i class="fa fa-graduation-cap" aria-hidden="true">Education</i>
+                </a>
+              </li>
+
+              <li data-idx="4" class="budget-nav loans-credit-cards">
+                <a href="#">
+                  <i class="fa fa-credit-card-alt" aria-hidden="true">Loans &
+                    Credit Cards</i>
+                </a>
+              </li>
+
+              <li data-idx="5" class="budget-nav savings-investing">
+                <a href="#">
+                  <i class="fa fa-bank" aria-hidden="true">Savings & Investing</i>
+                </a>
+              </li>
+
+              <li data-idx="6" class="budget-nav miscellaneous-form">
+                <a href="#">
+                  <i class="fa fa-paperclip" aria-hidden="true">Miscellaneous</i>
+                </a>
+              </li>
+
+              <li data-idx="7" class="budget-nav add-item">
+                <a href="#">
+                  <i class="fa fa-plus-square">Add Category</i>
+                </a>
+              </li>
+            </ul>
+=======
 					<ul class="budget-nav">
 						<!-- Add li elements in budgetCategories.js -->
 						<li class="budget-nav add-item">
@@ -46,6 +99,7 @@
 							</a>
 						</li>
 					</ul>
+>>>>>>> temp-branch
 
 					</sidebar>
 
@@ -53,7 +107,14 @@
 
 				<div class="income-items">
 
+<<<<<<< HEAD
+          <form name="" class="" id="form">
+
+						<fieldset name="income" form="income-form" id="fieldset">
+							<legend id="legend"></legend>
+=======
 				<form name="" class="test-form">
+>>>>>>> temp-branch
 
 						<fieldset name="income" form="income-form" class="fieldset">
 							<legend class="legend"></legend>

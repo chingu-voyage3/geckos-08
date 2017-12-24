@@ -38,6 +38,7 @@ form {
     form fieldset label:not(:last-of-type) input[type="number"] {
       border-radius: 5px;
       font-family: monospace;
+      margin-left: 0.25rem;
       padding-right: 0.25rem; }
       form fieldset label:not(:last-of-type) input[type="number"]::-webkit-inner-spin-button, form fieldset label:not(:last-of-type) input[type="number"]::-webkit-outer-spin-button {
         -webkit-appearance: none;
@@ -48,7 +49,10 @@ form {
       text-align: center; }
     form fieldset label:last-of-type input[type="text"] {
       border-radius: 5px;
-      padding-left: 0.25rem; }
+      padding-left: 0.25rem;
+      width: 10rem; }
+    form fieldset label:last-of-type button {
+      width: 5rem; }
     form fieldset p {
       color: #f6f6f6;
       background: rgba(0, 0, 0, 0.25); }
@@ -70,7 +74,7 @@ form {
         background: transparent;
         border: none;
         border-radius: 4px;
-        color: #FFF;
+        color: #fff;
         cursor: pointer;
         display: inline-block;
         font-size: .8rem;
@@ -78,6 +82,8 @@ form {
         padding: .3rem .6rem;
         text-align: center;
         width: 7rem; }
+      form fieldset .nav-btns .hidden {
+        visibility: hidden; }
       form fieldset .nav-btns .next {
         background-color: rgba(48, 166, 74, 0.6); }
         form fieldset .nav-btns .next:hover {

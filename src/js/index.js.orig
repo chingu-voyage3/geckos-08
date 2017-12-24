@@ -17,6 +17,43 @@ budgetApp.listeners = {
 	validateNumberInput : budgetApp.input.validateNumberInput,
 };
 
+<<<<<<< HEAD
+budgetApp.init = ( listeners ) => {
+  // Register update nav listener
+  budgetApp
+    .nav
+    .ul
+    .addEventListener( `click`, listeners.updateNav );
+
+  // Register button listener
+  budgetApp
+    .input
+    .buttons
+    .forEach( btn => {
+    btn.addEventListener( `click`, listeners.btnHandler );
+  });
+
+  // Register input listeners
+  budgetApp
+    .input
+    .form
+    .addEventListener( 
+      `keypress`,
+      listeners.validateNumberInput,
+      false);
+
+},
+
+budgetApp.onReady = () => {
+
+  // Update form to show first nav category
+  budgetApp.forms.updateForm( 0 );
+
+  // Initialize listeners when ready
+  budgetApp.init( budgetApp.listeners );
+
+};
+=======
 (budgetApp.init = (listeners) => {
 	// Register update nav listener
 	budgetApp.nav.ul.addEventListener(`click`, listeners.updateNav);
@@ -43,6 +80,7 @@ budgetApp.listeners = {
 		// Initialize listeners when ready
 		budgetApp.init(budgetApp.listeners);
 	});
+>>>>>>> temp-branch
 
 // Check if the DOMContentLoaded has already been completed
 if (document.readyState === 'complete' || document.readyState !== 'loading') {
