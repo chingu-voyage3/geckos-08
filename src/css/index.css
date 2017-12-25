@@ -93,6 +93,16 @@ form {
         form fieldset .nav-btns .previous:hover {
           background-color: #fdc02f; }
 
+#chart-selection-list {
+  padding-left: 0;
+  margin-left: 12px; }
+  #chart-selection-list button {
+    border: none;
+    padding: 0 60px;
+    font-size: 1.2em;
+    color: white;
+    background: rgba(48, 166, 74, 0.6); }
+
 *,
 *:before,
 *:after {
