@@ -1,19 +1,15 @@
 // was giving me errors for some reason
 //var budgetApp = budgetApp || {};
 
-// TODO: use data from an actual source
-const testData = [512, 23, 155, 39, 200, 250, 99, 58];
-
 // chart displays
 import barChart from './barChart.js';
 import pieChart from './pieChart.js';
 
 budgetApp.chartManager = (function() {
   let activeChart = barChart; // start with bar chart
-  let data = testData; // TODO: get data from proper source
 
   function init() {
-    drawChart(data);
+    draw();
   }
 
   // removes svg from DOM
@@ -21,14 +17,7 @@ budgetApp.chartManager = (function() {
     d3.select('svg').remove();
   }
 
-  function setData(newData) {
-    data = newData;
-    drawChart(data);
-  }
-
-  // auto clears chart
-  // TODO: fix use of test data
-  function setChart(name, data) {
+  function setChart(name) {
     switch (name) {
       case 'bar':
         activeChart = barChart;
@@ -42,7 +31,9 @@ budgetApp.chartManager = (function() {
     }
   }
 
-  function drawChart(data) {
+  // auto clears svg
+  function draw() {
+    let data = budgetApp.dataManager.getCategory(budgetApp.currentCategory || 0).subcategories;
     clearSvg();
     activeChart.draw(data);
   }
@@ -53,8 +44,8 @@ budgetApp.chartManager = (function() {
     if (activeChart === barChart) {
       return;
     }
-    setChart('bar', data);
-    drawChart(data);
+    setChart('bar');
+    draw();
   })
 
   let pieChartBtn = document.getElementById('pie-chart-btn');
@@ -62,17 +53,16 @@ budgetApp.chartManager = (function() {
     if (activeChart === pieChart) {
       return;
     }
-    setChart('pie', data);
-    drawChart(data);
+    setChart('pie');
+    draw();
   })
 
   // public
   return {
     init,
     clearSvg,
-    setData,
     setChart,
-    drawChart,
+    draw,
   }
 })();
 
