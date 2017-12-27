@@ -93,6 +93,10 @@ form {
         form fieldset .nav-btns .previous:hover {
           background-color: #fdc02f; }
 
+ul {
+  margin: 0px 12px 12px 12px;
+  list-style: none; }
+
 #chart-selection-list {
   padding-left: 0;
   margin-left: 12px; }
@@ -102,6 +106,18 @@ form {
     font-size: 1.2em;
     color: white;
     background: rgba(48, 166, 74, 0.6); }
+
+#data-display-list .percentage-display {
+  width: 30px;
+  display: inline-block; }
+
+#data-display-list .title-display {
+  width: 250px;
+  display: inline-block;
+  margin-left: 12px; }
+
+#data-display-list .value-display {
+  font-weight: bold; }
 
 *,
 *:before,
