@@ -21,9 +21,9 @@ const barChart = {
     // returns a multiplier used to scale bars to fit chart perfectly regardless
     // of the size of data values
     function calculateBarHeightMultiplier(data) {
-      let maxData = d3.max(data);
+      let maxData = d3.max(data); // returns obj with highest val
 
-      return chartHeight / maxData;
+      return chartHeight / maxData.value;
     }
 
     let barHeightMultiplier = calculateBarHeightMultiplier(data);
@@ -35,8 +35,8 @@ const barChart = {
       .attr('x', (data, index) => {
         return (chartWidth / dataLength) * index;
       })
-      .attr('y', (data) => chartHeight - data * calculateBarHeightMultiplier(data))
-      .attr('height', (data) => data * calculateBarHeightMultiplier(data));
+      .attr('y', (data) => chartHeight - data.value * calculateBarHeightMultiplier(data))
+      .attr('height', (data) => data.value * calculateBarHeightMultiplier(data));
 
     // add new bars
     let newBars = svg.selectAll('g')
@@ -45,9 +45,9 @@ const barChart = {
 
     newBars.append('rect')
             .attr('x', (data, index) => (chartWidth / dataLength) * index)
-            .attr('y', (data) => chartHeight - data * barHeightMultiplier)
+            .attr('y', (data) => chartHeight - data.value * barHeightMultiplier)
             .attr('width', barWidth)
-            .attr('height', (data) => data * barHeightMultiplier)
+            .attr('height', (d) => d.value * barHeightMultiplier)
             .style('fill', (d, i) => colours[i])
             .style("stroke-width", 1)
             .style("stroke", "rgba(0, 76, 0, 0.5)");
