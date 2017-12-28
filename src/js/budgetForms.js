@@ -32,11 +32,8 @@ budgetApp.forms = {
 		input.setAttribute(`type`, `number`);
 		input.setAttribute(`id`, obj.name);
 		input.setAttribute(`placeholder`, `Amount`);
-		input.setAttribute(`pattern`, `[1-9][0-9]*`);
 		input.setAttribute(`name`, obj.name);
 		input.setAttribute(`data-idx`, idx);
-		input.setAttribute(`max-length`, `12`);
-		input.setAttribute(`size`, `12`);
 
 		// Create trash icon
 		const i = document.createElement(`i`);
@@ -87,12 +84,9 @@ budgetApp.forms = {
 		budgetApp.forms.form.className = `${category.form
 			.classlist} active-form`;
 
-		// Get fieldset
-		const fieldset = document.querySelector('.fieldset');
-
 		// Set fieldset name and form attribute
-		fieldset.setAttribute(`name`, category.classname);
-		fieldset.setAttribute(`form`, `${category.classname}-form`);
+		budgetApp.forms.fieldset.setAttribute(`name`, category.classname);
+		budgetApp.forms.fieldset.setAttribute(`form`, `${category.classname}-form`);
 
 		// Set legend name
 		document.querySelector('.legend').innerText = category.name;
@@ -112,7 +106,7 @@ budgetApp.forms = {
 		});
 	},
 
-  deleteCategory( idx ) {
+  deleteCategoryData( idx ) {
     budgetApp.categories.splice( idx, 1);
   },
 
@@ -128,13 +122,16 @@ budgetApp.forms = {
     return categoryIdx;
   },
 
-  triggerPrevBtn(){
+  triggerPrevBtn() {
     const event = new Event('click');
     budgetApp.input.buttons[0].dispatchEvent(event);
   },
 
   deleteCategoryHandler( e ) {
+    // Don't redirect to href
     e.preventDefault();
+    // Don't trigger listeners.trashIcon
+    e.stopPropagation();
 
     // Show alert
     swal({
@@ -144,19 +141,18 @@ budgetApp.forms = {
       buttons: true,
       dangerMode: true,
     })
-    .then((willDelete) => {
-      if (willDelete) {
+    .then( ( willDelete ) => {
+      if ( willDelete ) {
         // Get name of category
         const name = e.target
-        .parentNode
-        .parentNode
-        .getAttribute('name');
+        .closest('fieldset')
+        .getAttribute( 'name' );
 
         // Get category index
         const categoryIdx = budgetApp.forms.getCategoryIdx( name );
 
-        // Delete category
-        budgetApp.forms.deleteCategory( categoryIdx );
+        // Delete category data
+        budgetApp.forms.deleteCategoryData( categoryIdx );
 
         // Delete nav
         budgetApp.nav.deleteNav();
@@ -164,25 +160,54 @@ budgetApp.forms = {
         // Recreate nav
         budgetApp.nav.createNav();
 
-        // Set current category to previous
-        budgetApp.forms.triggerPrevBtn();
-
         // Success message
-        swal("Poof! Your category has been deleted!", {
+        swal("Poof! Your category has been deleted.", {
           icon: "success",
         });
+
+        // Set current category to previous
+        budgetApp.forms.triggerPrevBtn();
 
       } else {
         swal("Your category is safe!");
       }
     });
+  },
+
+  getInputIdx( el ) {
+    // Previous sibling of trash icon is input element
+    return el.getAttribute('data-idx');
+  },
+
+  deleteInputData( name, idx ) {
+    // Get category idx
+    const categoryIdx = budgetApp.forms.getCategoryIdx( name );
+
+    // Delete input at idx for this category
+    budgetApp.categories[categoryIdx].inputs.splice( idx, 1);
+  },
+
+  deleteInputHandler( e ) {
+    // Exit if event target is not trash icon
+    if( e.target.className !== 'fa fa-trash'){
+      return;
+    }
+    // Get input idx
+    const inputIdx = budgetApp.forms.getInputIdx( e.target.previousElementSibling );
+
+    // Get category name
+    const name = e.target.closest('fieldset').getAttribute('name');
+
+    // Delete input data
+    budgetApp.forms.deleteInputData( name, inputIdx );
+
+    // Clear form
+    budgetApp.forms.clearForm();
+
+    // Update form
+    budgetApp.forms.updateForm();
   }
 
 };
-
-
-
-
-
 
 
