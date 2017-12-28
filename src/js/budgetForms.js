@@ -36,6 +36,10 @@ budgetApp.forms = {
 		input.setAttribute(`max-length`, `12`);
 		input.setAttribute(`size`, `12`);
 
+		if (obj.amt) {
+			input.setAttribute(`value`, obj.amt);
+		} 
+
 		// Create trash icon
 		const i = document.createElement(`i`);
 		i.className = budgetApp.categories[0].form.trashicon;
@@ -108,7 +112,7 @@ budgetApp.forms = {
 				addItemElement.parentNode.insertBefore(label, addItemElement);
 			}
 		});
-	
+
 		getInput();
 	},
 };
