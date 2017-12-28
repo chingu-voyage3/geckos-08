@@ -9,7 +9,7 @@ function getInput() {
         calc[i].addEventListener("blur", function() {
 
             // Add user input to budget categories
-            budgetApp.categories[budgetApp.currentCategory].inputs[this.getAttribute('data-idx')].amt = this.value;
+            budgetApp.categories[budgetApp.currentCategory].inputs[this.getAttribute('data-idx')].amt = this.valueAsNumber;
         }, true);
     }
 }
