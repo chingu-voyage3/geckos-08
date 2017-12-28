@@ -41,7 +41,7 @@ budgetApp.nav = {
 			const newLi = budgetApp.nav.createCategory(category, idx);
 
 			// Get add item category
-			const addItem = document.querySelector(`.add-item`);
+			const addItem = document.querySelector(`li.add-item`);
 
 			// Append to ul before add item category
 			if (addItem.parentNode) {
@@ -49,6 +49,17 @@ budgetApp.nav = {
 			}
 		});
 	},
+
+  deleteNav() {
+    [...budgetApp.nav
+      .ul
+      .children]
+      .forEach( li => {
+        if( li.className !== 'budget-nav add-item') {
+          budgetApp.nav.ul.removeChild( li );
+        }
+      });
+  },
 
 	updateNav(e) {
 		// Get new category idx
