@@ -71,7 +71,7 @@ form {
         color: #A00909; }
     form fieldset .hr-style {
       border-top: 3px double rgba(0, 0, 0, 0.5);
-      margin-top: 1rem; }
+      margin-top: .7rem; }
     form fieldset .nav-btns {
       display: flex;
       justify-content: center;
