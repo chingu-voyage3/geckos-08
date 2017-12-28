@@ -37,6 +37,8 @@ budgetApp.categories = [
 		form      : {
 			name      : 'housing-form',
 			classlist : 'housing-form housing',
+			trashicon : 'fa fa-trash',
+		},
 		},
 		inputs    : [
 			{
@@ -69,6 +71,8 @@ budgetApp.categories = [
 		form      : {
 			name      : 'transportation-form',
 			classlist : 'transportation-form transportation',
+			trashicon : 'fa fa-trash',
+		},
 		},
 		inputs    : [
 			{
@@ -97,6 +101,8 @@ budgetApp.categories = [
 		form      : {
 			name      : 'education-form',
 			classlist : 'education-form education',
+			trashicon : 'fa fa-trash',
+		},
 		},
 		inputs    : [
 			{
@@ -121,6 +127,8 @@ budgetApp.categories = [
 		form      : {
 			name      : 'loans-credit-cards-form',
 			classlist : 'loans-credit-cards-form loans-credit',
+			trashicon : 'fa fa-trash',
+		},
 		},
 		inputs    : [
 			{
@@ -141,6 +149,8 @@ budgetApp.categories = [
 		form      : {
 			name      : 'savings-investing-form',
 			classlist : 'savings-investing-form savings-investing',
+			trashicon : 'fa fa-trash',
+		},
 		},
 		inputs    : [
 			{
@@ -165,6 +175,8 @@ budgetApp.categories = [
 		form      : {
 			name      : 'miscellaneous-form',
 			classlist : 'miscellaneous-form miscellaneous',
+			trashicon : 'fa fa-trash',
+		},
 		},
 		inputs    : [
 			{
