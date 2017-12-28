@@ -9,6 +9,8 @@ budgetApp.forms = {
 
 	fieldset    : document.querySelector(`.fieldset`),
 
+  deleteLink  : document.querySelector(`.delete-category`),
+
 	createLabel(obj, idx) {
 		// Create label element
 		const label = document.createElement(`label`);
@@ -109,4 +111,78 @@ budgetApp.forms = {
 			}
 		});
 	},
+
+  deleteCategory( idx ) {
+    budgetApp.categories.splice( idx, 1);
+  },
+
+  getCategoryIdx( name ) {
+   let categoryIdx = 0;
+
+   budgetApp.categories.forEach( (category, idx) => {
+      if(category.classname === name){
+        categoryIdx = idx;
+      }
+    });
+
+    return categoryIdx;
+  },
+
+  triggerPrevBtn(){
+    const event = new Event('click');
+    budgetApp.input.buttons[0].dispatchEvent(event);
+  },
+
+  deleteCategoryHandler( e ) {
+    e.preventDefault();
+
+    // Show alert
+    swal({
+      title: "Are you sure?",
+      text: "Once deleted, you will not be able to recover this category!",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    })
+    .then((willDelete) => {
+      if (willDelete) {
+        // Get name of category
+        const name = e.target
+        .parentNode
+        .parentNode
+        .getAttribute('name');
+
+        // Get category index
+        const categoryIdx = budgetApp.forms.getCategoryIdx( name );
+
+        // Delete category
+        budgetApp.forms.deleteCategory( categoryIdx );
+
+        // Delete nav
+        budgetApp.nav.deleteNav();
+
+        // Recreate nav
+        budgetApp.nav.createNav();
+
+        // Set current category to previous
+        budgetApp.forms.triggerPrevBtn();
+
+        // Success message
+        swal("Poof! Your category has been deleted!", {
+          icon: "success",
+        });
+
+      } else {
+        swal("Your category is safe!");
+      }
+    });
+  }
+
 };
+
+
+
+
+
+
+
