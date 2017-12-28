@@ -63,6 +63,12 @@ form {
     form fieldset input[type="number"] {
       text-align: right;
       position: relative; }
+    form fieldset .delete {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 1rem; }
+      form fieldset .delete .delete-category {
+        color: #A00909; }
     form fieldset .hr-style {
       border-top: 3px double rgba(0, 0, 0, 0.5);
       margin-top: 1rem; }
