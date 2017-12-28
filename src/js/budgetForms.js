@@ -1,4 +1,4 @@
-// If budgetApp is undefined, assign new obj
+// If budgetApp is undefined, assign new objs
 // else use existing budgetApp obj
 var budgetApp = budgetApp || {};
 
@@ -36,6 +36,7 @@ budgetApp.forms = {
 		input.setAttribute(`max-length`, `12`);
 		input.setAttribute(`size`, `12`);
 
+		// Update input value to user input
 		if (obj.amt) {
 			input.setAttribute(`value`, obj.amt);
 		} 
@@ -113,6 +114,7 @@ budgetApp.forms = {
 			}
 		});
 
+		// Add input listeners on update
 		getInput();
 	},
 };
