@@ -108,5 +108,7 @@ budgetApp.forms = {
 				addItemElement.parentNode.insertBefore(label, addItemElement);
 			}
 		});
+	
+		getInput();
 	},
 };
