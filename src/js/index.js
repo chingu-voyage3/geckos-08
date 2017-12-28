@@ -15,6 +15,7 @@ budgetApp.listeners = {
 	btnHandler          : budgetApp.input.btnHandler,
 	updateNav           : budgetApp.nav.updateNav,
 	validateNumberInput : budgetApp.input.validateNumberInput,
+  deleteCategory      : budgetApp.forms.deleteCategoryHandler
 };
 
 (budgetApp.init = (listeners) => {
@@ -32,6 +33,12 @@ budgetApp.listeners = {
 		listeners.validateNumberInput,
 		false
 	);
+
+  // Register category delete link
+  budgetApp.forms.deleteLink.addEventListener(
+    `click`,
+    listeners.deleteCategory
+  );
 }),
 	(budgetApp.onReady = () => {
 		// Create nav
@@ -42,6 +49,7 @@ budgetApp.listeners = {
 
 		// Initialize listeners when ready
 		budgetApp.init(budgetApp.listeners);
+
 	});
 
 // Check if the DOMContentLoaded has already been completed
