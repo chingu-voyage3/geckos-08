@@ -37,7 +37,7 @@ budgetApp.forms = {
 		input.setAttribute(`size`, `12`);
 
 		// Update input value to user input
-		if (obj.amt) {
+		if (!Number.isNaN(obj.amt)) {
 			input.setAttribute(`value`, obj.amt);
 		} 
 
