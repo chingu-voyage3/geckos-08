@@ -9,11 +9,9 @@ function getInput() {
         categoryInputs[i].addEventListener("blur", function() {
 
             // Add user input to budget category data
-            if (!Number.isNaN(this.valueAsNumber)) {
-                budgetApp.categories[budgetApp.currentCategory].inputs[this.getAttribute('data-idx')].amt = this.valueAsNumber;
-            } else {
-                budgetApp.categories[budgetApp.currentCategory].inputs[this.getAttribute('data-idx')].amt = undefined;
-            }
+            budgetApp.categories[budgetApp.currentCategory].inputs[this.getAttribute('data-idx')].amt = 
+                !Number.isNaN(this.valueAsNumber) ? this.valueAsNumber : undefined;
+
             // Recalculate category total
             sumCategories();
         });
