@@ -1,12 +1,12 @@
 // Store user input as entered
 function getInput() {
 
-    const currentCategory = document.querySelectorAll('input[type=number]');
+    const categoryInputs = document.querySelectorAll('input[type=number]');
 
-    for (var i = 0; i < Object.keys( currentCategory ).length; i++) {
+    for (var i = 0; i < Object.keys( categoryInputs ).length; i++) {
         
         // Add listener to budget input fields
-        currentCategory[i].addEventListener("blur", function() {
+        categoryInputs[i].addEventListener("blur", function() {
 
             // Add user input to budget category data
             if (!Number.isNaN(this.valueAsNumber)) {
@@ -22,12 +22,13 @@ function getInput() {
 
 // Sum all category inputs
 function sumCategories() {
-    
-    budgetApp.categories[budgetApp.currentCategory].total = 0;
+    const currentAmount = budgetApp.categories[budgetApp.currentCategory];
 
-    budgetApp.categories[budgetApp.currentCategory].inputs.forEach(function(item){
+    currentAmount.total = 0;
 
-        budgetApp.categories[budgetApp.currentCategory].total += item.amt ? item.amt : 0;
+    currentAmount.inputs.forEach(function(item){
+
+        currentAmount.total += item.amt ? item.amt : 0;
         
     });
 }
