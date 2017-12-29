@@ -9,7 +9,9 @@ function getInput() {
         calc[i].addEventListener("blur", function() {
 
             // Add user input to budget categories
-            budgetApp.categories[budgetApp.currentCategory].inputs[this.getAttribute('data-idx')].amt = this.valueAsNumber;
+            if (!Number.isNaN(this.valueAsNumber)) {
+                budgetApp.categories[budgetApp.currentCategory].inputs[this.getAttribute('data-idx')].amt = this.valueAsNumber;
+            };
             sumCategories();
         });
     }
@@ -19,7 +21,7 @@ function sumCategories() {
     
     budgetApp.categories[budgetApp.currentCategory].total = 0;    
     budgetApp.categories[budgetApp.currentCategory].inputs.forEach(function(item){
-    budgetApp.categories[budgetApp.currentCategory].total += item.amt;
+    budgetApp.categories[budgetApp.currentCategory].total += item.amt ? item.amt : 0;
         
     });
 }
