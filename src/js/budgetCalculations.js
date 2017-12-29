@@ -1,27 +1,31 @@
 // Store user input as entered
 function getInput() {
 
-    const calc = document.querySelectorAll('input[type=number]');
+    const currentCategory = document.querySelectorAll('input[type=number]');
 
-    for (var i = 0; i < Object.keys( calc ).length; i++) {
+    for (var i = 0; i < Object.keys( currentCategory ).length; i++) {
         
         // Add listener to budget input fields
-        calc[i].addEventListener("blur", function() {
+        currentCategory[i].addEventListener("blur", function() {
 
-            // Add user input to budget categories
+            // Add user input to budget category data
             if (!Number.isNaN(this.valueAsNumber)) {
                 budgetApp.categories[budgetApp.currentCategory].inputs[this.getAttribute('data-idx')].amt = this.valueAsNumber;
             };
+            // Recalculate category total
             sumCategories();
         });
     }
 }
 
+// Sum all category inputs
 function sumCategories() {
     
-    budgetApp.categories[budgetApp.currentCategory].total = 0;    
+    budgetApp.categories[budgetApp.currentCategory].total = 0;
+
     budgetApp.categories[budgetApp.currentCategory].inputs.forEach(function(item){
-    budgetApp.categories[budgetApp.currentCategory].total += item.amt ? item.amt : 0;
+
+        budgetApp.categories[budgetApp.currentCategory].total += item.amt ? item.amt : 0;
         
     });
 }
