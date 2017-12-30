@@ -15,6 +15,7 @@ budgetApp.listeners = {
 	btnHandler          : budgetApp.input.btnHandler,
 	updateNav           : budgetApp.nav.updateNav,
 	validateNumberInput : budgetApp.input.validateNumberInput,
+	drawDisplayList     : budgetApp.dataDisplayList.draw,
 };
 
 (budgetApp.init = (listeners) => {
@@ -32,6 +33,13 @@ budgetApp.listeners = {
 		listeners.validateNumberInput,
 		false
 	);
+
+	// Register update chart listener
+	// errors if added to listeners cause script type is module, loaded after doc finished parsing
+	budgetApp.nav.ul.addEventListener('click', budgetApp.chartManager.draw);
+
+	// Register update display list listener
+	budgetApp.nav.ul.addEventListener('click', listeners.drawDisplayList);
 }),
 	(budgetApp.onReady = () => {
 		// Create nav
