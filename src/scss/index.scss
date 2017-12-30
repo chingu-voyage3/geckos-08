@@ -18,15 +18,16 @@ body {
 }
 
 html {
-	background: url(https://cdn-media-2.lifehack.org/wp-content/files/2016/04/21153410/00025154.jpg)
-		no-repeat center center fixed;
+	// background: url(https://cdn-media-2.lifehack.org/wp-content/files/2016/04/21153410/00025154.jpg)
+	// 	no-repeat center center fixed;
 	background-size: cover;
 }
 
 body {
-	font-family: 'Bellefair', cursive;
 	display: grid;
 	grid-template: 7rem 1fr 5rem / 100%;
+
+	font-family: 'Bellefair', cursive;
 }
 
 .main-header {
@@ -44,12 +45,15 @@ body {
 .content {
 	display: grid;
 	grid-template: 100% / 1fr 1fr;
+
 	grid-area: 2 / 1 / -2 / -1;
+
 	padding: 0 10rem;
 
 	.budget-input {
 		display: grid;
 		grid-template: 100% / 1fr 1fr;
+
 		grid-area: 1 / 1 / -1 / 2;
 
 		.budget-input {
@@ -69,22 +73,25 @@ body {
 			flex-wrap: nowrap;
 
 			ul {
-				border-radius: 5px;
 				display: flex;
 				flex-direction: column;
 				flex-wrap: nowrap;
 				justify-content: flex-start;
 				align-content: flex-start;
 				align-items: stretch;
+
 				list-style: none;
 				background-color: rgba(0, 0, 0, 0.25);
 				padding: 0;
 				margin: 0;
+				border-radius: 5px;
 
 				li {
 					display: flex;
 					flex-wrap: nowrap;
+
 					flex-basis: 3.5rem;
+
 					line-height: 3.5rem;
 					font-family: 'Oswald', sans-serif;
 					font-size: 1.25rem;
@@ -110,7 +117,9 @@ body {
 						flex-direction: column;
 						justify-content: center;
 						align-items: stretch;
+
 						flex: 1;
+
 						padding-left: 1rem;
 						text-decoration: none;
 						color: black;
@@ -152,9 +161,9 @@ body {
 		}
 	}
 
-	.budget-display {
-		grid-area: 1 / 2 / -1 / -1;
-	}
+	// .budget-display {
+	// 	grid-area: 1 / 2 / -1 / -1;
+	// }
 }
 
 .main-footer {
