@@ -13,7 +13,7 @@
 
 		<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bellefair|Rakkas|Share"> 
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bellefair|Rakkas|Share">
 
 		<!-- gulp-useref 'styles' task to concat .css files -->
 		<!-- build:css css/styles.min.css -->
@@ -82,6 +82,14 @@
 			</section>
 
 			<section class="budget-display">
+				<div id="chart-container"></div>
+				<ul id="chart-selection-list">
+					<button id="bar-chart-btn" class="chart-selection-btn">Bar</button>
+					<button id="pie-chart-btn" class="chart-selection-btn">Pie</button>
+				</ul>
+				<ul id="data-display-list">
+					<!-- populated by dataDisplayList.js -->
+				</ul>
 			</section>
 
 		</main>
@@ -91,10 +99,14 @@
 
 		<!-- gulp-useref 'scripts' task to concat .js files -->
 		<!-- build:js js/scripts.min.js -->
+		<script type="text/javascript" src="js/dataManager.js"></script>
 		<script type="text/javascript" src="js/budgetCategories.js"></script>
 		<script type="text/javascript" src="js/budgetNav.js"></script>
 		<script type="text/javascript" src="js/budgetForms.js"></script>
 		<script type="text/javascript" src="js/budgetInput.js"></script>
+		<script src="https://d3js.org/d3.v4.min.js"></script>
+		<script type="module" src="js/chartManager.js"></script>
+		<script type="text/javascript" src="js/dataDisplayList.js"></script>
 		<script type="text/javascript" src="js/index.js"></script>
 		<script type="text/javascript" src="js/budgetCalculations.js"></script>
 		<!-- endbuild -->
