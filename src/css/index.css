@@ -29,7 +29,7 @@ form {
     form fieldset label:not(:last-of-type) i {
       color: #666;
       padding: 0 0.25rem;
-      transition: .5s color text-shadow; }
+      transition: 0.5s color, 0.5s text-shadow; }
       form fieldset label:not(:last-of-type) i:last-of-type {
         color: transparent; }
         form fieldset label:not(:last-of-type) i:last-of-type:hover {
@@ -99,6 +99,41 @@ form {
         form fieldset .nav-btns .previous:hover {
           background-color: #fdc02f; }
 
+.budget-display {
+  grid-area: 1 / 2 / -1 / -1; }
+  .budget-display #chart-container {
+    display: flex; }
+    .budget-display #chart-container svg {
+      flex: 1;
+      width: 100%;
+      margin: 0.75rem;
+      padding: 0.75rem; }
+  .budget-display ul {
+    margin: 0 0 0.75rem 0;
+    padding-left: 0;
+    list-style: none; }
+    .budget-display ul button {
+      margin: 0 0.75rem; }
+  .budget-display #chart-selection-list {
+    display: flex;
+    justify-content: space-between; }
+    .budget-display #chart-selection-list button {
+      flex: 1;
+      border: none;
+      padding: 0.3rem 0.6rem;
+      font-size: 1rem;
+      color: white;
+      background: rgba(48, 166, 74, 0.6); }
+  .budget-display #data-display-list .percentage-display {
+    width: 30px;
+    display: inline-block; }
+  .budget-display #data-display-list .title-display {
+    width: 250px;
+    display: inline-block;
+    margin-left: 12px; }
+  .budget-display #data-display-list .value-display {
+    font-weight: bold; }
+
 *,
 *:before,
 *:after {
@@ -110,13 +145,12 @@ body {
   margin: 0; }
 
 html {
-  background: url(https://cdn-media-2.lifehack.org/wp-content/files/2016/04/21153410/00025154.jpg) no-repeat center center fixed;
   background-size: cover; }
 
 body {
-  font-family: 'Bellefair', cursive;
   display: grid;
-  grid-template: 7rem 1fr 5rem / 100%; }
+  grid-template: 7rem 1fr 5rem / 100%;
+  font-family: 'Bellefair', cursive; }
 
 .main-header {
   grid-area: 1 / 1 / 2 / -1; }
@@ -145,7 +179,6 @@ body {
       flex-direction: column;
       flex-wrap: nowrap; }
       .content .budget-input sidebar ul {
-        border-radius: 5px;
         display: flex;
         flex-direction: column;
         flex-wrap: nowrap;
@@ -155,7 +188,8 @@ body {
         list-style: none;
         background-color: rgba(0, 0, 0, 0.25);
         padding: 0;
-        margin: 0; }
+        margin: 0;
+        border-radius: 5px; }
         .content .budget-input sidebar ul li {
           display: flex;
           flex-wrap: nowrap;
@@ -195,8 +229,6 @@ body {
               background-color: rgba(102, 102, 102, 0.75); }
               .content .budget-input sidebar ul li a:hover:not(.active-link) > i {
                 text-shadow: none; }
-  .content .budget-display {
-    grid-area: 1 / 2 / -1 / -1; }
 
 .main-footer {
   grid-area: -2 / 1 / -1 / -1; }

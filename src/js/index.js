@@ -15,8 +15,9 @@ budgetApp.listeners = {
 	btnHandler          : budgetApp.input.btnHandler,
 	updateNav           : budgetApp.nav.updateNav,
 	validateNumberInput : budgetApp.input.validateNumberInput,
-  deleteLink      : budgetApp.forms.deleteCategoryHandler,
-  trashIcon          : budgetApp.forms.deleteInputHandler
+  deleteLink          : budgetApp.forms.deleteCategoryHandler,
+  trashIcon           : budgetApp.forms.deleteInputHandler,
+	drawDisplayList     : budgetApp.dataDisplayList.draw,
 };
 
 (budgetApp.init = (listeners) => {
@@ -35,6 +36,13 @@ budgetApp.listeners = {
 		false
 	);
 
+	// Register update chart listener
+	// errors if added to listeners cause script type is module, loaded after doc finished parsing
+	budgetApp.nav.ul.addEventListener('click', budgetApp.chartManager.draw);
+
+	// Register update display list listener
+	budgetApp.nav.ul.addEventListener('click', listeners.drawDisplayList);
+  
   // Register delete link listener
   budgetApp.forms.deleteLink.addEventListener(
     `click`,
@@ -47,7 +55,9 @@ budgetApp.listeners = {
     `click`,
     listeners.trashIcon
   );
+
 }),
+
 	(budgetApp.onReady = () => {
 		// Create nav
 		budgetApp.nav.createNav();
