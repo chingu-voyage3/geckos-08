@@ -45,7 +45,7 @@ form {
 				i {
 					color: #666;
 					padding: 0 0.25rem;
-					transition: .5s color text-shadow;
+					transition: 0.5s color, 0.5s text-shadow;
 
 					&:last-of-type {
 						color: transparent;
@@ -128,6 +128,7 @@ form {
 		.nav-btns {
 			display: flex;
 			justify-content: center;
+
 			margin-top: .8rem;
 
 			.nav-btn {
