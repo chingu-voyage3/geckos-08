@@ -34,6 +34,7 @@ form {
         color: transparent; }
         form fieldset label:not(:last-of-type) i:last-of-type:hover {
           color: rgba(255, 0, 0, 0.5);
+          cursor: pointer;
           text-shadow: 0 0 2px white; }
     form fieldset label:not(:last-of-type) input[type="number"] {
       border-radius: 5px;
