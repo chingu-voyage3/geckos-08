@@ -23,11 +23,7 @@ budgetApp.categories = [
 				name  : 'income-other',
 				title : 'Other',
 			},
-			{
-				name  : 'income-add-item',
-				title : 'Add Item',
-			},
-		],
+	],
 	},
 
 	{
