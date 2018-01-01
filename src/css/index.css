@@ -34,6 +34,7 @@ form {
         color: transparent; }
         form fieldset label:not(:last-of-type) i:last-of-type:hover {
           color: rgba(255, 0, 0, 0.5);
+          cursor: pointer;
           text-shadow: 0 0 2px white; }
     form fieldset label:not(:last-of-type) input[type="number"] {
       border-radius: 5px;
@@ -64,9 +65,15 @@ form {
     form fieldset input[type="number"] {
       text-align: right;
       position: relative; }
+    form fieldset .delete {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 1rem; }
+      form fieldset .delete .delete-category {
+        color: #a00909; }
     form fieldset .hr-style {
       border-top: 3px double rgba(0, 0, 0, 0.5);
-      margin-top: 1rem; }
+      margin-top: .7rem; }
     form fieldset .nav-btns {
       display: flex;
       justify-content: center;

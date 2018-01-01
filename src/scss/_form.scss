@@ -52,6 +52,7 @@ form {
 
 						&:hover {
 							color: rgba(255, 0, 0, 0.5);
+							cursor: pointer;
 							text-shadow: 0 0 2px white;
 						}
 					}
@@ -111,9 +112,19 @@ form {
 			position: relative;
 		}
 
+		.delete {
+			display: flex;
+			justify-content: flex-end;
+			margin-top: 1rem;
+
+			.delete-category {
+				color: #a00909;
+			}
+		}
+
 		.hr-style {
 			border-top: 3px double rgba(0, 0, 0, 0.5);
-			margin-top: 1rem;
+			margin-top: .7rem;
 		}
 
 		.nav-btns {

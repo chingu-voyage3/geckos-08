@@ -63,6 +63,14 @@ budgetApp.nav = {
 		});
 	},
 
+	deleteNav() {
+		[...budgetApp.nav.ul.children].forEach((li) => {
+			if (li.className !== 'budget-nav-add-item') {
+				budgetApp.nav.ul.removeChild(li);
+			}
+		});
+	},
+
 	updateNav(e) {
 		// Get new category idx
 		const newIdx = e.target.closest(`li`).getAttribute(`data-idx`);

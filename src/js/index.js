@@ -16,6 +16,8 @@ budgetApp.listeners = {
 	addNavCategory      : budgetApp.nav.addNavCategory,
 	btnHandler          : budgetApp.input.btnHandler,
 	validateNumberInput : budgetApp.input.validateNumberInput,
+	deleteLink          : budgetApp.forms.deleteCategoryHandler,
+	trashIcon           : budgetApp.forms.deleteInputHandler,
 	drawDisplayList     : budgetApp.dataDisplayList.draw,
 };
 
@@ -47,6 +49,13 @@ budgetApp.listeners = {
 
 	// Register update display list listener
 	budgetApp.nav.ul.addEventListener('click', listeners.drawDisplayList);
+
+	// Register delete link listener
+	budgetApp.forms.deleteLink.addEventListener(`click`, listeners.deleteLink);
+
+	// Register trash icon listener
+	// Delegating event to fieldset for new inputs
+	budgetApp.forms.fieldset.addEventListener(`click`, listeners.trashIcon);
 }),
 	(budgetApp.onReady = () => {
 		// Create nav
