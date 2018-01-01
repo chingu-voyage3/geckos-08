@@ -39,12 +39,17 @@
 					<sidebar>
 
 					<ul class="budget-nav">
+
 						<!-- Add li elements in budgetCategories.js -->
-						<li class="budget-nav add-item">
-							<a href="#">
-							<i class="fa fa-plus-square">Add Category</i>
-							</a>
+
+						<li class="budget-nav-add-item">
+							<form name="add-category">
+								<i class="fa fa-plus-square" aria-hidden="true">
+									<input type="text" placeholder="Add Category">
+								</i>
+							</form>
 						</li>
+
 					</ul>
 
 					</sidebar>
@@ -53,7 +58,7 @@
 
 				<div class="income-items">
 
-				<form name="" class="test-form">
+					<form name="" class="test-form">
 
 						<fieldset name="income" form="income-form" class="fieldset">
 							<legend class="legend"></legend>
@@ -82,14 +87,18 @@
 			</section>
 
 			<section class="budget-display">
+
 				<div id="chart-container"></div>
+
 				<ul id="chart-selection-list">
 					<button id="bar-chart-btn" class="chart-selection-btn">Bar</button>
 					<button id="pie-chart-btn" class="chart-selection-btn">Pie</button>
 				</ul>
+
 				<ul id="data-display-list">
 					<!-- populated by dataDisplayList.js -->
 				</ul>
+
 			</section>
 
 		</main>
