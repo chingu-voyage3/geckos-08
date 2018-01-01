@@ -12,8 +12,9 @@ budgetApp.currency = 'USD';
 
 // Event listeners
 budgetApp.listeners = {
-	btnHandler          : budgetApp.input.btnHandler,
 	updateNav           : budgetApp.nav.updateNav,
+	addNavCategory      : budgetApp.nav.addNavCategory,
+	btnHandler          : budgetApp.input.btnHandler,
 	validateNumberInput : budgetApp.input.validateNumberInput,
 	drawDisplayList     : budgetApp.dataDisplayList.draw,
 };
@@ -21,6 +22,12 @@ budgetApp.listeners = {
 (budgetApp.init = (listeners) => {
 	// Register update nav listener
 	budgetApp.nav.ul.addEventListener(`click`, listeners.updateNav);
+
+	// Add navigation category
+	budgetApp.nav.addCategoryForm.addEventListener(
+		`submit`,
+		budgetApp.nav.addNavCategory
+	);
 
 	// Register button listener
 	budgetApp.input.buttons.forEach((btn) => {

@@ -96,12 +96,13 @@ form {
 		}
 
 		input {
-			&:valid {
-				color: green;
+			&:focus {
+				box-shadow: 0 0 2px 1px green;
+				outline: none;
 			}
 
-			&:focus {
-				box-shadow: 0 0 2pt 1pt green;
+			&:valid {
+				color: green;
 			}
 		}
 

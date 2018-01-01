@@ -56,10 +56,11 @@ form {
     form fieldset p {
       color: #f6f6f6;
       background: rgba(0, 0, 0, 0.25); }
+    form fieldset input:focus {
+      box-shadow: 0 0 2px 1px green;
+      outline: none; }
     form fieldset input:valid {
       color: green; }
-    form fieldset input:focus {
-      box-shadow: 0 0 2pt 1pt green; }
     form fieldset input[type="number"] {
       text-align: right;
       position: relative; }
@@ -139,6 +140,7 @@ body {
   margin: 0; }
 
 html {
+  background: #ddd;
   background-size: cover; }
 
 body {
@@ -195,8 +197,39 @@ body {
             border-bottom: 1px solid #888; }
           .content .budget-input sidebar ul li:first-of-type a {
             border-radius: 5px 5px 0 0; }
-          .content .budget-input sidebar ul li:last-of-type a {
-            border-radius: 0 0 5px 5px; }
+          .content .budget-input sidebar ul li:last-of-type {
+            align-items: stretch; }
+            .content .budget-input sidebar ul li:last-of-type form {
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: stretch;
+              flex: 1;
+              padding-left: 1rem;
+              border-radius: 0 0 5px 5px; }
+              .content .budget-input sidebar ul li:last-of-type form i {
+                display: flex;
+                text-shadow: 0 0 5px white; }
+                .content .budget-input sidebar ul li:last-of-type form i:before {
+                  padding-right: 0.5rem;
+                  margin: auto; }
+                .content .budget-input sidebar ul li:last-of-type form i input[type="text"] {
+                  flex: 1;
+                  font-family: 'Bellefair', cursive;
+                  font-size: 1.25rem;
+                  margin-right: 2rem;
+                  color: green;
+                  background: transparent;
+                  border: none;
+                  border-bottom: 1px solid green;
+                  border-radius: 5px; }
+                  .content .budget-input sidebar ul li:last-of-type form i input[type="text"]:focus {
+                    box-shadow: 0 0 2px 1px black;
+                    outline: none; }
+                  .content .budget-input sidebar ul li:last-of-type form i input[type="text"]::-webkit-input-placeholder {
+                    font-size: 1.25rem;
+                    color: black;
+                    text-shadow: 0 0 5px white; }
           .content .budget-input sidebar ul li a {
             display: flex;
             flex-direction: column;
