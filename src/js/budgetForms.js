@@ -99,14 +99,19 @@ budgetApp.forms = {
 		const addItemElement = document.querySelector(`[for=add-item]`);
 
 		// Iterate through inputs
-		category.inputs.forEach((obj, idx) => {
-			// Create label
-			let label = budgetApp.forms.createLabel(obj, idx);
+		if (category.inputs.length > 0) {
+			category.inputs.forEach((obj, idx) => {
+				// Create label
+				let label = budgetApp.forms.createLabel(obj, idx);
 
-			// Append to fieldset above addItem label
-			if (addItemElement.parentNode) {
-				addItemElement.parentNode.insertBefore(label, addItemElement);
-			}
-		});
+				// Append to fieldset above addItem label
+				if (addItemElement.parentNode) {
+					addItemElement.parentNode.insertBefore(
+						label,
+						addItemElement
+					);
+				}
+			});
+		}
 	},
 };
