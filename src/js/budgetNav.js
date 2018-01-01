@@ -6,12 +6,16 @@ var budgetApp = budgetApp || {};
 
 budgetApp.nav = {
 	ul               : document.querySelector(`.budget-nav`),
+	addCategoryForm  : document.querySelector(`form[name="add-category"]`),
+	addCategoryInput : document.querySelector(
+		`form[name="add-category"] input[type="text"]`
+	),
 
 	createCategory(category, idx) {
 		// Create new li element
 		const li = document.createElement(`li`);
 		li.setAttribute(`data-idx`, idx);
-		li.classList.add(`budget-nav`, category.classname);
+		li.classList.add(`budget-nav-item`, category.classname);
 
 		// Create new anchor element
 		const a = document.createElement(`a`);
@@ -35,13 +39,22 @@ budgetApp.nav = {
 	},
 
 	createNav() {
+		// Get all li items except budget-nav-add-item
+		const liList = document.querySelectorAll(`.budget-nav-item`);
+
+		liList.forEach((li) => {
+			if (!li.classList.contains(`budget-nav-add-item`)) {
+				budgetApp.nav.ul.removeChild(li);
+			}
+		});
+
 		// Iterate through categories
 		budgetApp.categories.forEach((category, idx) => {
 			// Create new li element for category
 			const newLi = budgetApp.nav.createCategory(category, idx);
 
 			// Get add item category
-			const addItem = document.querySelector(`li.add-item`);
+			const addItem = document.querySelector(`.budget-nav-add-item`);
 
 			// Append to ul before add item category
 			if (addItem.parentNode) {
@@ -50,16 +63,13 @@ budgetApp.nav = {
 		});
 	},
 
-  deleteNav() {
-    [...budgetApp.nav
-      .ul
-      .children]
-      .forEach( li => {
-        if( li.className !== 'budget-nav add-item') {
-          budgetApp.nav.ul.removeChild( li );
-        }
-      });
-  },
+	deleteNav() {
+		[...budgetApp.nav.ul.children].forEach((li) => {
+			if (li.className !== 'budget-nav-add-item') {
+				budgetApp.nav.ul.removeChild(li);
+			}
+		});
+	},
 
 	updateNav(e) {
 		// Get new category idx
@@ -78,7 +88,9 @@ budgetApp.nav = {
 		});
 
 		// Set next category as active
-		e.target.closest(`a`).className = `active-link`;
+		if (e.target.closest(`a`)) {
+			e.target.closest(`a`).className = `active-link`;
+		}
 
 		// Update form
 		budgetApp.forms.updateForm();
@@ -109,7 +121,32 @@ budgetApp.nav = {
 			let dataIdx = +link.getAttribute(`data-idx`);
 			if (dataIdx === idx) {
 				anchors[dataIdx].classList.add(`active-link`);
+				anchors[dataIdx].click();
 			}
 		});
+	},
+
+	addNavCategory() {
+		const categoryName = budgetApp.nav.addCategoryInput.value;
+		const categoryItems = budgetApp.categories.length;
+		const newCategoryItem = {
+			name      : `${categoryName}`,
+			classname : `${categoryName.toLowerCase()}`,
+			icon      : 'fa fa-th',
+			form      : {
+				name      : `${categoryName.toLowerCase()}-form`,
+				classlist : `${categoryName.toLowerCase()}-form ${categoryName.toLowerCase()}`,
+				trashicon : 'fa fa-trash',
+			},
+			inputs    : [],
+		};
+
+		budgetApp.categories.splice(categoryItems - 1, 0, newCategoryItem);
+
+		budgetApp.nav.createNav();
+		budgetApp.nav.updateNavDisplay(categoryItems - 1);
+
+		budgetApp.nav.addCategoryForm.blur();
+		budgetApp.nav.addCategoryForm.reset();
 	},
 };

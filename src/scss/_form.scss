@@ -52,7 +52,7 @@ form {
 
 						&:hover {
 							color: rgba(255, 0, 0, 0.5);
-              cursor: pointer;
+							cursor: pointer;
 							text-shadow: 0 0 2px white;
 						}
 					}
@@ -97,12 +97,13 @@ form {
 		}
 
 		input {
-			&:valid {
-				color: green;
+			&:focus {
+				box-shadow: 0 0 2px 1px green;
+				outline: none;
 			}
 
-			&:focus {
-				box-shadow: 0 0 2pt 1pt green;
+			&:valid {
+				color: green;
 			}
 		}
 
@@ -111,15 +112,15 @@ form {
 			position: relative;
 		}
 
-    .delete {
-      display: flex;
-      justify-content: flex-end;
-      margin-top: 1rem;
+		.delete {
+			display: flex;
+			justify-content: flex-end;
+			margin-top: 1rem;
 
-      .delete-category {
-        color: #A00909;
-      }
-    }
+			.delete-category {
+				color: #a00909;
+			}
+		}
 
 		.hr-style {
 			border-top: 3px double rgba(0, 0, 0, 0.5);
