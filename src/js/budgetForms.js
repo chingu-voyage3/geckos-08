@@ -13,6 +13,8 @@ budgetApp.forms = {
 
   addItemLabel          : document.querySelector(`label[for='add-item']`),
 
+  addItemInput          : document.querySelector(`input.add-item`),
+
   addItemBtn            : document.querySelector(`button[type='submit']`),
 
 	createLabel(obj, idx) {
@@ -179,10 +181,62 @@ budgetApp.forms = {
 		});
 	},
 
+  nameFormat( str ) {
+    // Split into array of words
+    const words = str.split(' ');
+
+    // Filter out special characters
+    const filteredWords = words.map( word => {
+      return word.replace(/\W+/g, '').toLowerCase();
+    });
+
+    // Compose name
+    let name =  filteredWords.join(`-`)
+
+    // Remove extra `-` character
+    if( name.endsWith('-') ) {
+      name = name.substr( 0, name.length-1);
+    }
+
+    return name;
+  },
+
   addItemHandler( e ) {
+    // Prevent submit refresh
+    e.preventDefault();
+
     // Don't bubble up `click` event
     e.stopPropagation();
 
+    // Get input value
+    const inputValue = budgetApp.forms.addItemLabel.querySelector(`input`).value;
+
+    // Create name value
+    const name = budgetApp.forms.nameFormat( inputValue );
+
+    // Get current category
+    const category = budgetApp.categories[budgetApp.currentCategory];
+
+    // Create new input obj
+    const input = {
+      name  : `${category.classname}-${name}`,
+      title : `${inputValue}`
+    };
+
+    // Add input obj category inputs
+    category.inputs.push( input );
+
+    // Update form
+    budgetApp.forms.updateForm();
+
+    // Clear input field
+    budgetApp.forms.addItemInput.value = ``;
   },
 
 };
+
+
+
+
+
+
