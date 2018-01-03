@@ -88,6 +88,17 @@ form {
 				button {
 					width: 5rem;
 				}
+
+        .max-alert {
+          display: block;
+          color: red;
+          font-size: 0.8rem;
+          margin: 0.3rem 0 0 0.3rem;
+        }
+
+        .hidden {
+          display: none;
+        }
 			}
 		}
 
@@ -124,14 +135,14 @@ form {
 
 		.hr-style {
 			border-top: 3px double rgba(0, 0, 0, 0.5);
-			margin-top: .7rem;
+			margin-top: 0.7rem;
 		}
 
 		.nav-btns {
 			display: flex;
 			justify-content: center;
 
-			margin-top: .8rem;
+			margin-top: 0.8rem;
 
 			.nav-btn {
 				background: transparent;
@@ -140,9 +151,9 @@ form {
 				color: #fff;
 				cursor: pointer;
 				display: inline-block;
-				font-size: .8rem;
-				margin: 0 .4rem;
-				padding: .3rem .6rem;
+				font-size: 0.8rem;
+				margin: 0 0.4rem;
+				padding: 0.3rem 0.6rem;
 				text-align: center;
 				width: 7rem;
 			}
