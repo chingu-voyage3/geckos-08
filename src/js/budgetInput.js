@@ -12,7 +12,7 @@ budgetApp.input = {
 	buttons             : [...document.querySelectorAll(`.nav-btn`)],
 
 	preventInvalid(e) {
-		const prohibitedKeys = [`.`, `+`, `-`, `e`];
+		const prohibitedKeys = [`.`, `+`, `-`, `e`, `E`];
 
 		prohibitedKeys.includes(e.key) && e.preventDefault();
 	},
