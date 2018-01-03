@@ -81,6 +81,9 @@ budgetApp.forms = {
 		// Clear form
 		budgetApp.forms.clearForm();
 
+    // Clear add input field
+    budgetApp.forms.clearAddInput();
+
 		// Get current category index
 		const index = budgetApp.currentCategory;
 
@@ -194,7 +197,7 @@ budgetApp.forms = {
 
   },
 
-  nameFormat( str ) {
+  formatName ( str ) {
     // Split into array of words
     const words = str.split(' ');
 
@@ -212,6 +215,10 @@ budgetApp.forms = {
     }
 
     return name;
+  },
+
+  clearAddInput() {
+    budgetApp.forms.addItemInput.value = ``;
   },
 
   addItemHandler( e ) {
@@ -239,7 +246,7 @@ budgetApp.forms = {
     }
 
     // Create name value
-    const name = budgetApp.forms.nameFormat( inputValue );
+    const name = budgetApp.forms.formatName( inputValue );
 
     // Create new input obj
     const input = {
@@ -254,7 +261,7 @@ budgetApp.forms = {
     budgetApp.forms.updateForm();
 
     // Clear input field
-    budgetApp.forms.addItemInput.value = ``;
+    budgetApp.forms.clearAddInput();
   },
 
 };
