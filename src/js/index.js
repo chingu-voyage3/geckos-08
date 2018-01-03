@@ -17,7 +17,7 @@ budgetApp.listeners = {
 	btnHandler          : budgetApp.input.btnHandler,
 	validateNumberInput : budgetApp.input.validateNumberInput,
 	deleteLink          : budgetApp.forms.deleteCategoryHandler,
-	trashIcon           : budgetApp.forms.deleteInputHandler,
+	trashIcon           : budgetApp.input.deleteInputHandler,
 	drawDisplayList     : budgetApp.dataDisplayList.draw,
 };
 

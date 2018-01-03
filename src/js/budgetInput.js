@@ -99,4 +99,41 @@ budgetApp.input = {
 		// Update side nav display
 		budgetApp.nav.updateNavDisplay(idx);
 	},
+
+  getInputIdx(el) {
+		return el.getAttribute('data-idx');
+	},
+
+	deleteInputData(name, idx) {
+		// Get category idx
+		const categoryIdx = budgetApp.forms.getCategoryIdx(name);
+
+		// Delete input at idx for this category
+		budgetApp.categories[categoryIdx].inputs.splice(idx, 1);
+	},
+
+	deleteInputHandler(e) {
+		// Exit if event target is not trash icon
+		if (e.target.className !== 'fa fa-trash') {
+			return;
+		}
+		// Get input idx
+		const inputIdx = budgetApp.input.getInputIdx(
+      // Previous sibling of trash icon is input element
+			e.target.previousElementSibling
+		);
+
+		// Get category name
+		const name = e.target.closest('fieldset').getAttribute('name');
+
+		// Delete input data
+		budgetApp.input.deleteInputData(name, inputIdx);
+
+		// Clear form
+		budgetApp.forms.clearForm();
+
+		// Update form
+		budgetApp.forms.updateForm();
+	},
+
 };

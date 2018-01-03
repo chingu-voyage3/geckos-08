@@ -11,6 +11,10 @@ budgetApp.forms = {
 
 	deleteLink            : document.querySelector(`.delete-category`),
 
+  addItemLabel          : document.querySelector(`label[for='add-item']`),
+
+  addItemBtn            : document.querySelector(`button[type='submit']`),
+
 	createLabel(obj, idx) {
 		// Create label element
 		const label = document.createElement(`label`);
@@ -94,9 +98,6 @@ budgetApp.forms = {
 		// Set legend name
 		document.querySelector('.legend').innerText = category.name;
 
-		// Get `add-item` label
-		const addItemElement = document.querySelector(`[for=add-item]`);
-
 		// Iterate through inputs
 		if (category.inputs.length > 0) {
 			category.inputs.forEach((obj, idx) => {
@@ -104,10 +105,10 @@ budgetApp.forms = {
 				let label = budgetApp.forms.createLabel(obj, idx);
 
 				// Append to fieldset above addItem label
-				if (addItemElement.parentNode) {
-					addItemElement.parentNode.insertBefore(
+				if (budgetApp.forms.addItemLabel.parentNode) {
+					budgetApp.forms.addItemLabel.parentNode.insertBefore(
 						label,
-						addItemElement
+						budgetApp.forms.addItemLabel
 					);
 				}
 			});
@@ -131,8 +132,7 @@ budgetApp.forms = {
 	},
 
 	triggerPrevBtn() {
-		const event = new Event('click');
-		budgetApp.input.buttons[0].dispatchEvent(event);
+    budgetApp.input.buttons[0].click();
 	},
 
 	deleteCategoryHandler(e) {
@@ -179,39 +179,4 @@ budgetApp.forms = {
 		});
 	},
 
-	getInputIdx(el) {
-		// Previous sibling of trash icon is input element
-		return el.getAttribute('data-idx');
-	},
-
-	deleteInputData(name, idx) {
-		// Get category idx
-		const categoryIdx = budgetApp.forms.getCategoryIdx(name);
-
-		// Delete input at idx for this category
-		budgetApp.categories[categoryIdx].inputs.splice(idx, 1);
-	},
-
-	deleteInputHandler(e) {
-		// Exit if event target is not trash icon
-		if (e.target.className !== 'fa fa-trash') {
-			return;
-		}
-		// Get input idx
-		const inputIdx = budgetApp.forms.getInputIdx(
-			e.target.previousElementSibling
-		);
-
-		// Get category name
-		const name = e.target.closest('fieldset').getAttribute('name');
-
-		// Delete input data
-		budgetApp.forms.deleteInputData(name, inputIdx);
-
-		// Clear form
-		budgetApp.forms.clearForm();
-
-		// Update form
-		budgetApp.forms.updateForm();
-	},
 };
