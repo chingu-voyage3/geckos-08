@@ -17,6 +17,8 @@ budgetApp.forms = {
 
   addItemBtn            : document.querySelector(`button[type='submit']`),
 
+  maxAlertSpan          : document.querySelector(`span.max-alert`),
+
 	createLabel(obj, idx) {
 		// Create label element
 		const label = document.createElement(`label`);
@@ -181,6 +183,17 @@ budgetApp.forms = {
 		});
 	},
 
+  maxAlert() {
+    // Show max alert
+    budgetApp.forms.maxAlertSpan.classList.remove('hidden');
+
+    // Hide alert after 3 secs
+    setTimeout( () => {
+      budgetApp.forms.maxAlertSpan.classList.add('hidden');
+    }, 3000);
+
+  },
+
   nameFormat( str ) {
     // Split into array of words
     const words = str.split(' ');
@@ -216,11 +229,17 @@ budgetApp.forms = {
       return;
     }
 
-    // Create name value
-    const name = budgetApp.forms.nameFormat( inputValue );
-
     // Get current category
     const category = budgetApp.categories[budgetApp.currentCategory];
+
+    // Exit if inputs >= 10
+    if( category.inputs.length >= 10 ) {
+      budgetApp.forms.maxAlert();
+      return;
+    }
+
+    // Create name value
+    const name = budgetApp.forms.nameFormat( inputValue );
 
     // Create new input obj
     const input = {
