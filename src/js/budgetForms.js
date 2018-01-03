@@ -179,4 +179,10 @@ budgetApp.forms = {
 		});
 	},
 
+  addItemHandler( e ) {
+    // Don't bubble up `click` event
+    e.stopPropagation();
+
+  },
+
 };
