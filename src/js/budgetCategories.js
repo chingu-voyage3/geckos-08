@@ -26,42 +26,7 @@ budgetApp.categories = [
 	],
 	},
 
-  /*
-	{
-		name      : 'Housing',
-		classname : 'housing',
-		icon      : 'fa fa-home',
-		form      : {
-			name      : 'housing-form',
-			classlist : 'housing-form housing',
-			trashicon : 'fa fa-trash',
-		},
-		inputs    : [
-			{
-				name  : 'expense-housing',
-				title : 'Housing',
-			},
-			{
-				name  : 'expense-housing-insurance',
-				title : 'Insurance',
-			},
-			{
-				name  : 'expense-housing-utilities',
-				title : 'Utilities',
-			},
-			{
-				name  : 'expense-housing-cable-internet',
-				title : 'Cable / Internet',
-			},
-			{
-				name  : 'expense-housing-maintenance',
-				title : 'Maintenance',
-			},
-		],
-	},
-  */
-
-	{
+ 	{
 		name      : 'Housing',
 		classname : 'housing',
 		icon      : 'fa fa-home',
@@ -94,38 +59,7 @@ budgetApp.categories = [
 		],
 	},
 
-  /*
-	{
-		name      : 'Transportation',
-		classname : 'transportation',
-		icon      : 'fa fa-car',
-		form      : {
-			name      : 'transportation-form',
-			classlist : 'transportation-form transportation',
-			trashicon : 'fa fa-trash',
-		},
-		inputs    : [
-			{
-				name  : 'expense-transportation-payment',
-				title : 'Payment',
-			},
-			{
-				name  : 'expense-transportation-insurance',
-				title : 'Insurance',
-			},
-			{
-				name  : 'expense-transportation-fuel',
-				title : 'Fuel',
-			},
-			{
-				name  : 'expense-transportation-maintenance',
-				title : 'Maintenance',
-			},
-		],
-	},
-  */
-
-	{
+ 	{
 		name      : 'Transportation',
 		classname : 'transportation',
 		icon      : 'fa fa-car',
@@ -154,34 +88,7 @@ budgetApp.categories = [
 		],
 	},
 
-  /*
-	{
-		name      : 'Education',
-		classname : 'education',
-		icon      : 'fa fa-graduation-cap',
-		form      : {
-			name      : 'education-form',
-			classlist : 'education-form education',
-			trashicon : 'fa fa-trash',
-		},
-		inputs    : [
-			{
-				name  : 'expense-education-tuition',
-				title : 'Tuition',
-			},
-			{
-				name  : 'expense-education-supplies',
-				title : 'Supplies',
-			},
-			{
-				name  : 'expense-education-loans',
-				title : 'Loans',
-			},
-		],
-	},
-  */
-
-	{
+ 	{
 		name      : 'Education',
 		classname : 'education',
 		icon      : 'fa fa-graduation-cap',
@@ -206,30 +113,7 @@ budgetApp.categories = [
 		],
 	},
 
-  /*
-	{
-		name      : 'Loans & Credit Cards',
-		classname : 'loans-credit-cards',
-		icon      : 'fa fa-credit-card-alt',
-		form      : {
-			name      : 'loans-credit-cards-form',
-			classlist : 'loans-credit-cards-form loans-credit',
-			trashicon : 'fa fa-trash',
-		},
-		inputs    : [
-			{
-				name  : 'expense-loans',
-				title : 'Loans Payment',
-			},
-			{
-				name  : 'expense-credit-cards',
-				title : 'Credit Cards',
-			},
-		],
-	},
-  */
-
-	{
+ 	{
 		name      : 'Loans & Credit Cards',
 		classname : 'loans-credit-cards',
 		icon      : 'fa fa-credit-card-alt',
