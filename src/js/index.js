@@ -16,7 +16,7 @@ budgetApp.listeners = {
 	addNavCategory      : budgetApp.nav.addNavCategory,
   addItem             : budgetApp.forms.addItemHandler,
 	btnHandler          : budgetApp.input.btnHandler,
-	validateNumberInput : budgetApp.input.validateNumberInput,
+	validateInput       : budgetApp.input.validateInput,
 	drawDisplayList     : budgetApp.dataDisplayList.draw,
 	deleteCategory      : budgetApp.forms.deleteCategoryHandler,
 	deleteInput         : budgetApp.input.deleteInputHandler,
@@ -40,7 +40,7 @@ budgetApp.listeners = {
 	// Register input listeners
 	budgetApp.input.form.addEventListener(
 		`keypress`,
-		listeners.validateNumberInput,
+		listeners.validateInput,
 		false
 	);
 

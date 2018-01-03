@@ -23,10 +23,28 @@ budgetApp.input = {
 		}
 	},
 
-	validateNumberInput(e) {
+  setMaxTextLength(e) {
+    if (e.target.value.length >= 24) {
+      e.preventDefault();
+    }
+  },
+
+  validateNumberInput(e) {
 		budgetApp.input.preventInvalid(e);
 		budgetApp.input.setMaxNumberLength(e);
 	},
+
+  validateTextInput(e) {
+    budgetApp.input.setMaxTextLength(e);
+  },
+
+  validateInput(e) {
+    if( e.target.getAttribute('type') === 'text'){
+      budgetApp.input.validateTextInput(e);
+    } else {
+      budgetApp.input.validateNumberInput(e);
+    }
+  },
 
 	updateBtns() {
 		// If at first category
