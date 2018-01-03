@@ -211,6 +211,11 @@ budgetApp.forms = {
     // Get input value
     const inputValue = budgetApp.forms.addItemLabel.querySelector(`input`).value;
 
+    // Exit if no value
+    if ( inputValue.length == 0 ) {
+      return;
+    }
+
     // Create name value
     const name = budgetApp.forms.nameFormat( inputValue );
 
