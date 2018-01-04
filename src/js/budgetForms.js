@@ -183,8 +183,6 @@ budgetApp.forms = {
 			}
 		});
 
-		// Add input listeners on update
-		getInput();
 	},
 
 	getInputIdx(el) {
