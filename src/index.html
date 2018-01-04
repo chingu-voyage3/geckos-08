@@ -39,12 +39,17 @@
 					<sidebar>
 
 					<ul class="budget-nav">
+
 						<!-- Add li elements in budgetCategories.js -->
-						<li class="budget-nav add-item">
-							<a href="#">
-							<i class="fa fa-plus-square">Add Category</i>
-							</a>
+
+						<li class="budget-nav-add-item">
+							<form name="add-category">
+								<i class="fa fa-plus-square" aria-hidden="true">
+									<input type="text" placeholder="Add Category">
+								</i>
+							</form>
 						</li>
+
 					</ul>
 
 					</sidebar>
@@ -53,7 +58,7 @@
 
 				<div class="income-items">
 
-				<form name="" class="test-form">
+					<form name="" class="test-form">
 
 						<fieldset name="income" form="income-form" class="fieldset">
 							<legend class="legend"></legend>
@@ -65,6 +70,10 @@
 									<button type="submit">Add Item</button>
 								</div>
 							</label>
+
+							<div class="delete">
+								<a href="#" class="delete-category">Delete Category</a>
+							</div>
 
 							<hr class="hr-style">
 
@@ -82,14 +91,18 @@
 			</section>
 
 			<section class="budget-display">
+
 				<div id="chart-container"></div>
+
 				<ul id="chart-selection-list">
 					<button id="bar-chart-btn" class="chart-selection-btn">Bar</button>
 					<button id="pie-chart-btn" class="chart-selection-btn">Pie</button>
 				</ul>
+
 				<ul id="data-display-list">
 					<!-- populated by dataDisplayList.js -->
 				</ul>
+
 			</section>
 
 		</main>
@@ -104,11 +117,14 @@
 		<script type="text/javascript" src="js/budgetNav.js"></script>
 		<script type="text/javascript" src="js/budgetForms.js"></script>
 		<script type="text/javascript" src="js/budgetInput.js"></script>
+
 		<script src="https://d3js.org/d3.v4.min.js"></script>
 		<script type="module" src="js/chartManager.js"></script>
 		<script type="text/javascript" src="js/dataDisplayList.js"></script>
 		<script type="text/javascript" src="js/index.js"></script>
 		<script type="text/javascript" src="js/budgetCalculations.js"></script>
+
+		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 		<!-- endbuild -->
 
 	</body>
