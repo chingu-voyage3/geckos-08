@@ -19,6 +19,7 @@ budgetApp.listeners = {
 	deleteLink          : budgetApp.forms.deleteCategoryHandler,
 	trashIcon           : budgetApp.forms.deleteInputHandler,
 	drawDisplayList     : budgetApp.dataDisplayList.draw,
+	drawChart           : budgetApp.chartManager.draw,
 };
 
 (budgetApp.init = (listeners) => {
@@ -56,6 +57,13 @@ budgetApp.listeners = {
 	// Register trash icon listener
 	// Delegating event to fieldset for new inputs
 	budgetApp.forms.fieldset.addEventListener(`click`, listeners.trashIcon);
+
+	[
+		budgetApp.chartManager.barChartBtn,
+		budgetApp.chartManager.pieChartBtn,
+	].forEach((btn) => {
+		btn.addEventListener('click', listeners.drawChart);
+	});
 }),
 	(budgetApp.onReady = () => {
 		// Create nav
@@ -63,6 +71,9 @@ budgetApp.listeners = {
 
 		// Update form to show first nav category
 		budgetApp.forms.updateForm(0);
+
+		// Draw initial chart
+		budgetApp.chartManager.draw();
 
 		// Initialize listeners when ready
 		budgetApp.init(budgetApp.listeners);
