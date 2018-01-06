@@ -7,9 +7,10 @@ function getInput() {
         
         // Add listener to budget input fields
         categoryInputs[i].addEventListener("blur", function() {
+            var index = this.getAttribute('data-idx');
 
             // Add user input to budget category data
-            budgetApp.categories[budgetApp.currentCategory].inputs[this.getAttribute('data-idx')].amt = 
+            budgetApp.categories[budgetApp.currentCategory].inputs[index].amt = 
                 !Number.isNaN(this.valueAsNumber) ? this.valueAsNumber : undefined;
 
             // Recalculate category total
@@ -17,11 +18,11 @@ function getInput() {
 
             // Push data into chart data table
             var chartPath = budgetApp.dataManager.getCategory(budgetApp.currentCategory);
-            var chartData = budgetApp.categories[budgetApp.currentCategory].inputs[this.getAttribute('data-idx')];
+            var chartData = budgetApp.categories[budgetApp.currentCategory].inputs[index];
 
             chartPath.name = budgetApp.categories[budgetApp.currentCategory].name;
-            chartPath.subcategories[this.getAttribute('data-idx')].name = chartData.title;
-            chartPath.subcategories[this.getAttribute('data-idx')].value = chartData.amt || 0;
+            chartPath.subcategories[index].name = chartData.title;
+            chartPath.subcategories[index].value = chartData.amt || 0;
         });
     }
 }
