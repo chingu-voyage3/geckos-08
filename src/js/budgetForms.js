@@ -206,11 +206,14 @@ budgetApp.forms = {
 		});
 
 		// Compose name
-		let name = filteredWords.join(`-`);
+	let name = filteredWords.join(`-`).replace(/-{1,}/g, `-`);
 
 		// Remove extra `-` character
 		if (name.endsWith('-')) {
 			name = name.substr(0, name.length - 1);
+		}
+		if (name.startsWith('-')) {
+			name = name.substr(1, name.length);
 		}
 
 		return name;
