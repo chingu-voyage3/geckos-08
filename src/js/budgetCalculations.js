@@ -16,8 +16,11 @@ function getInput() {
             sumCategories();
 
             // Push data into chart data table
+            var chartData = budgetApp.categories[budgetApp.currentCategory].inputs[this.getAttribute('data-idx')];
+
             budgetApp.dataManager.getCategory(budgetApp.currentCategory).name = budgetApp.categories[budgetApp.currentCategory].name;
-            budgetApp.dataManager.getCategory(budgetApp.currentCategory).subcategories[this.getAttribute('data-idx')].value = budgetApp.categories[budgetApp.currentCategory].inputs[this.getAttribute('data-idx')].amt;
+            budgetApp.dataManager.getCategory(budgetApp.currentCategory).subcategories[this.getAttribute('data-idx')].name = chartData.title;
+            budgetApp.dataManager.getCategory(budgetApp.currentCategory).subcategories[this.getAttribute('data-idx')].value = chartData.amt;
         });
     }
 }
