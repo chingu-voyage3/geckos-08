@@ -13,6 +13,8 @@ budgetApp.nav = {
 		`form[name="add-category"] input[type="text"]`
 	),
 
+  currencyDropdown : document.querySelector(`select`),
+
 	createCategory(category, idx) {
 		// Create new li element
 		const li = document.createElement(`li`);
@@ -152,4 +154,15 @@ budgetApp.nav = {
 		budgetApp.nav.addCategoryForm.blur();
 		budgetApp.nav.addCategoryForm.reset();
 	},
+
+  changeCurrency(e) {
+    // Get select value
+    const currency = String(e.target.value);
+
+    // Update currency
+    budgetApp.currency = currency;
+
+    // Refresh form
+    budgetApp.forms.updateForm();
+  },
 };
