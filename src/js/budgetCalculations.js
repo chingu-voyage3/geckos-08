@@ -20,7 +20,7 @@ function getInput() {
 
             budgetApp.dataManager.getCategory(budgetApp.currentCategory).name = budgetApp.categories[budgetApp.currentCategory].name;
             budgetApp.dataManager.getCategory(budgetApp.currentCategory).subcategories[this.getAttribute('data-idx')].name = chartData.title;
-            budgetApp.dataManager.getCategory(budgetApp.currentCategory).subcategories[this.getAttribute('data-idx')].value = chartData.amt;
+            budgetApp.dataManager.getCategory(budgetApp.currentCategory).subcategories[this.getAttribute('data-idx')].value = chartData.amt || 0;
         });
     }
 }
