@@ -1,10 +1,15 @@
-'use strict';
+// If budgetApp is undefined, assign new obj
+// else use existing budgetApp obj
+var budgetApp = budgetApp || {};
 
-const pieChart = {
+('use strict');
+
+budgetApp.pieChart = {
 	draw : function(data) {
-		var width = 360;
-		var height = 360;
-		var radius = Math.min(width, height) / 2;
+		const padding = 24;
+		const width = 295 - padding;
+		const height = 295 - padding;
+		const radius = Math.min(width, height) / 2;
 		let colours = [
 			'#88d8b0',
 			'#ffcc5c',
@@ -35,8 +40,8 @@ const pieChart = {
 
 		var pie = d3
 			.pie()
-			.value(function(d) {
-				return d;
+			.value(function(data) {
+				return data;
 			})
 			.sort(null);
 
@@ -46,8 +51,6 @@ const pieChart = {
 			.enter()
 			.append('path')
 			.attr('d', arc)
-			.attr('fill', (d, i) => colours[i]);
+			.attr('fill', (data, index) => colours[index]);
 	},
 };
-
-export default pieChart;

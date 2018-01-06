@@ -12,13 +12,15 @@ budgetApp.currency = 'USD';
 
 // Event listeners
 budgetApp.listeners = {
-	updateNav           : budgetApp.nav.updateNav,
-	addNavCategory      : budgetApp.nav.addNavCategory,
-	btnHandler          : budgetApp.input.btnHandler,
-	validateNumberInput : budgetApp.input.validateNumberInput,
-	deleteLink          : budgetApp.forms.deleteCategoryHandler,
-	trashIcon           : budgetApp.forms.deleteInputHandler,
-	drawDisplayList     : budgetApp.dataDisplayList.draw,
+	updateNav       : budgetApp.nav.updateNav,
+	addNavCategory  : budgetApp.nav.addNavCategory,
+	addItem         : budgetApp.forms.addItemHandler,
+	btnHandler      : budgetApp.input.btnHandler,
+	validateInput   : budgetApp.input.validateInput,
+	drawDisplayList : budgetApp.dataDisplayList.draw,
+	deleteCategory  : budgetApp.forms.deleteCategoryHandler,
+	deleteInput     : budgetApp.input.deleteInputHandler,
+	drawChart       : budgetApp.chartManager.draw,
 };
 
 (budgetApp.init = (listeners) => {
@@ -39,7 +41,7 @@ budgetApp.listeners = {
 	// Register input listeners
 	budgetApp.input.form.addEventListener(
 		`keypress`,
-		listeners.validateNumberInput,
+		listeners.validateInput,
 		false
 	);
 
@@ -50,12 +52,27 @@ budgetApp.listeners = {
 	// Register update display list listener
 	budgetApp.nav.ul.addEventListener('click', listeners.drawDisplayList);
 
+	// Register add item listener
+	budgetApp.forms.addItemBtn.addEventListener(`click`, listeners.addItem);
+
 	// Register delete link listener
-	budgetApp.forms.deleteLink.addEventListener(`click`, listeners.deleteLink);
+	budgetApp.forms.deleteLink.addEventListener(
+		`click`,
+		listeners.deleteCategory
+	);
 
 	// Register trash icon listener
-	// Delegating event to fieldset for new inputs
 	budgetApp.forms.fieldset.addEventListener(`click`, listeners.trashIcon);
+
+	// Delegating event to fieldset for new inputs
+	budgetApp.forms.fieldset.addEventListener(`click`, listeners.deleteInput);
+
+	[
+		budgetApp.chartManager.barChartBtn,
+		budgetApp.chartManager.pieChartBtn,
+	].forEach((btn) => {
+		btn.addEventListener('click', listeners.drawChart);
+	});
 }),
 	(budgetApp.onReady = () => {
 		// Create nav
@@ -64,7 +81,10 @@ budgetApp.listeners = {
 		// Update form to show first nav category
 		budgetApp.forms.updateForm(0);
 
-		// Initialize listeners when ready
+		// Draw initial chart
+		budgetApp.chartManager.draw();
+
+		// Initialize listeners
 		budgetApp.init(budgetApp.listeners);
 	});
 
