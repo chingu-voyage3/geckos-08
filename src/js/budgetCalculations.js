@@ -7,7 +7,7 @@ function getInput() {
         
         // Add listener to budget input fields
         categoryInputs[i].addEventListener("blur", function() {
-            var index = this.getAttribute('data-idx');
+            let index = this.getAttribute('data-idx');
 
             // Add user input to budget category data
             budgetApp.categories[budgetApp.currentCategory].inputs[index].amt = 
@@ -17,8 +17,8 @@ function getInput() {
             sumCategories();
 
             // Push data into chart data table
-            var chartPath = budgetApp.dataManager.getCategory(budgetApp.currentCategory);
-            var chartData = budgetApp.categories[budgetApp.currentCategory].inputs[index];
+            let chartPath = budgetApp.dataManager.getCategory(budgetApp.currentCategory);
+            let chartData = budgetApp.categories[budgetApp.currentCategory].inputs[index];
 
             chartPath.name = budgetApp.categories[budgetApp.currentCategory].name;
             chartPath.subcategories[index].name = chartData.title;
