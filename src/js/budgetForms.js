@@ -117,6 +117,8 @@ budgetApp.forms = {
 				}
 			});
 		}
+		// Add input listeners on initial load
+		getInput();
 	},
 
 	deleteCategoryData(idx) {
