@@ -130,14 +130,15 @@ budgetApp.nav = {
 
 	addNavCategory() {
 		const categoryName = budgetApp.nav.addCategoryInput.value;
+		const formattedCategoryName = budgetApp.forms.formatName(categoryName);
 		const categoryItems = budgetApp.categories.length;
 		const newCategoryItem = {
 			name      : `${categoryName}`,
-			classname : `${categoryName.toLowerCase()}`,
+			classname : `${formattedCategoryName}`,
 			icon      : 'fa fa-th',
 			form      : {
-				name      : `${categoryName.toLowerCase()}-form`,
-				classlist : `${categoryName.toLowerCase()}-form ${categoryName.toLowerCase()}`,
+				name      : `${formattedCategoryName}-form`,
+				classlist : `${formattedCategoryName}-form ${formattedCategoryName}`,
 				trashicon : 'fa fa-trash',
 			},
 			inputs    : [],
