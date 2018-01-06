@@ -33,7 +33,7 @@ budgetApp.forms = {
 
 		// Create currency span
 		const span = document.createElement(`span`);
-		span.innerText = `$`;
+		span.innerText = `${budgetApp.currencies[budgetApp.currency]}`;
 
 		// Create input element
 		const input = document.createElement(`input`);
@@ -206,7 +206,7 @@ budgetApp.forms = {
 		});
 
 		// Compose name
-	let name = filteredWords.join(`-`).replace(/-{1,}/g, `-`);
+		let name = filteredWords.join(`-`).replace(/-{1,}/g, `-`);
 
 		// Remove extra `-` character
 		if (name.endsWith('-')) {
