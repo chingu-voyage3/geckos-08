@@ -46,8 +46,7 @@ budgetApp.listeners = {
 	);
 
 	// Register update chart listener
-	// errors if added to listeners cause script type is module, loaded after doc finished parsing
-	budgetApp.nav.ul.addEventListener('click', budgetApp.chartManager.draw);
+	budgetApp.nav.ul.addEventListener('click', listeners.drawChart);
 
 	// Register update display list listener
 	budgetApp.nav.ul.addEventListener('click', listeners.drawDisplayList);

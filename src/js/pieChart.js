@@ -5,11 +5,14 @@ var budgetApp = budgetApp || {};
 ('use strict');
 
 budgetApp.pieChart = {
-	draw : function(data) {
+	container : document.querySelector(`#chart-container`),
+
+	draw      : function(data) {
+		const chartContainer = d3.select('.chart-container');
+		const chartWidth = budgetApp.barChart.container.clientWidth;
+		const chartHeight = 295;
 		const padding = 24;
-		const width = 295 - padding;
-		const height = 295 - padding;
-		const radius = Math.min(width, height) / 2;
+		const radius = Math.min(chartWidth, chartHeight) / 2 - padding / 2;
 		let colours = [
 			'#88d8b0',
 			'#ffcc5c',
@@ -27,12 +30,19 @@ budgetApp.pieChart = {
 		var svg = d3
 			.select('#chart-container')
 			.append('svg')
-			.attr('width', width)
-			.attr('height', height)
+			.attr('width', chartWidth)
+			.attr('height', chartHeight)
+			.style('background', 'rgba(0, 0, 0, 0.4)')
+			.style('border-radius', '5px')
+			.style('margin', '12px')
 			.append('g')
 			.attr(
 				'transform',
-				'translate(' + width / 2 + ',' + height / 2 + ')'
+				'translate(' +
+					(chartWidth - padding * 2) / 2 +
+					',' +
+					(chartHeight - padding) / 2 +
+					')'
 			);
 
 		// inner & outer radii of the pie
@@ -40,8 +50,8 @@ budgetApp.pieChart = {
 
 		var pie = d3
 			.pie()
-			.value(function(data) {
-				return data;
+			.value(function(d) {
+				return d;
 			})
 			.sort(null);
 
@@ -51,6 +61,6 @@ budgetApp.pieChart = {
 			.enter()
 			.append('path')
 			.attr('d', arc)
-			.attr('fill', (data, index) => colours[index]);
+			.attr('fill', (d, i) => colours[i]);
 	},
 };
