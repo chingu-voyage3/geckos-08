@@ -32,9 +32,6 @@
 		// Recommended
 		"persistent": false
 	},
-	"chrome_ui_overrides": {
-		"newtab": "index.html"
-	},
 	"content_security_policy": "script-src 'self' https://d3js.org/d3.v4.min.js https://unpkg.com/sweetalert/dist/sweetalert.min.js; object-src 'self'",
 	"devtools_page": "devtools.html",
 	"externally_connectable": {
