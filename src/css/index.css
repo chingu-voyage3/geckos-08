@@ -270,6 +270,8 @@ body {
               background-color: rgba(102, 102, 102, 0.75); }
               .content .budget-input sidebar ul li a:hover:not(.active-link) > i {
                 text-shadow: none; }
+      .content .budget-input sidebar select {
+        margin-top: 0.5rem; }
 
 .main-footer {
   grid-area: -2 / 1 / -1 / -1; }
