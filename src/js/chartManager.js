@@ -1,72 +1,49 @@
-// was giving me errors for some reason
-//var budgetApp = budgetApp || {};
+// If budgetApp is undefined, assign new obj
+// else use existing budgetApp obj
+var budgetApp = budgetApp || {};
 
-// chart displays
-import barChart from './barChart.js';
-import pieChart from './pieChart.js';
+('use strict');
 
-budgetApp.chartManager = (function() {
-	let activeChart = barChart; // start with bar chart
+budgetApp.chartManager = {
+	barChartBtn : document.getElementById('bar-chart-btn'),
+	pieChartBtn : document.getElementById('pie-chart-btn'),
 
-	function init() {
-		draw();
-	}
+	activeChart : `barChart`,
 
 	// removes svg from DOM
-	function clearSvg() {
+	clearSvg() {
 		d3.select('svg').remove();
-	}
-
-	function setChart(name) {
-		switch (name) {
-			case 'bar':
-				activeChart = barChart;
-				break;
-			case 'pie':
-				activeChart = pieChart;
-				break;
-			default:
-				activeChart = barChart;
-				break;
-		}
-	}
+	},
 
 	// auto clears svg
-	function draw() {
-		let data = budgetApp.dataManager.getCategory(
-			budgetApp.currentCategory || 0
-		).subcategories;
-		clearSvg();
-		activeChart.draw(data);
-	}
+	draw() {
+		// data is array of values
+		let data = budgetApp.dataManager
+			.getCategory(budgetApp.currentCategory || 0)
+			.subcategories.map((category) => {
+				return category.value;
+			});
 
-	// chart selection
-	let barChartBtn = document.getElementById('bar-chart-btn');
-	barChartBtn.addEventListener('click', (event) => {
-		if (activeChart === barChart) {
-			return;
+		budgetApp.chartManager.clearSvg();
+		if (budgetApp.chartManager.activeChart === `barChart`) {
+			budgetApp.barChart.draw(data);
 		}
-		setChart('bar');
-		draw();
-	});
-
-	let pieChartBtn = document.getElementById('pie-chart-btn');
-	pieChartBtn.addEventListener('click', (event) => {
-		if (activeChart === pieChart) {
-			return;
+		if (budgetApp.chartManager.activeChart === `pieChart`) {
+			budgetApp.pieChart.draw(data);
 		}
-		setChart('pie');
-		draw();
-	});
+	},
 
-	// public
-	return {
-		init,
-		clearSvg,
-		setChart,
-		draw,
-	};
-})();
-
-// controlling it's own init for now, will switch to index
-budgetApp.chartManager.init();
+	setChart(name) {
+		switch (name) {
+			case 'bar':
+				budgetApp.chartManager.activeChart = `barChart`;
+				break;
+			case 'pie':
+				budgetApp.chartManager.activeChart = `pieChart`;
+				break;
+			default:
+				budgetApp.chartManager.activeChart = `barChart`;
+				break;
+		}
+	},
+};

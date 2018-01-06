@@ -11,13 +11,13 @@ budgetApp.forms = {
 
 	deleteLink            : document.querySelector(`.delete-category`),
 
-  addItemLabel          : document.querySelector(`label[for='add-item']`),
+	addItemLabel          : document.querySelector(`label[for='add-item']`),
 
-  addItemInput          : document.querySelector(`input.add-item`),
+	addItemInput          : document.querySelector(`input.add-item`),
 
-  addItemBtn            : document.querySelector(`button[type='submit']`),
+	addItemBtn            : document.querySelector(`button[type='submit']`),
 
-  maxAlertSpan          : document.querySelector(`span.max-alert`),
+	maxAlertSpan          : document.querySelector(`span.max-alert`),
 
 	createLabel(obj, idx) {
 		// Create label element
@@ -81,8 +81,8 @@ budgetApp.forms = {
 		// Clear form
 		budgetApp.forms.clearForm();
 
-    // Clear add input field
-    budgetApp.forms.clearAddInput();
+		// Clear add input field
+		budgetApp.forms.clearAddInput();
 
 		// Get current category index
 		const index = budgetApp.currentCategory;
@@ -139,7 +139,7 @@ budgetApp.forms = {
 	},
 
 	triggerPrevBtn() {
-    budgetApp.input.buttons[0].click();
+		budgetApp.input.buttons[0].click();
 	},
 
 	deleteCategoryHandler(e) {
@@ -186,88 +186,81 @@ budgetApp.forms = {
 		});
 	},
 
-  maxAlert() {
-    // Show max alert
-    budgetApp.forms.maxAlertSpan.classList.remove('hidden');
+	maxAlert() {
+		// Show max alert
+		budgetApp.forms.maxAlertSpan.classList.remove('hidden');
 
-    // Hide alert after 3 secs
-    setTimeout( () => {
-      budgetApp.forms.maxAlertSpan.classList.add('hidden');
-    }, 3000);
+		// Hide alert after 3 secs
+		setTimeout(() => {
+			budgetApp.forms.maxAlertSpan.classList.add('hidden');
+		}, 3000);
+	},
 
-  },
+	formatName(str) {
+		// Split into array of words
+		const words = str.split(' ');
 
-  formatName ( str ) {
-    // Split into array of words
-    const words = str.split(' ');
+		// Filter out special characters
+		const filteredWords = words.map((word) => {
+			return word.replace(/\W+/g, '').toLowerCase();
+		});
 
-    // Filter out special characters
-    const filteredWords = words.map( word => {
-      return word.replace(/\W+/g, '').toLowerCase();
-    });
+		// Compose name
+		let name = filteredWords.join(`-`);
 
-    // Compose name
-    let name =  filteredWords.join(`-`)
+		// Remove extra `-` character
+		if (name.endsWith('-')) {
+			name = name.substr(0, name.length - 1);
+		}
 
-    // Remove extra `-` character
-    if( name.endsWith('-') ) {
-      name = name.substr( 0, name.length-1);
-    }
+		return name;
+	},
 
-    return name;
-  },
+	clearAddInput() {
+		budgetApp.forms.addItemInput.value = ``;
+	},
 
-  clearAddInput() {
-    budgetApp.forms.addItemInput.value = ``;
-  },
+	addItemHandler(e) {
+		// Prevent submit refresh
+		e.preventDefault();
 
-  addItemHandler( e ) {
-    // Prevent submit refresh
-    e.preventDefault();
+		// Don't bubble up `click` event
+		e.stopPropagation();
 
-    // Don't bubble up `click` event
-    e.stopPropagation();
+		// Get input value
+		const inputValue = budgetApp.forms.addItemLabel.querySelector(`input`)
+			.value;
 
-    // Get input value
-    const inputValue = budgetApp.forms.addItemLabel.querySelector(`input`).value;
+		// Exit if no value
+		if (inputValue.length == 0) {
+			return;
+		}
 
-    // Exit if no value
-    if ( inputValue.length == 0 ) {
-      return;
-    }
+		// Get current category
+		const category = budgetApp.categories[budgetApp.currentCategory];
 
-    // Get current category
-    const category = budgetApp.categories[budgetApp.currentCategory];
+		// Exit if inputs >= 10
+		if (category.inputs.length >= 10) {
+			budgetApp.forms.maxAlert();
+			return;
+		}
 
-    // Exit if inputs >= 10
-    if( category.inputs.length >= 10 ) {
-      budgetApp.forms.maxAlert();
-      return;
-    }
+		// Create name value
+		const name = budgetApp.forms.formatName(inputValue);
 
-    // Create name value
-    const name = budgetApp.forms.formatName( inputValue );
+		// Create new input obj
+		const input = {
+			name  : `${category.classname}-${name}`,
+			title : `${inputValue}`,
+		};
 
-    // Create new input obj
-    const input = {
-      name  : `${category.classname}-${name}`,
-      title : `${inputValue}`
-    };
+		// Add input obj category inputs
+		category.inputs.push(input);
 
-    // Add input obj category inputs
-    category.inputs.push( input );
+		// Update form
+		budgetApp.forms.updateForm();
 
-    // Update form
-    budgetApp.forms.updateForm();
-
-    // Clear input field
-    budgetApp.forms.clearAddInput();
-  },
-
+		// Clear input field
+		budgetApp.forms.clearAddInput();
+	},
 };
-
-
-
-
-
-

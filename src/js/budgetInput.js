@@ -23,28 +23,28 @@ budgetApp.input = {
 		}
 	},
 
-  setMaxTextLength(e) {
-    if (e.target.value.length >= 24) {
-      e.preventDefault();
-    }
-  },
+	setMaxTextLength(e) {
+		if (e.target.value.length >= 24) {
+			e.preventDefault();
+		}
+	},
 
-  validateNumberInput(e) {
+	validateNumberInput(e) {
 		budgetApp.input.preventInvalid(e);
 		budgetApp.input.setMaxNumberLength(e);
 	},
 
-  validateTextInput(e) {
-    budgetApp.input.setMaxTextLength(e);
-  },
+	validateTextInput(e) {
+		budgetApp.input.setMaxTextLength(e);
+	},
 
-  validateInput(e) {
-    if( e.target.getAttribute('type') === 'text'){
-      budgetApp.input.validateTextInput(e);
-    } else {
-      budgetApp.input.validateNumberInput(e);
-    }
-  },
+	validateInput(e) {
+		if (e.target.getAttribute('type') === 'text') {
+			budgetApp.input.validateTextInput(e);
+		} else {
+			budgetApp.input.validateNumberInput(e);
+		}
+	},
 
 	updateBtns() {
 		// If at first category
@@ -118,7 +118,7 @@ budgetApp.input = {
 		budgetApp.nav.updateNavDisplay(idx);
 	},
 
-  getInputIdx(el) {
+	getInputIdx(el) {
 		return el.getAttribute('data-idx');
 	},
 
@@ -137,7 +137,7 @@ budgetApp.input = {
 		}
 		// Get input idx
 		const inputIdx = budgetApp.input.getInputIdx(
-      // Previous sibling of trash icon is input element
+			// Previous sibling of trash icon is input element
 			e.target.previousElementSibling
 		);
 
@@ -153,5 +153,4 @@ budgetApp.input = {
 		// Update form
 		budgetApp.forms.updateForm();
 	},
-
 };

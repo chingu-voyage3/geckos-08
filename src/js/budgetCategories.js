@@ -23,10 +23,10 @@ budgetApp.categories = [
 				name  : 'income-other',
 				title : 'Other',
 			},
-	],
+		],
 	},
 
- 	{
+	{
 		name      : 'Housing',
 		classname : 'housing',
 		icon      : 'fa fa-home',
@@ -59,7 +59,7 @@ budgetApp.categories = [
 		],
 	},
 
- 	{
+	{
 		name      : 'Transportation',
 		classname : 'transportation',
 		icon      : 'fa fa-car',
@@ -88,7 +88,7 @@ budgetApp.categories = [
 		],
 	},
 
- 	{
+	{
 		name      : 'Education',
 		classname : 'education',
 		icon      : 'fa fa-graduation-cap',
@@ -113,7 +113,7 @@ budgetApp.categories = [
 		],
 	},
 
- 	{
+	{
 		name      : 'Loans & Credit Cards',
 		classname : 'loans-credit-cards',
 		icon      : 'fa fa-credit-card-alt',
@@ -133,7 +133,6 @@ budgetApp.categories = [
 			},
 		],
 	},
-
 
 	{
 		name      : 'Savings & Investing',
