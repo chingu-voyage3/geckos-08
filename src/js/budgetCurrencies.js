@@ -109,6 +109,9 @@ budgetApp.currencies = {
   VEF : String.fromCharCode(66, 115),
   VND : String.fromCharCode(8363),
   YER : String.fromCharCode(65020),
-  ZWD : String.fromCharCode(90, 36)
+  ZWD : String.fromCharCode(90, 36),
+  BTC : 'BTC',
+  ETH : 'ETH',
+  LTC : 'LTC'
 };
 
