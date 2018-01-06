@@ -8,15 +8,21 @@ budgetApp.chartManager = {
 	barChartBtn : document.getElementById('bar-chart-btn'),
 	pieChartBtn : document.getElementById('pie-chart-btn'),
 
-	activeChart : `barChart`,
+	// activeChart : `barChart`,
+	activeChart : `bar`,
 
 	// removes svg from DOM
 	clearSvg() {
-		d3.select('svg').remove();
+		const chartSvg = document.querySelector(`#chart-container>svg`);
+
+		if (chartSvg) {
+			d3.select('svg').remove();
+		}
 	},
 
-	// auto clears svg
-	draw() {
+	draw(e) {
+		const charts = [`bar`, `pie`];
+
 		// data is array of values
 		let data = budgetApp.dataManager
 			.getCategory(budgetApp.currentCategory || 0)
@@ -25,24 +31,33 @@ budgetApp.chartManager = {
 			});
 
 		budgetApp.chartManager.clearSvg();
-		if (budgetApp.chartManager.activeChart === `barChart`) {
-			budgetApp.barChart.draw(data);
-		}
-		if (budgetApp.chartManager.activeChart === `pieChart`) {
-			budgetApp.pieChart.draw(data);
-		}
+
+		// set activeChart based on button pressed
+		charts.forEach((chart) => {
+			if (e) {
+				if (e.currentTarget.classList.contains(chart)) {
+					budgetApp.chartManager.setChart(chart);
+					return;
+				}
+			}
+		});
+
+		let current = budgetApp.chartManager.activeChart;
+
+		// draw chart
+		budgetApp[`${current}Chart`].draw(data);
 	},
 
 	setChart(name) {
 		switch (name) {
 			case 'bar':
-				budgetApp.chartManager.activeChart = `barChart`;
+				budgetApp.chartManager.activeChart = `bar`;
 				break;
 			case 'pie':
-				budgetApp.chartManager.activeChart = `pieChart`;
+				budgetApp.chartManager.activeChart = `pie`;
 				break;
 			default:
-				budgetApp.chartManager.activeChart = `barChart`;
+				budgetApp.chartManager.activeChart = `bar`;
 				break;
 		}
 	},
