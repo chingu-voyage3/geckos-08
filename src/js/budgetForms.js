@@ -206,7 +206,7 @@ budgetApp.forms = {
 		});
 
 		// Compose name
-	let name = filteredWords.join(`-`).replace(/-{1,}/g, `-`);
+		let name = filteredWords.join(`-`).replace(/-{1,}/g, `-`);
 
 		// Remove extra `-` character
 		if (name.endsWith('-')) {

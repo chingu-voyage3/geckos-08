@@ -21,7 +21,7 @@ budgetApp.listeners = {
 	deleteCategory  : budgetApp.forms.deleteCategoryHandler,
 	deleteInput     : budgetApp.input.deleteInputHandler,
 	drawChart       : budgetApp.chartManager.draw,
-  changeCurrency  : budgetApp.nav.changeCurrency
+	changeCurrency  : budgetApp.nav.changeCurrency,
 };
 
 (budgetApp.init = (listeners) => {
@@ -74,8 +74,11 @@ budgetApp.listeners = {
 		btn.addEventListener('click', listeners.drawChart);
 	});
 
-  // Register currency dropdown
-  budgetApp.nav.currencyDropdown.addEventListener(`change`, listeners.changeCurrency);
+	// Register currency dropdown
+	budgetApp.nav.currencyDropdown.addEventListener(
+		`change`,
+		listeners.changeCurrency
+	);
 }),
 	(budgetApp.onReady = () => {
 		// Create nav
