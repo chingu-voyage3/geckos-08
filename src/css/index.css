@@ -54,6 +54,13 @@ form {
       width: 10rem; }
     form fieldset label:last-of-type button {
       width: 5rem; }
+    form fieldset label:last-of-type .max-alert {
+      display: block;
+      color: red;
+      font-size: 0.8rem;
+      margin: 0.3rem 0 0 0.3rem; }
+    form fieldset label:last-of-type .hidden {
+      display: none; }
     form fieldset p {
       color: #f6f6f6;
       background: rgba(0, 0, 0, 0.25); }
@@ -73,11 +80,11 @@ form {
         color: #a00909; }
     form fieldset .hr-style {
       border-top: 3px double rgba(0, 0, 0, 0.5);
-      margin-top: .7rem; }
+      margin-top: 0.7rem; }
     form fieldset .nav-btns {
       display: flex;
       justify-content: center;
-      margin-top: .8rem; }
+      margin-top: 0.8rem; }
       form fieldset .nav-btns .nav-btn {
         background: transparent;
         border: none;
@@ -85,9 +92,9 @@ form {
         color: #fff;
         cursor: pointer;
         display: inline-block;
-        font-size: .8rem;
-        margin: 0 .4rem;
-        padding: .3rem .6rem;
+        font-size: 0.8rem;
+        margin: 0 0.4rem;
+        padding: 0.3rem 0.6rem;
         text-align: center;
         width: 7rem; }
       form fieldset .nav-btns .hidden {

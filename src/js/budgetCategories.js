@@ -23,7 +23,7 @@ budgetApp.categories = [
 				name  : 'income-other',
 				title : 'Other',
 			},
-	],
+		],
 	},
 
 	{
@@ -37,23 +37,23 @@ budgetApp.categories = [
 		},
 		inputs    : [
 			{
-				name  : 'expense-housing',
+				name  : 'housing',
 				title : 'Housing',
 			},
 			{
-				name  : 'expense-housing-insurance',
+				name  : 'housing-insurance',
 				title : 'Insurance',
 			},
 			{
-				name  : 'expense-housing-utilities',
+				name  : 'housing-utilities',
 				title : 'Utilities',
 			},
 			{
-				name  : 'expense-housing-cable-internet',
+				name  : 'housing-cable-internet',
 				title : 'Cable / Internet',
 			},
 			{
-				name  : 'expense-housing-maintenance',
+				name  : 'housing-maintenance',
 				title : 'Maintenance',
 			},
 		],
@@ -70,19 +70,19 @@ budgetApp.categories = [
 		},
 		inputs    : [
 			{
-				name  : 'expense-transportation-payment',
+				name  : 'transportation-payment',
 				title : 'Payment',
 			},
 			{
-				name  : 'expense-transportation-insurance',
+				name  : 'transportation-insurance',
 				title : 'Insurance',
 			},
 			{
-				name  : 'expense-transportation-fuel',
+				name  : 'transportation-fuel',
 				title : 'Fuel',
 			},
 			{
-				name  : 'expense-transportation-maintenance',
+				name  : 'transportation-maintenance',
 				title : 'Maintenance',
 			},
 		],
@@ -99,15 +99,15 @@ budgetApp.categories = [
 		},
 		inputs    : [
 			{
-				name  : 'expense-education-tuition',
+				name  : 'education-tuition',
 				title : 'Tuition',
 			},
 			{
-				name  : 'expense-education-supplies',
+				name  : 'education-supplies',
 				title : 'Supplies',
 			},
 			{
-				name  : 'expense-education-loans',
+				name  : 'education-loans',
 				title : 'Loans',
 			},
 		],
@@ -124,12 +124,12 @@ budgetApp.categories = [
 		},
 		inputs    : [
 			{
-				name  : 'expense-loans',
-				title : 'Loans Payment',
+				name  : 'loans-credit-cards-loan-payment',
+				title : 'Loan Payment',
 			},
 			{
-				name  : 'expense-credit-cards',
-				title : 'Credit Cards',
+				name  : 'loans-credit-cards-credit-card-payment',
+				title : 'Credit Card Payment',
 			},
 		],
 	},

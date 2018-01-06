@@ -6,7 +6,9 @@ var budgetApp = budgetApp || {};
 
 budgetApp.nav = {
 	ul               : document.querySelector(`.budget-nav`),
+
 	addCategoryForm  : document.querySelector(`form[name="add-category"]`),
+
 	addCategoryInput : document.querySelector(
 		`form[name="add-category"] input[type="text"]`
 	),

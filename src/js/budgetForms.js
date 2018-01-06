@@ -11,6 +11,14 @@ budgetApp.forms = {
 
 	deleteLink            : document.querySelector(`.delete-category`),
 
+	addItemLabel          : document.querySelector(`label[for='add-item']`),
+
+	addItemInput          : document.querySelector(`input.add-item`),
+
+	addItemBtn            : document.querySelector(`button[type='submit']`),
+
+	maxAlertSpan          : document.querySelector(`span.max-alert`),
+
 	createLabel(obj, idx) {
 		// Create label element
 		const label = document.createElement(`label`);
@@ -73,6 +81,9 @@ budgetApp.forms = {
 		// Clear form
 		budgetApp.forms.clearForm();
 
+		// Clear add input field
+		budgetApp.forms.clearAddInput();
+
 		// Get current category index
 		const index = budgetApp.currentCategory;
 
@@ -94,9 +105,6 @@ budgetApp.forms = {
 		// Set legend name
 		document.querySelector('.legend').innerText = category.name;
 
-		// Get `add-item` label
-		const addItemElement = document.querySelector(`[for=add-item]`);
-
 		// Iterate through inputs
 		if (category.inputs.length > 0) {
 			category.inputs.forEach((obj, idx) => {
@@ -104,10 +112,10 @@ budgetApp.forms = {
 				let label = budgetApp.forms.createLabel(obj, idx);
 
 				// Append to fieldset above addItem label
-				if (addItemElement.parentNode) {
-					addItemElement.parentNode.insertBefore(
+				if (budgetApp.forms.addItemLabel.parentNode) {
+					budgetApp.forms.addItemLabel.parentNode.insertBefore(
 						label,
-						addItemElement
+						budgetApp.forms.addItemLabel
 					);
 				}
 			});
@@ -131,8 +139,7 @@ budgetApp.forms = {
 	},
 
 	triggerPrevBtn() {
-		const event = new Event('click');
-		budgetApp.input.buttons[0].dispatchEvent(event);
+		budgetApp.input.buttons[0].click();
 	},
 
 	deleteCategoryHandler(e) {
@@ -179,39 +186,81 @@ budgetApp.forms = {
 		});
 	},
 
-	getInputIdx(el) {
-		// Previous sibling of trash icon is input element
-		return el.getAttribute('data-idx');
+	maxAlert() {
+		// Show max alert
+		budgetApp.forms.maxAlertSpan.classList.remove('hidden');
+
+		// Hide alert after 3 secs
+		setTimeout(() => {
+			budgetApp.forms.maxAlertSpan.classList.add('hidden');
+		}, 3000);
 	},
 
-	deleteInputData(name, idx) {
-		// Get category idx
-		const categoryIdx = budgetApp.forms.getCategoryIdx(name);
+	formatName(str) {
+		// Split into array of words
+		const words = str.split(' ');
 
-		// Delete input at idx for this category
-		budgetApp.categories[categoryIdx].inputs.splice(idx, 1);
+		// Filter out special characters
+		const filteredWords = words.map((word) => {
+			return word.replace(/\W+/g, '').toLowerCase();
+		});
+
+		// Compose name
+		let name = filteredWords.join(`-`);
+
+		// Remove extra `-` character
+		if (name.endsWith('-')) {
+			name = name.substr(0, name.length - 1);
+		}
+
+		return name;
 	},
 
-	deleteInputHandler(e) {
-		// Exit if event target is not trash icon
-		if (e.target.className !== 'fa fa-trash') {
+	clearAddInput() {
+		budgetApp.forms.addItemInput.value = ``;
+	},
+
+	addItemHandler(e) {
+		// Prevent submit refresh
+		e.preventDefault();
+
+		// Don't bubble up `click` event
+		e.stopPropagation();
+
+		// Get input value
+		const inputValue = budgetApp.forms.addItemLabel.querySelector(`input`)
+			.value;
+
+		// Exit if no value
+		if (inputValue.length == 0) {
 			return;
 		}
-		// Get input idx
-		const inputIdx = budgetApp.forms.getInputIdx(
-			e.target.previousElementSibling
-		);
 
-		// Get category name
-		const name = e.target.closest('fieldset').getAttribute('name');
+		// Get current category
+		const category = budgetApp.categories[budgetApp.currentCategory];
 
-		// Delete input data
-		budgetApp.forms.deleteInputData(name, inputIdx);
+		// Exit if inputs >= 10
+		if (category.inputs.length >= 10) {
+			budgetApp.forms.maxAlert();
+			return;
+		}
 
-		// Clear form
-		budgetApp.forms.clearForm();
+		// Create name value
+		const name = budgetApp.forms.formatName(inputValue);
+
+		// Create new input obj
+		const input = {
+			name  : `${category.classname}-${name}`,
+			title : `${inputValue}`,
+		};
+
+		// Add input obj category inputs
+		category.inputs.push(input);
 
 		// Update form
 		budgetApp.forms.updateForm();
+
+		// Clear input field
+		budgetApp.forms.clearAddInput();
 	},
 };
