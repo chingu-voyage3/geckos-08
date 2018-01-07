@@ -10,7 +10,7 @@ budgetApp.storage = (function(){
   let listeners = [];
 
   function addListener(name, callback) {
-    console.log(`Added listener: ${name} - ${callback.name}`)
+    console.log(`Storage added listener: ${name}`)
     listeners.push({
       name,
       callback
@@ -18,7 +18,7 @@ budgetApp.storage = (function(){
   }
 
   function callListeners() {
-    console.log('Calling listener callbacks')
+    console.log('Calling storage listener callbacks')
     listeners.forEach((listener) => {
       listener.callback();
     });
@@ -27,8 +27,6 @@ budgetApp.storage = (function(){
   function getCategoryByIndex(index){
     if (categories.length !== 0) {
       return categories[index];
-    } else {
-      console.log('getCategoryByIndex >> category not found >> index = ' + index)
     }
 
     return categories[index];
@@ -37,9 +35,9 @@ budgetApp.storage = (function(){
   function getCategoryName(name) {
     categories.forEach((category) => {
       if (category.name === name) {
-        console.log('getCategoryByIndex >> category found')
+        return category;
       } else {
-        console.log('getCategoryByIndex >> category not found')
+        console.log(`Category ${name} not found`)
       }
     })
   }
@@ -238,15 +236,12 @@ budgetApp.storage = (function(){
       }
     ];
 
-    // sync categories
-    chrome.storage.sync.set({categories}, () => {
-      console.log('chrome.storage.sync << categories = ' + categories)
-    });
+    syncCategories();
   }
 
   function pullCategories() {
     chrome.storage.sync.get('categories', (item) => {
-      console.log('chrome.storage.sync.get >> item = ' + item);
+      console.log('Categories synced from storage');
       categories = item.categories;
     });
   }
@@ -254,7 +249,7 @@ budgetApp.storage = (function(){
   function syncCategories() {
     // sync categories
     chrome.storage.sync.set({categories}, () => {
-      console.log('chrome.storage.sync << categories = ' + categories)
+      console.log('Categories synced to storage')
     });
   }
 
