@@ -61,6 +61,10 @@ budgetApp.listeners = {
 		listeners.deleteCategory
 	);
 
+	// Register storage listeners
+	budgetApp.storage.addListener('chart', budgetApp.chartManager.draw)
+	budgetApp.storage.addListener('display list', budgetApp.dataDisplayList.draw)
+
 	// Register trash icon listener
 	budgetApp.forms.fieldset.addEventListener(`click`, listeners.trashIcon);
 
