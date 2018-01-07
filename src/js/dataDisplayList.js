@@ -31,9 +31,9 @@ budgetApp.dataDisplayList = (function() {
 	}
 
 	function draw() {
-		let data = budgetApp.dataManager.getCategory(
+		let data = budgetApp.storage.getCategoryByIndex(
 			budgetApp.currentCategory || 0
-		).subcategories;
+		).inputs;
 		let dataPercentages = getDataPercentages(data);
 		dataDisplayList.style.listStyle = 'none';
 		dataDisplayList.style.padding = 0;
