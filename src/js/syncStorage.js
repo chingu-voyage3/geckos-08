@@ -6,6 +6,24 @@ budgetApp.storage = (function(){
   let categories = [];
   let categoriesInitialized = false;
 
+  // testing listeners for updates to other files when cats or inputs chagnes
+  let listeners = [];
+
+  function addListener(name, callback) {
+    console.log(`Added listener: ${name} - ${callback.name}`)
+    listeners.push({
+      name,
+      callback
+    });
+  }
+
+  function callListeners() {
+    console.log('Calling listener callbacks')
+    listeners.forEach((listener) => {
+      listener.callback();
+    });
+  }
+
   function getCategoryByIndex(index){
     if (categories.length !== 0) {
       return categories[index];
@@ -37,6 +55,7 @@ budgetApp.storage = (function(){
     };
     categories.push(newCategory)
 
+    callListeners();
     syncCategories();
   }
 
@@ -47,6 +66,7 @@ budgetApp.storage = (function(){
       value
     });
 
+    callListeners();
     syncCategories();
   }
 
@@ -252,7 +272,8 @@ budgetApp.storage = (function(){
     clear,
     addInput,
     removeCategory,
-    syncCategories
+    syncCategories,
+    addListener
   }
 }())
 
