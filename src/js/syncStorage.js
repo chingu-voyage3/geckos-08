@@ -24,6 +24,21 @@ budgetApp.storage = (function(){
     });
   }
 
+  function getcolors() {
+    return [
+			'#88d8b0',
+			'#ffcc5c',
+			'#ff6f69',
+			'#ffeead',
+			'#96ceb4',
+			'#e1f7d5',
+			'#ffbdbd',
+			'#c9c9ff',
+			'#ffffff',
+			'#f1cbff',
+		];
+  }
+
   function getCategoryByIndex(index){
     if (categories.length !== 0) {
       return categories[index];
@@ -275,7 +290,8 @@ budgetApp.storage = (function(){
     deleteInput,
     syncCategories,
     addListener,
-    addCategory
+    addCategory,
+    getcolors
   }
 }())
 

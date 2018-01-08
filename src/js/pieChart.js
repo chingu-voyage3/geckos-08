@@ -13,18 +13,7 @@ budgetApp.pieChart = {
 		const chartHeight = 295;
 		const padding = 24;
 		const radius = Math.min(chartWidth, chartHeight) / 2 - padding / 2;
-		let colours = [
-			'#88d8b0',
-			'#ffcc5c',
-			'#ff6f69',
-			'#ffeead',
-			'#96ceb4',
-			'#e1f7d5',
-			'#ffbdbd',
-			'#c9c9ff',
-			'#ffffff',
-			'#f1cbff',
-		];
+		let colors = budgetApp.storage.getcolors();
 
 		// append svg to chart container
 		var svg = d3
@@ -61,6 +50,6 @@ budgetApp.pieChart = {
 			.enter()
 			.append('path')
 			.attr('d', arc)
-			.attr('fill', (d, i) => colours[i]);
+			.attr('fill', (d, i) => colors[i]);
 	},
 };

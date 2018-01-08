@@ -1,16 +1,5 @@
 budgetApp.dataDisplayList = (function() {
-	let colors = [
-		'#88d8b0',
-		'#ffcc5c',
-		'#ff6f69',
-		'#ffeead',
-		'#96ceb4',
-		'#e1f7d5',
-		'#ffbdbd',
-		'#c9c9ff',
-		'#ffffff',
-		'#f1cbff',
-	]; // TODO: colors in one place
+	let colors = budgetApp.storage.getcolors();
 	let dataDisplayList = document.getElementById('data-display-list');
 	let currencySign = '$';
 	let data = null;
@@ -55,7 +44,7 @@ budgetApp.dataDisplayList = (function() {
 				(dataPercentages[index] * 100).toFixed(0) + '%';
 			listItem.append(percentageDisplay);
 
-			// colour circle
+			// color circle
 			var svg = d3
 				.select('#' + itemId)
 				.append('svg')
