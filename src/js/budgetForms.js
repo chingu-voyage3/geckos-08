@@ -270,4 +270,17 @@ budgetApp.forms = {
 		// Clear input fields
 		budgetApp.forms.clearInputFields();
 	},
+
+	trashIconHandler(e) {
+		// Prevent submit refresh
+		e.preventDefault();
+
+		// Don't bubble up `click` event
+		e.stopPropagation();
+
+		if (e.target.className.includes('trash')) {
+			let index = e.target.previousSibling.getAttribute('data-idx');
+			budgetApp.storage.deleteInput(budgetApp.currentCategory, index);
+		}
+	}
 };
