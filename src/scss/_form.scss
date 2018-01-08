@@ -57,19 +57,6 @@ form {
 						}
 					}
 				}
-
-				input[type="number"] {
-					border-radius: 5px;
-					font-family: monospace;
-					margin-left: 0.25rem;
-					padding-right: 0.25rem;
-
-					&::-webkit-inner-spin-button,
-					&::-webkit-outer-spin-button {
-						-webkit-appearance: none;
-						margin: 0;
-					}
-				}
 			}
 
 			&:last-of-type {
@@ -100,6 +87,19 @@ form {
 					display: none;
 				}
 			}
+
+			input[type="number"] {
+				border-radius: 5px;
+				font-family: monospace;
+				margin-left: 0.25rem;
+				padding-right: 0.25rem;
+
+				&::-webkit-inner-spin-button,
+				&::-webkit-outer-spin-button {
+					-webkit-appearance: none;
+					margin: 0;
+				}
+			}
 		}
 
 		p {
@@ -121,6 +121,11 @@ form {
 		input[type="number"] {
 			text-align: right;
 			position: relative;
+		}
+
+		#add-item-value {
+			width: 110px;
+			margin: 0 20px 0 20px;
 		}
 
 		.delete {
