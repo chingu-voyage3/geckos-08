@@ -143,7 +143,7 @@ budgetApp.nav = {
 		const newCategoryItem = {
 			name      : `${categoryName}`,
 			classname : `${formattedCategoryName}`,
-			icon      : 'fa fa-th',
+			icon      : 'fa fa-money',
 			form      : {
 				name      : `${formattedCategoryName}-form`,
 				classlist : `${formattedCategoryName}-form ${formattedCategoryName}`,
