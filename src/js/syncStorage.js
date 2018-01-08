@@ -64,8 +64,14 @@ budgetApp.storage = (function(){
     syncCategories();
   }
 
-  function removeCategory(index) {
+  function deleteCategory(index) {
     categories.splice(index, 1);
+    console.log('del index ' + index)
+
+    if (index === budgetApp.currentCategory){
+        budgetApp.currentCategory = 0;
+        console.log('del curr cat')
+    }
 
     callListeners();
     syncCategories();
@@ -265,7 +271,7 @@ budgetApp.storage = (function(){
     getCategoryByIndex,
     clear,
     addInput,
-    removeCategory,
+    deleteCategory,
     deleteInput,
     syncCategories,
     addListener,

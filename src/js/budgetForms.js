@@ -124,6 +124,8 @@ budgetApp.forms = {
 
 	deleteCategoryData(idx) {
 		budgetApp.storage.removeCategory(idx);
+
+		budgetApp.forms.updateForm();
 	},
 
 	getCategoryIdx(name) {
@@ -165,7 +167,7 @@ budgetApp.forms = {
 				const categoryIdx = budgetApp.forms.getCategoryIdx(name);
 
 				// Delete category data
-				budgetApp.forms.deleteCategoryData(categoryIdx);
+				budgetApp.forms.deleteCategoryData(budgetApp.currentCategory);
 
 				// Delete nav
 				budgetApp.nav.deleteNav();
