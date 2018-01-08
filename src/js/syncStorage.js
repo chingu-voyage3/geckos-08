@@ -46,12 +46,8 @@ budgetApp.storage = (function(){
     return categories;
   }
 
-  function addCategory(name) {
-    let newCategory = {
-      name,
-      inputs: []
-    };
-    categories.push(newCategory)
+  function addCategory(category) {
+    categories.push(category);
 
     callListeners();
     syncCategories();
