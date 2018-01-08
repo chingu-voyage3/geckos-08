@@ -244,7 +244,7 @@ budgetApp.forms = {
 		}
 
 		// Get current category
-		const category = budgetApp.categories[budgetApp.currentCategory];
+		const category = budgetApp.storage.getCategoryByIndex(budgetApp.currentCategory || 0);
 
 		// Exit if inputs >= 10
 		if (category.inputs.length >= 10) {
