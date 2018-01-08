@@ -90,6 +90,7 @@ budgetApp.storage = (function(){
     categories = [
       {
         name: 'income',
+        icon      : 'fa fa-money',
         inputs: [
           {
             name: 'salary',
@@ -103,6 +104,7 @@ budgetApp.storage = (function(){
       },
       {
         name: 'housing',
+        icon      : 'fa fa-home',
         inputs: [
           {
             name: 'rent',
@@ -127,6 +129,7 @@ budgetApp.storage = (function(){
       },
       {
         name: 'Transportation',
+        icon      : 'fa fa-car',
         inputs: [
           {
             name: 'Lease',
@@ -148,6 +151,7 @@ budgetApp.storage = (function(){
       },
       {
         name: 'Education',
+        icon      : 'fa fa-graduation-cap',
         inputs: [
           {
             name: 'Tuition',
@@ -165,6 +169,7 @@ budgetApp.storage = (function(){
       },
       {
         name: 'Loans & Credit Cards',
+        icon      : 'fa fa-credit-card-alt',
         inputs: [
           {
             name: 'Loan Payment',
@@ -182,6 +187,7 @@ budgetApp.storage = (function(){
       },
       {
         name: 'Savings & Investments',
+        icon      : 'fa fa-bank',
         inputs: [
           {
             name: 'Retirement',
@@ -203,6 +209,7 @@ budgetApp.storage = (function(){
       },
       {
         name: 'Miscellaneous',
+        icon      : 'fa fa-paperclip',
         inputs: [
           {
             name: 'Clothing',
@@ -268,7 +275,8 @@ budgetApp.storage = (function(){
     addInput,
     removeCategory,
     syncCategories,
-    addListener
+    addListener,
+    addCategory
   }
 }())
 
