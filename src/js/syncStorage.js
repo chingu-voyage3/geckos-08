@@ -67,18 +67,14 @@ budgetApp.storage = (function(){
   function removeCategory(index) {
     categories.splice(index, 1);
 
+    callListeners();
     syncCategories();
   }
 
-  // removes by name, could use index
-  function removeInput(categoryIndex, inputName) {
-    categories[categoryIndex].inputs.forEach((input) => {
-      if (input.name === inputName) {
-        let index = categories.indexOf(input);
-        categories.splice(index, 1);
-      }
-    });
+  function deleteInput(categoryIndex, inputIndex) {
+    categories[categoryIndex].inputs.splice(inputIndex, 1);
 
+    callListeners();
     syncCategories();
   }
 
@@ -270,6 +266,7 @@ budgetApp.storage = (function(){
     clear,
     addInput,
     removeCategory,
+    deleteInput,
     syncCategories,
     addListener,
     addCategory
