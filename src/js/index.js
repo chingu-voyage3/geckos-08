@@ -15,13 +15,14 @@ budgetApp.listeners = {
 	updateNav       : budgetApp.nav.updateNav,
 	addNavCategory  : budgetApp.nav.addNavCategory,
 	addItem         : budgetApp.forms.addItemHandler,
+	trashIcon 			: budgetApp.forms.trashIconHandler,
 	btnHandler      : budgetApp.input.btnHandler,
 	validateInput   : budgetApp.input.validateInput,
 	drawDisplayList : budgetApp.dataDisplayList.draw,
 	deleteCategory  : budgetApp.forms.deleteCategoryHandler,
 	deleteInput     : budgetApp.input.deleteInputHandler,
 	drawChart       : budgetApp.chartManager.draw,
-	changeCurrency  : budgetApp.nav.changeCurrency,
+	changeCurrency  : budgetApp.nav.changeCurrency
 };
 
 (budgetApp.init = (listeners) => {
