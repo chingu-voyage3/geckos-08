@@ -75,5 +75,3 @@ budgetApp.dataDisplayList = (function() {
 		draw,
 	};
 })();
-
-budgetApp.dataDisplayList.draw();
