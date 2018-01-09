@@ -92,9 +92,6 @@ budgetApp.listeners = {
 		// Update form to show first nav category
 		budgetApp.forms.updateForm(0);
 
-		// Draw initial chart
-		budgetApp.chartManager.draw();
-
 		// Initialize listeners
 		budgetApp.init(budgetApp.listeners);
 	});
