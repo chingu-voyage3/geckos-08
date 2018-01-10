@@ -156,7 +156,7 @@ budgetApp.nav = {
 		budgetApp.storage.addCategory(newCategoryItem);
 
 		budgetApp.nav.createNav();
-		budgetApp.nav.updateNavDisplay(categoryItems - 1);
+		budgetApp.nav.updateNavDisplay(categoryItems);
 
 		budgetApp.nav.addCategoryForm.blur();
 		budgetApp.nav.addCategoryForm.reset();
