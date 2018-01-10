@@ -84,14 +84,10 @@ budgetApp.listeners = {
 		`change`,
 		listeners.changeCurrency
 	);
+
+	budgetApp.storage.init();
 }),
 	(budgetApp.onReady = () => {
-		// Create nav
-		budgetApp.nav.createNav();
-
-		// Update form to show first nav category
-		budgetApp.forms.updateForm(0);
-
 		// Initialize listeners
 		budgetApp.init(budgetApp.listeners);
 	});

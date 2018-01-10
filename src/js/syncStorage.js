@@ -5,9 +5,22 @@ var budgetApp = budgetApp || {};
 budgetApp.storage = (function(){
   let categories = [];
   let categoriesInitialized = false;
-
-  // testing listeners for updates to other files when cats or inputs chagnes
   let listeners = [];
+
+  function init() {
+    chrome.storage.sync.get('alreadyInitialized', (items) => {
+      if (items.alreadyInitialized === true) {
+        console.log('cats already initialized')
+        pullCategories([budgetApp.nav.createNav, budgetApp.forms.updateForm]);
+      } else {
+        chrome.storage.sync.set({alreadyInitialized: true});
+        console.log('cats not initialized')
+        writeInitialCategories();
+        budgetApp.nav.createNav();
+        budgetApp.forms.updateForm();
+      }
+    })
+  }
 
   function addListener(name, callback) {
     console.log(`Storage added listener: ${name}`)
@@ -257,12 +270,17 @@ budgetApp.storage = (function(){
     ];
 
     syncCategories();
+    callListeners();
   }
 
-  function pullCategories() {
+  function pullCategories(callbacks) {
     chrome.storage.sync.get('categories', (item) => {
       console.log('Categories synced from storage');
       categories = item.categories;
+      callListeners();
+      callbacks.forEach((callback) => {
+        callback();
+      })
     });
   }
 
@@ -291,13 +309,8 @@ budgetApp.storage = (function(){
     syncCategories,
     addListener,
     addCategory,
-    getcolors
+    getcolors,
+    callListeners,
+    init
   }
 }())
-
-//chrome.storage.sync.set({'initialCategories': false});
-
-// FIX this should only be called if cats not initialized
-budgetApp.storage.writeInitialCategories();
-
-budgetApp.storage.pullCategories();
