@@ -3,53 +3,21 @@
 var budgetApp = budgetApp || {};
 
 budgetApp.storage = (function(){
-  let categories = [];
   let categoriesInitialized = false;
+  let categories = [];
   let listeners = [];
 
   function init() {
     chrome.storage.sync.get('alreadyInitialized', (items) => {
       if (items.alreadyInitialized === true) {
-        console.log('cats already initialized')
         pullCategories([budgetApp.nav.createNav, budgetApp.forms.updateForm]);
       } else {
         chrome.storage.sync.set({alreadyInitialized: true});
-        console.log('cats not initialized')
         writeInitialCategories();
         budgetApp.nav.createNav();
         budgetApp.forms.updateForm();
       }
     })
-  }
-
-  function addListener(name, callback) {
-    console.log(`Storage added listener: ${name}`)
-    listeners.push({
-      name,
-      callback
-    });
-  }
-
-  function callListeners() {
-    console.log('Calling storage listener callbacks')
-    listeners.forEach((listener) => {
-      listener.callback();
-    });
-  }
-
-  function getcolors() {
-    return [
-			'#88d8b0',
-			'#ffcc5c',
-			'#ff6f69',
-			'#ffeead',
-			'#96ceb4',
-			'#e1f7d5',
-			'#ffbdbd',
-			'#c9c9ff',
-			'#ffffff',
-			'#f1cbff',
-		];
   }
 
   function getCategoryByIndex(index){
@@ -60,7 +28,7 @@ budgetApp.storage = (function(){
     return categories[index];
   }
 
-  function getCategoryName(name) {
+  function getCategoryByName(name) {
     categories.forEach((category) => {
       if (category.name === name) {
         return category;
@@ -81,25 +49,22 @@ budgetApp.storage = (function(){
     syncCategories();
   }
 
-  // push new input into category at index
-  function addInput(categoryIndex, name, value) {
-    categories[categoryIndex].inputs.push({
-      name,
-      value
-    });
+  function deleteCategory(index) {
+    categories.splice(index, 1);
+
+    if (index === budgetApp.currentCategory){
+        budgetApp.currentCategory = 0;
+    }
 
     callListeners();
     syncCategories();
   }
 
-  function deleteCategory(index) {
-    categories.splice(index, 1);
-    console.log('del index ' + index)
-
-    if (index === budgetApp.currentCategory){
-        budgetApp.currentCategory = 0;
-        console.log('del curr cat')
-    }
+  function addInput(categoryIndex, name, value) {
+    categories[categoryIndex].inputs.push({
+      name,
+      value
+    });
 
     callListeners();
     syncCategories();
@@ -112,6 +77,64 @@ budgetApp.storage = (function(){
     syncCategories();
   }
 
+  // adds a function to be called whenever categories or inputs are changed
+  function addListener(name, callback) {
+    listeners.push({
+      name,
+      callback
+    });
+  }
+
+  function callListeners() {
+    listeners.forEach((listener) => {
+      listener.callback();
+    });
+  }
+
+  function getcolors() {
+    return [
+			'#88d8b0',
+			'#ffcc5c',
+			'#ff6f69',
+			'#ffeead',
+			'#96ceb4',
+			'#e1f7d5',
+			'#ffbdbd',
+			'#c9c9ff',
+			'#ffffff',
+			'#f1cbff'
+		];
+  }
+
+  // deletes all chrome storage
+  function clear() {
+    chrome.storage.sync.clear(() => {
+
+    });
+  }
+
+
+  /* takes optional callbacks I used to create nav and update form
+  once categories are finished loading */
+  // loads categories from chrome storage
+  function pullCategories(callbacks) {
+    chrome.storage.sync.get('categories', (item) => {
+      categories = item.categories;
+      callListeners();
+      callbacks.forEach((callback) => {
+        callback();
+      })
+    });
+  }
+
+  // saves categories to chrome storage
+  function syncCategories() {
+    chrome.storage.sync.set({categories}, () => {
+
+    });
+  }
+
+  // adds default categories and writes them to chrome storage
   function writeInitialCategories() {
     categories = [
       {
@@ -273,44 +296,18 @@ budgetApp.storage = (function(){
     callListeners();
   }
 
-  function pullCategories(callbacks) {
-    chrome.storage.sync.get('categories', (item) => {
-      console.log('Categories synced from storage');
-      categories = item.categories;
-      callListeners();
-      callbacks.forEach((callback) => {
-        callback();
-      })
-    });
-  }
-
-  function syncCategories() {
-    // sync categories
-    chrome.storage.sync.set({categories}, () => {
-      console.log('Categories synced to storage')
-    });
-  }
-
-  function clear() {
-    chrome.storage.sync.clear(() => {
-      console.log('storage cleared')
-    });
-  }
-
   return {
-    writeInitialCategories,
-    pullCategories,
-    getCategories,
+    init,
     getCategoryByIndex,
-    clear,
-    addInput,
-    deleteCategory,
-    deleteInput,
-    syncCategories,
-    addListener,
+    getCategoryByName,
+    getCategories,
     addCategory,
-    getcolors,
+    deleteCategory,
+    addInput,
+    deleteInput,
+    addListener,
     callListeners,
-    init
+    getcolors,
+    clear
   }
 }())
