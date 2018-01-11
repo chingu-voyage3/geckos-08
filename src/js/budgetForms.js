@@ -123,7 +123,7 @@ budgetApp.forms = {
 	},
 
 	deleteCategoryData(idx) {
-		budgetApp.storage.removeCategory(idx);
+		budgetApp.storage.deleteCategory(idx);
 
 		budgetApp.forms.updateForm();
 	},
