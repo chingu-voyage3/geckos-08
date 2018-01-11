@@ -273,6 +273,7 @@ budgetApp.forms = {
 		budgetApp.forms.clearInputFields();
 	},
 
+  /*
 	trashIconHandler(e) {
 		// Prevent submit refresh
 		e.preventDefault();
@@ -285,4 +286,5 @@ budgetApp.forms = {
 			budgetApp.storage.deleteInput(budgetApp.currentCategory, index);
 		}
 	}
+  */
 };

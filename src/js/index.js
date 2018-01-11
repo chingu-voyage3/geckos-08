@@ -15,7 +15,7 @@ budgetApp.listeners = {
 	updateNav       : budgetApp.nav.updateNav,
 	addNavCategory  : budgetApp.nav.addNavCategory,
 	addItem         : budgetApp.forms.addItemHandler,
-	trashIcon 			: budgetApp.forms.trashIconHandler,
+//	trashIcon 			: budgetApp.forms.trashIconHandler,
 	btnHandler      : budgetApp.input.btnHandler,
 	validateInput   : budgetApp.input.validateInput,
 	drawDisplayList : budgetApp.dataDisplayList.draw,
@@ -67,7 +67,7 @@ budgetApp.listeners = {
 	budgetApp.storage.addListener('display list', budgetApp.dataDisplayList.draw)
 
 	// Register trash icon listener
-	budgetApp.forms.fieldset.addEventListener(`click`, listeners.trashIcon);
+//	budgetApp.forms.fieldset.addEventListener(`click`, listeners.trashIcon);
 
 	// Delegating event to fieldset for new inputs
 	budgetApp.forms.fieldset.addEventListener(`click`, listeners.deleteInput);
