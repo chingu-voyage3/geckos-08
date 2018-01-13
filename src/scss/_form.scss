@@ -127,10 +127,11 @@ form {
 		}
 
     .add-item-btn {
+      border: none;
       border-radius: 5px;
       font: 0.7rem 'Lato', sans-serif;
       color: #fdfdfd;
-      background: #529eb7;
+      background: #7cc0f7;
 
       &:hover {
         cursor: pointer;
