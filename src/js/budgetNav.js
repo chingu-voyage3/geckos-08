@@ -34,9 +34,13 @@ budgetApp.nav = {
 		const i = document.createElement(`i`);
 		i.className = category.icon;
 		i.setAttribute(`aria-hidden`, `true`);
-		i.innerText = category.name;
+
+    // Create span element
+    const span = document.createElement(`span`);
+    span.innerText = category.name;
 
 		a.appendChild(i);
+    a.appendChild(span);
 		li.appendChild(a);
 
 		return li;
