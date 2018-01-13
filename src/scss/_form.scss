@@ -1,21 +1,22 @@
 form {
-	display: none;
+	//display: none;
 
 	&.active-form {
 		display: block;
 	}
 
 	fieldset {
+    border: none;
 		border-radius: 5px;
-		margin: 0 0.75rem;
+		margin: 0 3rem;
 
 		legend {
 			padding: 0.2rem 0.5rem;
-			border: 1px solid green;
-			border-radius: 5px;
-			color: white;
-			background: rgba(0, 76, 0, 0.5);
-			text-align: right;
+      border-bottom: 2px solid #fdfdfd;
+      border-top: 2px solid #fdfdfd;
+			color: #fdfdfd;
+      font: bold 1.5rem 'Lato', sans-serif;
+			text-align: center;
 		}
 
 		label {
@@ -44,11 +45,12 @@ form {
 
 				i {
 					color: #666;
+          margin-left: 0.3rem;
 					padding: 0 0.25rem;
 					transition: 0.5s color, 0.5s text-shadow;
 
 					&:last-of-type {
-						color: transparent;
+						//color: transparent;
 
 						&:hover {
 							color: rgba(255, 0, 0, 0.5);
@@ -104,12 +106,13 @@ form {
 
 		p {
 			color: #f6f6f6;
+      font-size: 0.8rem;
 			background: rgba(0, 0, 0, 0.25);
 		}
 
 		input {
 			&:focus {
-				box-shadow: 0 0 2px 1px green;
+				box-shadow: 0 0 2px 2px #529EB7;
 				outline: none;
 			}
 
@@ -123,18 +126,29 @@ form {
 			position: relative;
 		}
 
+    .add-item-btn {
+      border-radius: 5px;
+      font: 0.7rem 'Lato', sans-serif;
+      color: #fdfdfd;
+      background: #529eb7;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
 		.delete {
 			display: flex;
 			justify-content: flex-end;
 			margin-top: 1rem;
 
 			.delete-category {
-				color: #a00909;
+        color: #de0006;
 			}
 		}
 
 		.hr-style {
-			border-top: 3px double rgba(0, 0, 0, 0.5);
+			border-top: 3px double rgba(253, 253, 253, 0.5);
 			margin-top: 0.7rem;
 		}
 
@@ -163,7 +177,7 @@ form {
 			}
 
 			.next {
-				background-color: rgba(48, 166, 74, 0.6);
+				background-color: rgba(48, 166, 74, 0.8);
 
 				&:hover {
 					background-color: rgb(48, 166, 74);
@@ -171,7 +185,7 @@ form {
 			}
 
 			.previous {
-				background-color: rgba(253, 192, 47, 0.6);
+				background-color: rgba(253, 192, 47, 0.8);
 
 				&:hover {
 					background-color: rgb(253, 192, 47);
