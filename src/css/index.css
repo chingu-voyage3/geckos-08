@@ -72,10 +72,11 @@ form fieldset {
     text-align: right;
     position: relative; }
   form fieldset .add-item-btn {
+    border: none;
     border-radius: 5px;
     font: 0.7rem 'Lato', sans-serif;
     color: #fdfdfd;
-    background: #529eb7; }
+    background: #7cc0f7; }
     form fieldset .add-item-btn:hover {
       cursor: pointer; }
   form fieldset .delete {
@@ -260,14 +261,14 @@ body {
               padding-right: 1rem;
               width: 2.5rem; }
             .content .budget-input sidebar ul li a.active-link {
-              background: -webkit-linear-gradient(top, #b3dced 0%, #29b8e5 50%, #bce0ee 100%);
-              background: linear-gradient(to bottom, #b3dced 0%, #29b8e5 50%, #bce0ee 100%);
+              background: -webkit-linear-gradient(top, #f0f9ff 0%, #7cc0f7 51%, #a1dbff 100%);
+              /* Chrome10-25,Safari5.1-6 */
+              background: linear-gradient(to bottom, #f0f9ff 0%, #7cc0f7 51%, #a1dbff 100%);
               color: #fdfdfd;
               cursor: default; }
             .content .budget-input sidebar ul li a:not(.active-link) {
-              background: -webkit-linear-gradient(top, white 0%, #f6f6f6 47%, #ededed 100%);
               background: linear-gradient(to bottom, white 0%, #f6f6f6 47%, #ededed 100%);
-              color: #2f2f2f; }
+              color: #434343; }
             .content .budget-input sidebar ul li a:hover:not(.active-link) {
               background: -webkit-linear-gradient(top, #f2f9fe 0%, #d6f0fd 100%);
               background: linear-gradient(to bottom, #f2f9fe 0%, #d6f0fd 100%); }
