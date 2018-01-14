@@ -1,16 +1,16 @@
 // Store user input as entered
 function getInput() {
 
-    const categoryInputs = document.querySelectorAll('input[type=number]');
+    const categoryInputs = document.querySelectorAll('input[type=number]:not(#add-item-value)');
 
     for (var i = 0; i < Object.keys( categoryInputs ).length; i++) {
-        
+
         // Add listener to budget input fields
         categoryInputs[i].addEventListener("blur", function() {
             let index = this.getAttribute('data-idx');
 
             // Add user input to budget category data
-            budgetApp.categories[budgetApp.currentCategory].inputs[index].amt = 
+            budgetApp.categories[budgetApp.currentCategory].inputs[index].amt =
                 !Number.isNaN(this.valueAsNumber) ? this.valueAsNumber : undefined;
 
             // Recalculate category total
@@ -36,9 +36,6 @@ function sumCategories() {
     currentAmount.inputs.forEach(function(item){
 
         currentAmount.total += item.amt ? item.amt : 0;
-        
+
     });
 }
-
-
-
