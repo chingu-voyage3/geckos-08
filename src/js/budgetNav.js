@@ -107,6 +107,9 @@ budgetApp.nav = {
 
 		// Update buttons
 		budgetApp.input.updateBtns();
+
+		// Add input listeners on update
+		getInput();
 	},
 
 	// For button events

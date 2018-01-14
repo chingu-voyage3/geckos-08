@@ -1,4 +1,4 @@
-// If budgetApp is undefined, assign new obj
+// If budgetApp is undefined, assign new objs
 // else use existing budgetApp obj
 var budgetApp = budgetApp || {};
 
@@ -42,6 +42,11 @@ budgetApp.forms = {
 		input.setAttribute(`placeholder`, `Amount`);
 		input.setAttribute(`name`, obj.name);
 		input.setAttribute(`data-idx`, idx);
+
+		// Update input value to user input
+		if (!Number.isNaN(obj.amt)) {
+			input.setAttribute(`value`, obj.amt);
+		} 
 
 		// Create trash icon
 		const i = document.createElement(`i`);
@@ -120,6 +125,8 @@ budgetApp.forms = {
 				}
 			});
 		}
+		// Add input listeners on initial load
+		getInput();
 	},
 
 	deleteCategoryData(idx) {
@@ -186,6 +193,7 @@ budgetApp.forms = {
 				swal('Your category is safe!');
 			}
 		});
+
 	},
 
 	maxAlert() {
