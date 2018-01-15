@@ -155,7 +155,6 @@ budgetApp.nav = {
 			inputs    : [],
 		};
 
-		// budgetApp.categories.splice(categoryItems - 1, 0, newCategoryItem);
 		budgetApp.storage.addCategory(newCategoryItem);
 
 		budgetApp.nav.createNav();
