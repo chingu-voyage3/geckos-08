@@ -1,6 +1,6 @@
 // Store user input as entered
 function getInput() {
-    const categoryInputs = document.querySelectorAll('input[type=number]:not(#add-item-value)');
+    const categoryInputs = document.querySelectorAll('input[type=number]');
 
     for (var i = 0; i < Object.keys( categoryInputs ).length; i++) {
 
@@ -29,5 +29,5 @@ function sumCategory() {
 
     currentCategory.inputs.forEach(function(item){
         currentCategory.total += item.value ? item.value : 0;
-    }); 
+    });
 }
