@@ -179,7 +179,7 @@ budgetApp.nav = {
     .catch(err => {
       console.error(err);
     });
-	},
+  },
 
 	changeCurrency(e) {
 		// Get select value
