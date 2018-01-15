@@ -56,7 +56,7 @@ budgetApp.input = {
 			// If at last category before `Add Category`
 		} else if (
 			budgetApp.currentCategory ===
-			budgetApp.categories.length - 1
+			budgetApp.storage.getCategories().length
 		) {
 			// Hide next btn
 			document.querySelector(`.next`).classList.add(`hidden`);

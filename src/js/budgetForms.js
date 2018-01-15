@@ -50,7 +50,7 @@ budgetApp.forms = {
 
 		// Create trash icon
 		const i = document.createElement(`i`);
-		i.className = budgetApp.categories[0].form.trashicon;
+		i.className = 'fa fa-trash';
 
 		div.appendChild(span);
 		div.appendChild(input);
