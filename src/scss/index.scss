@@ -102,49 +102,10 @@ body {
 					}
 
 					&:last-of-type {
-						align-items: stretch;
-						form {
-							display: flex;
-							flex-direction: column;
-							justify-content: center;
-							align-items: stretch;
-							flex: 1;
-
-							padding-left: 1rem;
-							border-radius: 0 0 5px 5px;
-
-							i {
-								display: flex;
-
-								text-shadow: 0 0 5px white;
-
-								&:before {
-									padding-right: 0.5rem;
-									margin: auto;
-								}
-
-								input[type="text"] {
-									flex: 1;
-									font-size: 1.25rem;
-									margin-right: 2rem;
-									color: green;
-									background: transparent;
-									border: none;
-									border-bottom: 1px solid #529EB7;
-
-									&:focus {
-										box-shadow: 0 0 2px 1px black;
-										outline: none;
-									}
-
-									&::-webkit-input-placeholder {
-										font-size: 1.25rem;
-										color: black;
-										text-shadow: 0 0 5px white;
-									}
-								}
-							}
-						}
+					//	align-items: stretch;
+            a {
+              border-radius: 0 0 5px 5px;
+            }
 					}
 
 					a {
