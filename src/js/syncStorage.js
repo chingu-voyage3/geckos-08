@@ -70,6 +70,14 @@ budgetApp.storage = (function(){
     syncCategories();
   }
 
+  function updateInputValue(catIdx, idx, value) {
+    // console.log(categories[catIdx].inputs[idx])
+    categories[catIdx].inputs[idx].value = value;
+
+    callListeners();
+    syncCategories();
+  }
+
   function deleteInput(categoryIndex, inputIndex) {
     categories[categoryIndex].inputs.splice(inputIndex, 1);
 
@@ -112,7 +120,6 @@ budgetApp.storage = (function(){
 
     });
   }
-
 
   /* takes optional callbacks I used to create nav and update form
   once categories are finished loading */
@@ -304,6 +311,7 @@ budgetApp.storage = (function(){
     addCategory,
     deleteCategory,
     addInput,
+    updateInputValue,
     deleteInput,
     addListener,
     callListeners,
