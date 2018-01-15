@@ -85,6 +85,11 @@ budgetApp.nav = {
 		// Get new category idx
 		const newIdx = e.target.closest(`li`).getAttribute(`data-idx`);
 
+    // If target was .budget-nav-add-item, exit
+    if( newIdx === "-1" ) {
+      return;
+    }
+
 		// Get old category idx
 		const oldIdx = +budgetApp.currentCategory;
 
@@ -139,15 +144,14 @@ budgetApp.nav = {
 		});
 	},
 
-	addNavCategory() {
-
+	addNavCategory(e) {
     swal({
       title: "Enter Your Category Name:",
       content: "input",
       buttons: true,
     })
     .then((value) => {
-      if(!value) throw null;
+      if(!value) throw `No category name provided.`;
 
       const categoryName = value;
       const formattedCategoryName = budgetApp.forms.formatName(categoryName);
@@ -170,6 +174,9 @@ budgetApp.nav = {
       budgetApp.nav.updateNavDisplay(categoryItems);
 
       swal(`${value} has been added!`);
+    })
+    .catch(err => {
+      console.error(err);
     });
 	},
 
