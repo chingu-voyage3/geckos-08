@@ -47,6 +47,7 @@ budgetApp.input = {
 	},
 
 	updateBtns() {
+    let categories = budgetApp.storage.getCategories();
 		// If at first category
 		if (budgetApp.currentCategory === 0) {
 			// Hide previous btn
@@ -56,7 +57,7 @@ budgetApp.input = {
 			// If at last category before `Add Category`
 		} else if (
 			budgetApp.currentCategory ===
-			budgetApp.categories.length - 1
+			categories.length - 1
 		) {
 			// Hide next btn
 			document.querySelector(`.next`).classList.add(`hidden`);
@@ -84,12 +85,14 @@ budgetApp.input = {
 		// Check if next or previous
 		const direction = budgetApp.input.btnCheck(btn);
 
+    let categories = budgetApp.storage.getCategories();
+
 		if (direction === 'Next') {
 			// Set form to next
 			let next = +budgetApp.currentCategory + 1;
 			// Check for end of ul
-			if (next > budgetApp.categories.length - 1) {
-				budgetApp.currentCategory = budgetApp.categories.length - 1;
+			if (next > categories.length - 1) {
+				budgetApp.currentCategory = categories.length - 1;
 			} else {
 				budgetApp.currentCategory = next;
 			}

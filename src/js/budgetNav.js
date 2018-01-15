@@ -154,8 +154,8 @@ budgetApp.nav = {
       if(!value) throw `No category name provided.`;
 
       const categoryName = value;
-      const formattedCategoryName = budgetApp.forms.formatName(categoryName);
       const categoryItems = budgetApp.storage.getCategories().length;
+      const formattedCategoryName = budgetApp.forms.formatName(categoryName);
       const newCategoryItem = {
         name      : `${categoryName}`,
         classname : `${formattedCategoryName}`,
@@ -172,6 +172,7 @@ budgetApp.nav = {
 
       budgetApp.nav.createNav();
       budgetApp.nav.updateNavDisplay(categoryItems);
+      budgetApp.input.updateBtns();
 
       swal(`${value} has been added!`);
     })
