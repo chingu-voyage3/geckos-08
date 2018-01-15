@@ -146,154 +146,161 @@ budgetApp.storage = (function(){
     categories = [
       {
         name: 'income',
+        total     : 0,
         icon      : 'fa fa-money',
         inputs: [
           {
             name: 'salary',
-            value: 2300
+            value: 0
           },
           {
             name: 'freelance web dev',
-            value: 550
+            value: 0
           }
         ]
       },
       {
         name: 'housing',
+        total     : 0,
         icon      : 'fa fa-home',
         inputs: [
           {
             name: 'rent',
-            value: 1200
+            value: 0
           },
           {
             name: 'housing insurance',
-            value: 200
+            value: 0
           },
           {
             name: 'housing utilities',
-            value: 365
+            value: 0
           },
           {
             name: 'cable / internet',
-            value: 97
+            value: 0
           },{
             name: 'maintenance',
-            value: 142
+            value: 0
           }
         ]
       },
       {
         name: 'Transportation',
+        total     : 0,
         icon      : 'fa fa-car',
         inputs: [
           {
             name: 'Lease',
-            value: 340
+            value: 0
           },
           {
             name: 'Car Insurance',
-            value: 110
+            value: 0
           },
           {
             name: 'Gas',
-            value: 185
+            value: 0
           },
           {
             name: 'Maintenance',
-            value: 60
+            value: 0
           }
         ]
       },
       {
         name: 'Education',
+        total     : 0,
         icon      : 'fa fa-graduation-cap',
         inputs: [
           {
             name: 'Tuition',
-            value: 1500
+            value: 0
           },
           {
             name: 'Supplies',
-            value: 130
+            value: 0
           },
           {
             name: 'Loans',
-            value: 170
+            value: 0
           }
         ]
       },
       {
         name: 'Loans & Credit Cards',
+        total     : 0,
         icon      : 'fa fa-credit-card-alt',
         inputs: [
           {
             name: 'Loan Payment',
-            value: 120
+            value: 0
           },
           {
             name: 'Visa Payment',
-            value: 75
+            value: 0
           },
           {
             name: 'American Express Payment',
-            value: 40
+            value: 0
           }
         ]
       },
       {
         name: 'Savings & Investments',
+        total     : 0,
         icon      : 'fa fa-bank',
         inputs: [
           {
             name: 'Retirement',
-            value: 50
+            value: 0
           },
           {
             name: 'Emergency',
-            value: 25
+            value: 0
           },
           {
             name: 'Stocks',
-            value: 100
+            value: 0
           },
           {
             name: 'Cryptocurrencies',
-            value: 50
+            value: 0
           }
         ]
       },
       {
         name: 'Miscellaneous',
+        total     : 0,
         icon      : 'fa fa-paperclip',
         inputs: [
           {
             name: 'Clothing',
-            value: 150
+            value: 0
           },
           {
             name: 'Entertainment',
-            value: 45
+            value: 0
           },
           {
             name: 'Travel',
-            value: 200
+            value: 0
           },
           {
             name: 'Personal Care',
-            value: 65
+            value: 0
           },
           {
             name: 'Medical',
-            value: 89
+            value: 0
           },
           {
             name: 'Pet Supplies',
-            value: 23
+            value: 0
           },
           {
             name: 'Pet Food',
-            value: 100
+            value: 0
           }
         ]
       }
