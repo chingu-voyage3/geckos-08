@@ -224,37 +224,8 @@ body {
             border-bottom: 1px solid #888; }
           .content .budget-input sidebar ul li:first-of-type a {
             border-radius: 5px 5px 0 0; }
-          .content .budget-input sidebar ul li:last-of-type {
-            align-items: stretch; }
-            .content .budget-input sidebar ul li:last-of-type form {
-              display: flex;
-              flex-direction: column;
-              justify-content: center;
-              align-items: stretch;
-              flex: 1;
-              padding-left: 1rem;
-              border-radius: 0 0 5px 5px; }
-              .content .budget-input sidebar ul li:last-of-type form i {
-                display: flex;
-                text-shadow: 0 0 5px white; }
-                .content .budget-input sidebar ul li:last-of-type form i:before {
-                  padding-right: 0.5rem;
-                  margin: auto; }
-                .content .budget-input sidebar ul li:last-of-type form i input[type="text"] {
-                  flex: 1;
-                  font-size: 1.25rem;
-                  margin-right: 2rem;
-                  color: green;
-                  background: transparent;
-                  border: none;
-                  border-bottom: 1px solid #529EB7; }
-                  .content .budget-input sidebar ul li:last-of-type form i input[type="text"]:focus {
-                    box-shadow: 0 0 2px 1px black;
-                    outline: none; }
-                  .content .budget-input sidebar ul li:last-of-type form i input[type="text"]::-webkit-input-placeholder {
-                    font-size: 1.25rem;
-                    color: black;
-                    text-shadow: 0 0 5px white; }
+          .content .budget-input sidebar ul li:last-of-type a {
+            border-radius: 0 0 5px 5px; }
           .content .budget-input sidebar ul li a {
             display: flex;
             justify-content: flex-start;
