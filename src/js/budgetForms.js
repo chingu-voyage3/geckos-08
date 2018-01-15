@@ -1,4 +1,4 @@
-// If budgetApp is undefined, assign new objs
+// If budgetApp is undefined, assign new obj
 // else use existing budgetApp obj
 var budgetApp = budgetApp || {};
 
@@ -43,10 +43,10 @@ budgetApp.forms = {
 		input.setAttribute(`name`, obj.name);
 		input.setAttribute(`data-idx`, idx);
 
-		// Update input value to user input
-		if (!Number.isNaN(obj.amt)) {
-			input.setAttribute(`value`, obj.amt);
-		} 
+		// Update input element value to category input value
+		if (!Number.isNaN(obj.value)) {
+			input.setAttribute(`value`, obj.value);
+		}
 
 		// Create trash icon
 		const i = document.createElement(`i`);
