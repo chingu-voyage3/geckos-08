@@ -61,19 +61,6 @@ form {
 						}
 					}
 				}
-
-				input[type="number"] {
-					border-radius: 5px;
-					font-family: monospace;
-					margin-left: 0.25rem;
-					padding-right: 0.25rem;
-
-					&::-webkit-inner-spin-button,
-					&::-webkit-outer-spin-button {
-						-webkit-appearance: none;
-						margin: 0;
-					}
-				}
 			}
 
 			&:last-of-type {
@@ -102,6 +89,19 @@ form {
 
 				.hidden {
 					display: none;
+				}
+			}
+
+			input[type="number"] {
+				border-radius: 5px;
+				font-family: monospace;
+				margin-left: 0.25rem;
+				padding-right: 0.25rem;
+
+				&::-webkit-inner-spin-button,
+				&::-webkit-outer-spin-button {
+					-webkit-appearance: none;
+					margin: 0;
 				}
 			}
 		}

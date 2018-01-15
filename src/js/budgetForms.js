@@ -1,4 +1,4 @@
-// If budgetApp is undefined, assign new objs
+// If budgetApp is undefined, assign new obj
 // else use existing budgetApp obj
 var budgetApp = budgetApp || {};
 
@@ -26,7 +26,7 @@ budgetApp.forms = {
 
 		// Create p element
 		const p = document.createElement(`p`);
-		p.innerText = obj.title;
+		p.innerText = obj.name;
 
 		// Create div element
 		const div = document.createElement(`div`);
@@ -43,10 +43,10 @@ budgetApp.forms = {
 		input.setAttribute(`name`, obj.name);
 		input.setAttribute(`data-idx`, idx);
 
-		// Update input value to user input
-		if (!Number.isNaN(obj.amt)) {
-			input.setAttribute(`value`, obj.amt);
-		} 
+		// Update input element value to category input value
+		if (!Number.isNaN(obj.value)) {
+			input.setAttribute(`value`, obj.value);
+		}
 
 		// Create trash icon
 		const i = document.createElement(`i`);
@@ -87,24 +87,24 @@ budgetApp.forms = {
 		budgetApp.forms.clearForm();
 
 		// Clear add input field
-		budgetApp.forms.clearAddInput();
+		budgetApp.forms.clearInputFields();
 
 		// Get current category index
 		const index = budgetApp.currentCategory;
 
 		// Get category
-		const category = budgetApp.categories[index];
+		const category = budgetApp.storage.getCategoryByIndex(index);
 
 		// Get form name and classes
-		budgetApp.forms.form.setAttribute(`name`, category.form.name);
-		budgetApp.forms.form.className = `${category.form
-			.classlist} active-form`;
+		budgetApp.forms.form.setAttribute(`name`, 'test name');//category.form.name); // FIX uses test name
+		let testClassList = category.name + '-form' + ' ' + category.name; // FIX better solution
+		budgetApp.forms.form.className = `${testClassList} active-form`; // FIX test class list
 
 		// Set fieldset name and form attribute
-		budgetApp.forms.fieldset.setAttribute(`name`, category.classname);
+		budgetApp.forms.fieldset.setAttribute(`name`, category.name);//category.classname); FIX uses temp className
 		budgetApp.forms.fieldset.setAttribute(
 			`form`,
-			`${category.classname}-form`
+			`${category.name}-form` // FIX better than .name? spaces will cause errors?
 		);
 
 		// Set legend name
@@ -130,7 +130,9 @@ budgetApp.forms = {
 	},
 
 	deleteCategoryData(idx) {
-		budgetApp.categories.splice(idx, 1);
+		budgetApp.storage.deleteCategory(idx);
+
+		budgetApp.forms.updateForm();
 	},
 
 	getCategoryIdx(name) {
@@ -172,7 +174,7 @@ budgetApp.forms = {
 				const categoryIdx = budgetApp.forms.getCategoryIdx(name);
 
 				// Delete category data
-				budgetApp.forms.deleteCategoryData(categoryIdx);
+				budgetApp.forms.deleteCategoryData(budgetApp.currentCategory);
 
 				// Delete nav
 				budgetApp.nav.deleteNav();
@@ -227,7 +229,7 @@ budgetApp.forms = {
 		return name;
 	},
 
-	clearAddInput() {
+	clearInputFields() {
 		budgetApp.forms.addItemInput.value = ``;
 	},
 
@@ -238,17 +240,17 @@ budgetApp.forms = {
 		// Don't bubble up `click` event
 		e.stopPropagation();
 
-		// Get input value
-		const inputValue = budgetApp.forms.addItemLabel.querySelector(`input`)
+		// Get input name
+		const inputName = budgetApp.forms.addItemLabel.querySelector(`input`)
 			.value;
 
-		// Exit if no value
-		if (inputValue.length == 0) {
+		// Exit if no name value
+		if (inputName.length == 0) {
 			return;
 		}
 
 		// Get current category
-		const category = budgetApp.categories[budgetApp.currentCategory];
+		const category = budgetApp.storage.getCategoryByIndex(budgetApp.currentCategory || 0);
 
 		// Exit if inputs >= 10
 		if (category.inputs.length >= 10) {
@@ -257,21 +259,36 @@ budgetApp.forms = {
 		}
 
 		// Create name value
-		const name = budgetApp.forms.formatName(inputValue);
+		const name = budgetApp.forms.formatName(inputName);
 
 		// Create new input obj
 		const input = {
 			name  : `${category.classname}-${name}`,
-			title : `${inputValue}`,
+			title : `${inputName}`,
 		};
 
-		// Add input obj category inputs
-		category.inputs.push(input);
+		// store new input
+		budgetApp.storage.addInput(budgetApp.currentCategory, inputName);
 
 		// Update form
 		budgetApp.forms.updateForm();
 
-		// Clear input field
-		budgetApp.forms.clearAddInput();
+		// Clear input fields
+		budgetApp.forms.clearInputFields();
 	},
+
+  /*
+	trashIconHandler(e) {
+		// Prevent submit refresh
+		e.preventDefault();
+
+		// Don't bubble up `click` event
+		e.stopPropagation();
+
+		if (e.target.className.includes('trash')) {
+			let index = e.target.previousSibling.getAttribute('data-idx');
+			budgetApp.storage.deleteInput(budgetApp.currentCategory, index);
+		}
+	}
+  */
 };

@@ -15,13 +15,14 @@ budgetApp.listeners = {
 	updateNav       : budgetApp.nav.updateNav,
 	addNavCategory  : budgetApp.nav.addNavCategory,
 	addItem         : budgetApp.forms.addItemHandler,
+//	trashIcon 			: budgetApp.forms.trashIconHandler,
 	btnHandler      : budgetApp.input.btnHandler,
 	validateInput   : budgetApp.input.validateInput,
 	drawDisplayList : budgetApp.dataDisplayList.draw,
 	deleteCategory  : budgetApp.forms.deleteCategoryHandler,
 	deleteInput     : budgetApp.input.deleteInputHandler,
 	drawChart       : budgetApp.chartManager.draw,
-	changeCurrency  : budgetApp.nav.changeCurrency,
+	changeCurrency  : budgetApp.nav.changeCurrency
 };
 
 (budgetApp.init = (listeners) => {
@@ -61,8 +62,12 @@ budgetApp.listeners = {
 		listeners.deleteCategory
 	);
 
+	// Register storage listeners
+	budgetApp.storage.addListener('chart', budgetApp.chartManager.draw)
+	budgetApp.storage.addListener('display list', budgetApp.dataDisplayList.draw)
+
 	// Register trash icon listener
-	budgetApp.forms.fieldset.addEventListener(`click`, listeners.trashIcon);
+//	budgetApp.forms.fieldset.addEventListener(`click`, listeners.trashIcon);
 
 	// Delegating event to fieldset for new inputs
 	budgetApp.forms.fieldset.addEventListener(`click`, listeners.deleteInput);
@@ -79,17 +84,10 @@ budgetApp.listeners = {
 		`change`,
 		listeners.changeCurrency
 	);
+
+	budgetApp.storage.init();
 }),
 	(budgetApp.onReady = () => {
-		// Create nav
-		budgetApp.nav.createNav();
-
-		// Update form to show first nav category
-		budgetApp.forms.updateForm(0);
-
-		// Draw initial chart
-		budgetApp.chartManager.draw();
-
 		// Initialize listeners
 		budgetApp.init(budgetApp.listeners);
 	});

@@ -14,18 +14,7 @@ budgetApp.barChart = {
 		const padding = 24;
 		let barWidth = 25;
 		let dataLength = data.length;
-		let colours = [
-			'#88d8b0',
-			'#ffcc5c',
-			'#ff6f69',
-			'#ffeead',
-			'#96ceb4',
-			'#e1f7d5',
-			'#ffbdbd',
-			'#c9c9ff',
-			'#ffffff',
-			'#f1cbff',
-		];
+		let colors = budgetApp.storage.getcolors();
 
 		// append svg to chart container
 		const svg = d3
@@ -82,7 +71,7 @@ budgetApp.barChart = {
 			)
 			.attr('width', barWidth)
 			.attr('height', (data) => data * barHeightMultiplier)
-			.style('fill', (data, index) => colours[index])
+			.style('fill', (data, index) => colors[index])
 			.style('stroke-width', 1)
 			.style('stroke', 'rgba(0, 76, 0, 0.5)');
 
