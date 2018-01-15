@@ -231,7 +231,6 @@ budgetApp.forms = {
 
 	clearInputFields() {
 		budgetApp.forms.addItemInput.value = ``;
-		document.querySelector('#add-item-value').value = ``;
 	},
 
 	addItemHandler(e) {
@@ -244,9 +243,6 @@ budgetApp.forms = {
 		// Get input name
 		const inputName = budgetApp.forms.addItemLabel.querySelector(`input`)
 			.value;
-
-		// Get input Value
-		const inputValue = document.querySelector('#add-item-value').value;
 
 		// Exit if no name value
 		if (inputName.length == 0) {
