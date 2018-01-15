@@ -171,9 +171,6 @@ budgetApp.nav = {
 
       swal(`${value} has been added!`);
     });
-
-		budgetApp.nav.addCategoryForm.blur();
-		budgetApp.nav.addCategoryForm.reset();
 	},
 
 	changeCurrency(e) {
