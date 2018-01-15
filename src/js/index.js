@@ -30,9 +30,9 @@ budgetApp.listeners = {
 	budgetApp.nav.ul.addEventListener(`click`, listeners.updateNav);
 
 	// Add navigation category
-	budgetApp.nav.addCategoryForm.addEventListener(
-		`submit`,
-		budgetApp.nav.addNavCategory
+	budgetApp.nav.addCategoryLink.addEventListener(
+		`click`,
+		listeners.addNavCategory
 	);
 
 	// Register button listener

@@ -7,11 +7,7 @@ var budgetApp = budgetApp || {};
 budgetApp.nav = {
 	ul               : document.querySelector(`.budget-nav`),
 
-	addCategoryForm  : document.querySelector(`form[name="add-category"]`),
-
-	addCategoryInput : document.querySelector(
-		`form[name="add-category"] input[type="text"]`
-	),
+  addCategoryLink  : document.querySelector(`.budget-nav-add-item a`),
 
 	currencyDropdown : document.querySelector(`select`),
 
@@ -144,26 +140,37 @@ budgetApp.nav = {
 	},
 
 	addNavCategory() {
-		const categoryName = budgetApp.nav.addCategoryInput.value;
-		const formattedCategoryName = budgetApp.forms.formatName(categoryName);
-		const categoryItems = budgetApp.storage.getCategories().length;
-		const newCategoryItem = {
-			name      : `${categoryName}`,
-			classname : `${formattedCategoryName}`,
-			icon      : 'fa fa-money',
-			form      : {
-				name      : `${formattedCategoryName}-form`,
-				classlist : `${formattedCategoryName}-form ${formattedCategoryName}`,
-				trashicon : 'fa fa-trash',
-			},
-			inputs    : [],
-		};
 
-		// budgetApp.categories.splice(categoryItems - 1, 0, newCategoryItem);
-		budgetApp.storage.addCategory(newCategoryItem);
+    swal({
+      title: "Enter Your Category Name:",
+      content: "input",
+      buttons: true,
+    })
+    .then((value) => {
+      if(!value) throw null;
 
-		budgetApp.nav.createNav();
-		budgetApp.nav.updateNavDisplay(categoryItems);
+      const categoryName = value;
+      const formattedCategoryName = budgetApp.forms.formatName(categoryName);
+      const categoryItems = budgetApp.storage.getCategories().length;
+      const newCategoryItem = {
+        name      : `${categoryName}`,
+        classname : `${formattedCategoryName}`,
+        icon      : 'fa fa-money',
+        form      : {
+          name      : `${formattedCategoryName}-form`,
+          classlist : `${formattedCategoryName}-form ${formattedCategoryName}`,
+          trashicon : 'fa fa-trash',
+        },
+        inputs    : [],
+      };
+
+      budgetApp.storage.addCategory(newCategoryItem);
+
+      budgetApp.nav.createNav();
+      budgetApp.nav.updateNavDisplay(categoryItems);
+
+      swal(`${value} has been added!`);
+    });
 
 		budgetApp.nav.addCategoryForm.blur();
 		budgetApp.nav.addCategoryForm.reset();
