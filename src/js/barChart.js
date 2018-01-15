@@ -26,12 +26,16 @@ budgetApp.barChart = {
 			.style('border-radius', '5px')
 			.style('margin', '12px');
 
-		// returns a multiplier used to scale bars to fit chart perfectly regardless
-		// of the size of data values
+		// returns a multiplier used to scale bars based on data values
 		function calculateBarHeightMultiplier(data) {
 			let maxData = d3.max(data); // returns obj with highest val
+			let multiplier = (chartHeight - padding) / maxData;
 
-			return (chartHeight - padding) / maxData;
+			if (isNaN(multiplier) || multiplier === Infinity) {
+				return 0;
+			} else {
+				return multiplier;
+			}
 		}
 
 		let barHeightMultiplier = calculateBarHeightMultiplier(data);
