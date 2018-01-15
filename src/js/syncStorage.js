@@ -60,10 +60,10 @@ budgetApp.storage = (function(){
     syncCategories();
   }
 
-  function addInput(categoryIndex, name, value) {
+  function addInput(categoryIndex, name) {
     categories[categoryIndex].inputs.push({
       name,
-      value
+      0
     });
 
     callListeners();

@@ -272,7 +272,7 @@ budgetApp.forms = {
 		};
 
 		// store new input
-		budgetApp.storage.addInput(budgetApp.currentCategory, inputName, inputValue);
+		budgetApp.storage.addInput(budgetApp.currentCategory, inputName);
 
 		// Update form
 		budgetApp.forms.updateForm();
