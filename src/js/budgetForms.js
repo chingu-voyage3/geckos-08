@@ -43,9 +43,13 @@ budgetApp.forms = {
 		input.setAttribute(`name`, obj.name);
 		input.setAttribute(`data-idx`, idx);
 
-		// Update input element value to category input value
+		// Update input element value to category input value or nothing if 0
 		if (!Number.isNaN(obj.value)) {
-			input.setAttribute(`value`, obj.value);
+			if (obj.value === 0) {
+				input.setAttribute(`value`, '');
+			} else {
+				input.setAttribute(`value`, obj.value);
+			}
 		}
 
 		// Create trash icon
