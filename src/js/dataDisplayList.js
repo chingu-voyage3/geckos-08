@@ -2,7 +2,7 @@ budgetApp.dataDisplayList = (function() {
 	let colors = budgetApp.storage.getcolors();
 	let dataDisplayList = document.getElementById('data-display-list');
 	let currencySign = '$';
-  // TODO: getting an error, possibly scope related?
+	// TODO: getting an error, possibly scope related?
 	//let currencySign = `${budgetApp.currencies[budgetApp.currency]}`;
 	let data = null;
 
@@ -43,7 +43,7 @@ budgetApp.dataDisplayList = (function() {
 			let percentageDisplay = document.createElement('span');
 			percentageDisplay.classList.add('percentage-display');
 			percentageDisplay.textContent =
-				(dataPercentages[index] * 100).toFixed(0) + '%';
+				((dataPercentages[index] || 0) * 100).toFixed(0) + '%';
 			listItem.append(percentageDisplay);
 
 			// color circle
