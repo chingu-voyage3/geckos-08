@@ -32,7 +32,13 @@ budgetApp.nav = {
 
 		// Create icon element
 		const i = document.createElement(`i`);
-		i.className = category.icon;
+
+		// use icon if category has it or default to money
+		if (category.icon) {
+			i.className = category.icon;
+		} else {
+			i.className = 'fa fa-money';
+		}
 		i.setAttribute(`aria-hidden`, `true`);
 		i.innerText = category.name;
 
@@ -53,7 +59,7 @@ budgetApp.nav = {
 		});
 
 		// Iterate through categories
-		budgetApp.categories.forEach((category, idx) => {
+		budgetApp.storage.getCategories().forEach((category, idx) => {
 			// Create new li element for category
 			const newLi = budgetApp.nav.createCategory(category, idx);
 
@@ -136,11 +142,11 @@ budgetApp.nav = {
 	addNavCategory() {
 		const categoryName = budgetApp.nav.addCategoryInput.value;
 		const formattedCategoryName = budgetApp.forms.formatName(categoryName);
-		const categoryItems = budgetApp.categories.length;
+		const categoryItems = budgetApp.storage.getCategories().length;
 		const newCategoryItem = {
 			name      : `${categoryName}`,
 			classname : `${formattedCategoryName}`,
-			icon      : 'fa fa-th',
+			icon      : 'fa fa-money',
 			form      : {
 				name      : `${formattedCategoryName}-form`,
 				classlist : `${formattedCategoryName}-form ${formattedCategoryName}`,
@@ -149,10 +155,10 @@ budgetApp.nav = {
 			inputs    : [],
 		};
 
-		budgetApp.categories.splice(categoryItems - 1, 0, newCategoryItem);
+		budgetApp.storage.addCategory(newCategoryItem);
 
 		budgetApp.nav.createNav();
-		budgetApp.nav.updateNavDisplay(categoryItems - 1);
+		budgetApp.nav.updateNavDisplay(categoryItems);
 
 		budgetApp.nav.addCategoryForm.blur();
 		budgetApp.nav.addCategoryForm.reset();

@@ -56,7 +56,7 @@ budgetApp.input = {
 			// If at last category before `Add Category`
 		} else if (
 			budgetApp.currentCategory ===
-			budgetApp.categories.length - 1
+			budgetApp.storage.getCategories().length
 		) {
 			// Hide next btn
 			document.querySelector(`.next`).classList.add(`hidden`);
@@ -136,7 +136,7 @@ budgetApp.input = {
 			return;
 		}
 		// Get input idx
-		const inputIdx = budgetApp.input.getInputIdx(
+		const index  = budgetApp.input.getInputIdx(
 			// Previous sibling of trash icon is input element
 			e.target.previousElementSibling
 		);
@@ -145,7 +145,7 @@ budgetApp.input = {
 		const name = e.target.closest('fieldset').getAttribute('name');
 
 		// Delete input data
-		budgetApp.input.deleteInputData(name, inputIdx);
+		budgetApp.storage.deleteInput(budgetApp.currentCategory, index);
 
 		// Clear form
 		budgetApp.forms.clearForm();

@@ -14,18 +14,7 @@ budgetApp.barChart = {
 		const padding = 24;
 		let barWidth = 25;
 		let dataLength = data.length;
-		let colours = [
-			'#88d8b0',
-			'#ffcc5c',
-			'#ff6f69',
-			'#ffeead',
-			'#96ceb4',
-			'#e1f7d5',
-			'#ffbdbd',
-			'#c9c9ff',
-			'#ffffff',
-			'#f1cbff',
-		];
+		let colors = budgetApp.storage.getcolors();
 
 		// append svg to chart container
 		const svg = d3
@@ -37,12 +26,16 @@ budgetApp.barChart = {
 			.style('border-radius', '5px')
 			.style('margin', '12px');
 
-		// returns a multiplier used to scale bars to fit chart perfectly regardless
-		// of the size of data values
+		// returns a multiplier used to scale bars based on data values
 		function calculateBarHeightMultiplier(data) {
 			let maxData = d3.max(data); // returns obj with highest val
+			let multiplier = (chartHeight - padding) / maxData;
 
-			return (chartHeight - padding) / maxData;
+			if (isNaN(multiplier) || multiplier === Infinity) {
+				return 0;
+			} else {
+				return multiplier;
+			}
 		}
 
 		let barHeightMultiplier = calculateBarHeightMultiplier(data);
@@ -82,7 +75,7 @@ budgetApp.barChart = {
 			)
 			.attr('width', barWidth)
 			.attr('height', (data) => data * barHeightMultiplier)
-			.style('fill', (data, index) => colours[index])
+			.style('fill', (data, index) => colors[index])
 			.style('stroke-width', 1)
 			.style('stroke', 'rgba(0, 76, 0, 0.5)');
 

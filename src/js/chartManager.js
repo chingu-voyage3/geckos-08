@@ -24,11 +24,16 @@ budgetApp.chartManager = {
 		const charts = [`bar`, `pie`];
 
 		// data is array of values
-		let data = budgetApp.dataManager
-			.getCategory(budgetApp.currentCategory || 0)
-			.subcategories.map((category) => {
-				return category.value;
-			});
+		// let data = budgetApp.dataManager
+		// 	.getCategory(budgetApp.currentCategory || 0)
+		// 	.subcategories.map((category) => {
+		// 		return category.value;
+		// 	});
+
+		let data = budgetApp.storage.getCategoryByIndex(budgetApp.currentCategory || 0).inputs;
+		let values = data.map((input) => {
+			return input.value;
+		});
 
 		budgetApp.chartManager.clearSvg();
 
@@ -45,7 +50,7 @@ budgetApp.chartManager = {
 		let current = budgetApp.chartManager.activeChart;
 
 		// draw chart
-		budgetApp[`${current}Chart`].draw(data);
+		budgetApp[`${current}Chart`].draw(values);
 	},
 
 	setChart(name) {
