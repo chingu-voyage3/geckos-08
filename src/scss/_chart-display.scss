@@ -18,6 +18,10 @@
 
 		button {
 			margin: 0 0.75rem;
+
+      &:hover {
+        cursor: pointer;
+      }
 		}
 	}
 
@@ -32,6 +36,7 @@
 			flex: 1;
 
 			border: none;
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
 			padding: 0.3rem 0.6rem;
 			font-size: 1rem;
 			color: white;

@@ -145,42 +145,42 @@ budgetApp.storage = (function(){
   function writeInitialCategories() {
     categories = [
       {
-        name: 'income',
+       name: 'Income',
         total     : 0,
         icon      : 'fa fa-money',
         inputs: [
           {
-            name: 'salary',
+            name: 'Salary',
             value: 0
           },
           {
-            name: 'freelance web dev',
+            name: 'Freelance web dev',
             value: 0
           }
         ]
       },
       {
-        name: 'housing',
+        name: 'Housing',
         total     : 0,
         icon      : 'fa fa-home',
         inputs: [
           {
-            name: 'rent',
+            name: 'Rent',
             value: 0
           },
           {
-            name: 'housing insurance',
+            name: 'Housing Insurance',
             value: 0
           },
           {
-            name: 'housing utilities',
+            name: 'Housing Utilities',
             value: 0
           },
           {
-            name: 'cable / internet',
+            name: 'Cable / Internet',
             value: 0
           },{
-            name: 'maintenance',
+            name: 'Maintenance',
             value: 0
           }
         ]
