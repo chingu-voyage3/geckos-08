@@ -139,18 +139,6 @@ budgetApp.forms = {
 		budgetApp.forms.updateForm();
 	},
 
-	getCategoryIdx(name) {
-		let categoryIdx = 0;
-
-		budgetApp.categories.forEach((category, idx) => {
-			if (category.classname === name) {
-				categoryIdx = idx;
-			}
-		});
-
-		return categoryIdx;
-	},
-
 	triggerPrevBtn() {
 		budgetApp.input.buttons[0].click();
 	},
@@ -173,9 +161,6 @@ budgetApp.forms = {
 			if (willDelete) {
 				// Get name of category
 				const name = e.target.closest('fieldset').getAttribute('name');
-
-				// Get category index
-				const categoryIdx = budgetApp.forms.getCategoryIdx(name);
 
 				// Delete category data
 				budgetApp.forms.deleteCategoryData(budgetApp.currentCategory);
