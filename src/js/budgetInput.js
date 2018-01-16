@@ -47,7 +47,7 @@ budgetApp.input = {
 	},
 
 	updateBtns() {
-    let categories = budgetApp.storage.getCategories();
+		let categories = budgetApp.storage.getCategories();
 		// If at first category
 		if (budgetApp.currentCategory === 0) {
 			// Hide previous btn
@@ -55,9 +55,7 @@ budgetApp.input = {
 			// Show next btn
 			document.querySelector(`.next`).classList.remove(`hidden`);
 			// If at last category before `Add Category`
-		} else if (
-			budgetApp.currentCategory ===	categories.length - 1
-		) {
+		} else if (budgetApp.currentCategory === categories.length - 1) {
 			// Hide next btn
 			document.querySelector(`.next`).classList.add(`hidden`);
 
@@ -84,7 +82,7 @@ budgetApp.input = {
 		// Check if next or previous
 		const direction = budgetApp.input.btnCheck(btn);
 
-    let categories = budgetApp.storage.getCategories();
+		let categories = budgetApp.storage.getCategories();
 
 		if (direction === 'Next') {
 			// Set form to next
@@ -138,7 +136,7 @@ budgetApp.input = {
 			return;
 		}
 		// Get input idx
-		const index  = budgetApp.input.getInputIdx(
+		const index = budgetApp.input.getInputIdx(
 			// Previous sibling of trash icon is input element
 			e.target.previousElementSibling
 		);

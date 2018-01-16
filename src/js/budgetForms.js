@@ -100,12 +100,12 @@ budgetApp.forms = {
 		const category = budgetApp.storage.getCategoryByIndex(index);
 
 		// Get form name and classes
-		budgetApp.forms.form.setAttribute(`name`, 'test name');//category.form.name); // FIX uses test name
+		budgetApp.forms.form.setAttribute(`name`, 'test name'); //category.form.name); // FIX uses test name
 		let testClassList = category.name + '-form' + ' ' + category.name; // FIX better solution
 		budgetApp.forms.form.className = `${testClassList} active-form`; // FIX test class list
 
 		// Set fieldset name and form attribute
-		budgetApp.forms.fieldset.setAttribute(`name`, category.name);//category.classname); FIX uses temp className
+		budgetApp.forms.fieldset.setAttribute(`name`, category.name); //category.classname); FIX uses temp className
 		budgetApp.forms.fieldset.setAttribute(
 			`form`,
 			`${category.name}-form` // FIX better than .name? spaces will cause errors?
@@ -182,7 +182,6 @@ budgetApp.forms = {
 				swal('Your category is safe!');
 			}
 		});
-
 	},
 
 	maxAlert() {
@@ -239,7 +238,9 @@ budgetApp.forms = {
 		}
 
 		// Get current category
-		const category = budgetApp.storage.getCategoryByIndex(budgetApp.currentCategory || 0);
+		const category = budgetApp.storage.getCategoryByIndex(
+			budgetApp.currentCategory || 0
+		);
 
 		// Exit if inputs >= 10
 		if (category.inputs.length >= 10) {
@@ -266,7 +267,7 @@ budgetApp.forms = {
 		budgetApp.forms.clearInputFields();
 	},
 
-  /*
+	/*
 	trashIconHandler(e) {
 		// Prevent submit refresh
 		e.preventDefault();

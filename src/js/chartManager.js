@@ -30,7 +30,9 @@ budgetApp.chartManager = {
 		// 		return category.value;
 		// 	});
 
-		let data = budgetApp.storage.getCategoryByIndex(budgetApp.currentCategory || 0).inputs;
+		let data = budgetApp.storage.getCategoryByIndex(
+			budgetApp.currentCategory || 0
+		).inputs;
 		let values = data.map((input) => {
 			return input.value;
 		});

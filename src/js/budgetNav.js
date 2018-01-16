@@ -7,7 +7,7 @@ var budgetApp = budgetApp || {};
 budgetApp.nav = {
 	ul               : document.querySelector(`.budget-nav`),
 
-  addCategoryLink  : document.querySelector(`.budget-nav-add-item a`),
+	addCategoryLink  : document.querySelector(`.budget-nav-add-item a`),
 
 	currencyDropdown : document.querySelector(`select`),
 
@@ -37,12 +37,12 @@ budgetApp.nav = {
 		}
 		i.setAttribute(`aria-hidden`, `true`);
 
-    // Create span element
-    const span = document.createElement(`span`);
-    span.innerText = category.name;
+		// Create span element
+		const span = document.createElement(`span`);
+		span.innerText = category.name;
 
 		a.appendChild(i);
-    a.appendChild(span);
+		a.appendChild(span);
 		li.appendChild(a);
 
 		return li;
@@ -85,10 +85,10 @@ budgetApp.nav = {
 		// Get new category idx
 		const newIdx = e.target.closest(`li`).getAttribute(`data-idx`);
 
-    // If target was .budget-nav-add-item, exit
-    if( newIdx === "-1" ) {
-      return;
-    }
+		// If target was .budget-nav-add-item, exit
+		if (newIdx === '-1') {
+			return;
+		}
 
 		// Get old category idx
 		const oldIdx = +budgetApp.currentCategory;
@@ -145,44 +145,46 @@ budgetApp.nav = {
 	},
 
 	addNavCategory(e) {
-    swal({
-      title: "Enter Your Category Name:",
-      content: "input",
-      buttons: true,
-    })
-    .then((value) => {
-      if(!value) throw `No category name provided.`;
+		swal({
+			title   : 'Enter Your Category Name:',
+			content : 'input',
+			buttons : true,
+		})
+			.then((value) => {
+				if (!value) throw `No category name provided.`;
 
-      const categoryName = value;
-      const categoryItems = budgetApp.storage.getCategories().length;
-      const formattedCategoryName = budgetApp.forms.formatName(categoryName);
-      const newCategoryItem = {
-        name      : `${categoryName}`,
-        classname : `${formattedCategoryName}`,
-        icon      : 'fa fa-money',
-        form      : {
-          name      : `${formattedCategoryName}-form`,
-          classlist : `${formattedCategoryName}-form ${formattedCategoryName}`,
-          trashicon : 'fa fa-trash',
-        },
-        inputs    : [],
-      };
+				const categoryName = value;
+				const categoryItems = budgetApp.storage.getCategories().length;
+				const formattedCategoryName = budgetApp.forms.formatName(
+					categoryName
+				);
+				const newCategoryItem = {
+					name      : `${categoryName}`,
+					classname : `${formattedCategoryName}`,
+					icon      : 'fa fa-money',
+					form      : {
+						name      : `${formattedCategoryName}-form`,
+						classlist : `${formattedCategoryName}-form ${formattedCategoryName}`,
+						trashicon : 'fa fa-trash',
+					},
+					inputs    : [],
+				};
 
-      budgetApp.storage.addCategory(newCategoryItem);
+				budgetApp.storage.addCategory(newCategoryItem);
 
-      budgetApp.nav.createNav();
-      budgetApp.nav.updateNavDisplay(categoryItems);
-      budgetApp.input.updateBtns();
+				budgetApp.nav.createNav();
+				budgetApp.nav.updateNavDisplay(categoryItems);
+				budgetApp.input.updateBtns();
 
-			swal({
-        text: `${value} has been added!`,
-        icon: 'success'
-      });
-    })
-    .catch(err => {
-      console.error(err);
-    });
-  },
+				swal({
+					text : `${value} has been added!`,
+					icon : 'success',
+				});
+			})
+			.catch((err) => {
+				console.error(err);
+			});
+	},
 
 	changeCurrency(e) {
 		// Get select value
