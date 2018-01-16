@@ -174,7 +174,10 @@ budgetApp.nav = {
       budgetApp.nav.updateNavDisplay(categoryItems);
       budgetApp.input.updateBtns();
 
-      swal(`${value} has been added!`);
+			swal({
+        text: `${value} has been added!`,
+        icon: 'success'
+      });
     })
     .catch(err => {
       console.error(err);
