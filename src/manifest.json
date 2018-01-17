@@ -4,11 +4,11 @@
 
 	// Required
 	"manifest_version": 2,
-	"name": "My Extension",
+	"name": "Budget Buddy",
 	"version": "1.0",
 
 	// Recommended
-	"description": "A plain text description",
+	"description": "A budget/finance app where you can add expense categories & individual expenses and see them rendered on a graph",
 	"icons": {
 		"16": "assets/images/icon16.png",
 		"24": "assets/images/icon48.png",
@@ -22,7 +22,7 @@
 			"24": "assets/images/icon48.png",	 // optional
 			"32": "assets/images/icon128.png"	// optional
 		},
-		"default_title": "Finance App"	// optional; shown in tooltip
+		"default_title": "Budget Buddy"	// optional; shown in tooltip
 		},
 
 	// Optional
@@ -37,7 +37,7 @@
 	"externally_connectable": {
 		"matches": ["*://*.example.com/*"]
 	},
-	"homepage_url": "http://path/to/homepage",
+	"homepage_url": "https://github.com/chingu-voyage3/geckos-08#readme",
 	"incognito": "split",
 	"offline_enabled": true,
 	"optional_permissions": ["tabs"],
@@ -47,5 +47,5 @@
 		"page": "options.html"
 	},
 	"permissions": ["background", "storage", "tabs", "http://*.google.com/", "https://*.google.com/"],
-	"short_name": "Short Name"
+	"short_name": "Budget Buddy"
 }
