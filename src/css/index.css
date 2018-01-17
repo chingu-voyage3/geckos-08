@@ -12,7 +12,8 @@ form fieldset {
     color: #fdfdfd;
     font: bold 1.5rem 'Lato', sans-serif;
     text-align: center;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); }
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+    white-space: nowrap; }
   form fieldset label div {
     display: flex;
     flex-direction: column;
