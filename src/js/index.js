@@ -57,7 +57,7 @@ budgetApp.listeners = {
 	budgetApp.forms.addItemBtn.addEventListener(`click`, listeners.addItem);
 
 	// Register delete link listener
-	budgetApp.forms.deleteLink.addEventListener(
+	budgetApp.forms.deleteButton.addEventListener(
 		`click`,
 		listeners.deleteCategory
 	);

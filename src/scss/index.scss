@@ -98,14 +98,13 @@ body {
 
 					&:first-of-type {
 						a {
-							border-radius: 5px 5px 0 0;
+							border-radius: 3px 3px 0 0;
 						}
 					}
 
 					&:last-of-type {
-						//	align-items: stretch;
 						a {
-							border-radius: 0 0 5px 5px;
+							border-radius: 0 0 3px 3px;
 						}
 					}
 

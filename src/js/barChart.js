@@ -23,7 +23,7 @@ budgetApp.barChart = {
 			.attr('width', chartWidth)
 			.attr('height', chartHeight)
 			.style('background', 'rgba(0, 0, 0, 0.4)')
-			.style('border-radius', '5px')
+			.style('border-radius', '3px')
 			.style('margin', '12px');
 
 		// returns a multiplier used to scale bars based on data values

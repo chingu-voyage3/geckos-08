@@ -9,7 +9,7 @@ budgetApp.forms = {
 
 	fieldset              : document.querySelector(`.fieldset`),
 
-	deleteLink            : document.querySelector(`.delete-category`),
+	deleteButton          : document.querySelector(`.delete-category`),
 
 	addItemLabel          : document.querySelector(`label[for='add-item']`),
 
