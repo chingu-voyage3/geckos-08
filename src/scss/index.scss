@@ -18,9 +18,10 @@ body {
 }
 
 html {
-	background: url(https://i1.wp.com/www.lowpolygonart.com/wp-content/uploads/2017/12/Sky-500-Vertices.jpeg) 	no-repeat center center fixed;
+	background: url(https://i1.wp.com/www.lowpolygonart.com/wp-content/uploads/2017/12/Sky-500-Vertices.jpeg)
+		no-repeat center center fixed;
 	background-size: cover;
- }
+}
 
 body {
 	display: grid;
@@ -32,10 +33,10 @@ body {
 	grid-area: 1 / 1 / 2 / -1;
 
 	h1 {
-    color: #fdfdfd;
+		color: #fdfdfd;
 		font-size: 2.5rem;
 		text-align: center;
-    margin-left: -10%;
+		margin-left: -10%;
 		//-webkit-background-clip: text;
 		//-webkit-text-fill-color: transparent;
 		text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
@@ -102,10 +103,10 @@ body {
 					}
 
 					&:last-of-type {
-					//	align-items: stretch;
-            a {
-              border-radius: 0 0 5px 5px;
-            }
+						//	align-items: stretch;
+						a {
+							border-radius: 0 0 5px 5px;
+						}
 					}
 
 					a {
@@ -120,48 +121,70 @@ body {
 						transition: .3s background-color;
 
 						> i {
-              padding-right: 1rem;
-              width: 2.5rem;
-					  	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);;
-					  }
+							padding-right: 1rem;
+							width: 2.5rem;
+							text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+						}
 
 						&.active-link {
-              // Chrome 10-25
-              background: -webkit-linear-gradient(top, rgba(240,249,255,0.7) 0%,rgba(124,192,247,0.7) 51%,rgba(161,219,255,0.7) 100%);
-              // Chrome 26+
-              background: linear-gradient(to bottom, rgba(240,249,255,0.7) 0%,rgba(124,192,247,0.7) 51%,rgba(161,219,255,0.7) 100%);
-              color: #fdfdfd;
+							// Chrome 10-25
+							background: -webkit-linear-gradient(
+								top,
+								rgba(240, 249, 255, 0.7) 0%,
+								rgba(124, 192, 247, 0.7) 51%,
+								rgba(161, 219, 255, 0.7) 100%
+							);
+							// Chrome 26+
+							background: linear-gradient(
+								to bottom,
+								rgba(240, 249, 255, 0.7) 0%,
+								rgba(124, 192, 247, 0.7) 51%,
+								rgba(161, 219, 255, 0.7) 100%
+							);
+							color: #fdfdfd;
 							cursor: default;
-              text-shadow: 1px 1px 2px rgba(0, 0, 0, .7);
+							text-shadow: 1px 1px 2px rgba(0, 0, 0, .7);
 						}
 
 						&:not(.active-link) {
-              //  Chrome 26+
-              background: linear-gradient(to bottom, rgba(255,255,255,0.7) 0%,rgba(246,246,246,0.7) 47%,rgba(237,237,237,0.7) 100%); 
-              color: #434343;
-              text-shadow: 1px 1px 2px rgba(255, 255, 255, 1.0);
-  					}
+							//  Chrome 26+
+							background: linear-gradient(
+								to bottom,
+								rgba(255, 255, 255, 0.7) 0%,
+								rgba(246, 246, 246, 0.7) 47%,
+								rgba(237, 237, 237, 0.7) 100%
+							);
+							color: #434343;
+							text-shadow: 1px 1px 2px rgba(255, 255, 255, 1.0);
+						}
 
 						&:hover:not(.active-link) {
-            // Chrome 10-25
-            background: -webkit-linear-gradient(top, rgba(242,249,254,0.7) 0%,rgba(214,240,253,0.7) 100%);
-            // Chrome 26+
-            background: linear-gradient(to bottom, rgba(242,249,254,0.7) 0%,rgba(214,240,253,0.7) 100%);
+							// Chrome 10-25
+							background: -webkit-linear-gradient(
+								top,
+								rgba(242, 249, 254, 0.7) 0%,
+								rgba(214, 240, 253, 0.7) 100%
+							);
+							// Chrome 26+
+							background: linear-gradient(
+								to bottom,
+								rgba(242, 249, 254, 0.7) 0%,
+								rgba(214, 240, 253, 0.7) 100%
+							);
 						}
 					}
 				}
 			}
 
 			select {
-				margin-top: 0.5rem;
-        opacity: 0.8;
+				height: 2rem;
+				margin-bottom: 0.5rem;
+				padding-left: 0.75rem;
+				border-radius: 3px;
+				opacity: 0.8;
 			}
 		}
 	}
-
-	// .budget-display {
-	// 	grid-area: 1 / 2 / -1 / -1;
-	// }
 }
 
 .main-footer {
