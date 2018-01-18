@@ -4,7 +4,7 @@
 
 	// Required
 	"manifest_version": 2,
-	"name": "Budget Buddy",
+	"name": "Budget Board",
 	"version": "1.0",
 
 	// Recommended
@@ -22,7 +22,7 @@
 			"24": "assets/images/icon48.png",	 // optional
 			"32": "assets/images/icon128.png"	// optional
 		},
-		"default_title": "Budget Buddy"	// optional; shown in tooltip
+		"default_title": "Budget Board"	// optional; shown in tooltip
 		},
 
 	// Optional
@@ -47,5 +47,5 @@
 		"page": "options.html"
 	},
 	"permissions": ["background", "storage", "tabs", "http://*.google.com/", "https://*.google.com/"],
-	"short_name": "Budget Buddy"
+	"short_name": "Budget Board"
 }
