@@ -1,5 +1,4 @@
 'use strict';
-
 var budgetApp = budgetApp || {};
 
 budgetApp.storage = (function() {
@@ -8,6 +7,7 @@ budgetApp.storage = (function() {
 	let listeners = [];
 
 	function init() {
+		budgetApp.currentCategory = 0;
 		chrome.storage.sync.get('alreadyInitialized', (items) => {
 			if (items.alreadyInitialized === true) {
 				pullCategories([
@@ -123,7 +123,7 @@ budgetApp.storage = (function() {
 	}
 
 	/* takes optional callbacks I used to create nav and update form
-  once categories are finished loading */
+	once categories are finished loading */
 	// loads categories from chrome storage
 	function pullCategories(callbacks) {
 		chrome.storage.sync.get('categories', (item) => {

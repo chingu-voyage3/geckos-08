@@ -11,6 +11,8 @@ budgetApp.forms = {
 
 	deleteButton          : document.querySelector(`.delete-category`),
 
+	defaultButton         : document.querySelector(`.reset-default`),
+
 	addItemLabel          : document.querySelector(`label[for='add-item']`),
 
 	addItemInput          : document.querySelector(`input.add-item`),
@@ -184,6 +186,38 @@ budgetApp.forms = {
 		});
 	},
 
+	resetToDefaultHandler(e) {
+		// Don't redirect to href
+		e.preventDefault();
+		// Don't trigger listeners.trashIcon
+		e.stopPropagation();
+
+		// Show alert
+		swal({
+			title      : 'Are you sure?',
+			text       :
+				'All categories will be set to defaults. Custom data will not be recoverable!',
+			icon       : 'warning',
+			buttons    : true,
+			dangerMode : true,
+		}).then((willDelete) => {
+			if (willDelete) {
+				// delete chrome storage
+				budgetApp.storage.clear();
+				// populate default categories
+				budgetApp.storage.init();
+				budgetApp.input.updateBtns();
+
+				// Success message
+				swal('Poof! The default configuration has been restored.', {
+					icon : 'success',
+				});
+			} else {
+				swal('Your configuration is safe!');
+			}
+		});
+	},
+
 	maxAlert() {
 		// Show max alert
 		budgetApp.forms.maxAlertSpan.classList.remove('hidden');
@@ -266,19 +300,4 @@ budgetApp.forms = {
 		// Clear input fields
 		budgetApp.forms.clearInputFields();
 	},
-
-	/*
-	trashIconHandler(e) {
-		// Prevent submit refresh
-		e.preventDefault();
-
-		// Don't bubble up `click` event
-		e.stopPropagation();
-
-		if (e.target.className.includes('trash')) {
-			let index = e.target.previousSibling.getAttribute('data-idx');
-			budgetApp.storage.deleteInput(budgetApp.currentCategory, index);
-		}
-	}
-  */
 };
