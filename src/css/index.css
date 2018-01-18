@@ -177,7 +177,7 @@ form fieldset {
       .budget-display #chart-selection-list button:hover {
         background: #7cc0f7; }
   .budget-display #data-display-list .percentage-display {
-    width: 30px;
+    width: 2rem;
     display: inline-block;
     text-align: end;
     padding-right: 0.5rem; }
@@ -186,7 +186,9 @@ form fieldset {
     display: inline-block;
     margin-left: 0.5rem; }
   .budget-display #data-display-list .value-display {
-    font-weight: bold; }
+    font-weight: bold;
+    width: 3rem;
+    text-align: end; }
 
 *,
 *:before,

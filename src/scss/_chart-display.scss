@@ -59,7 +59,7 @@
 
 	#data-display-list {
 		.percentage-display {
-			width: 30px;
+			width: 2rem;
 			display: inline-block;
 			text-align: end;
 			padding-right: 0.5rem;
@@ -73,6 +73,8 @@
 
 		.value-display {
 			font-weight: bold;
+			width: 3rem;
+			text-align: end;
 		}
 	}
 }
