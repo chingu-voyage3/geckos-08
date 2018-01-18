@@ -1,5 +1,5 @@
 {
-	"name": "Budget Buddy",
+	"name": "Budget Board",
 	"version": "1.0.0",
 	"description": "A Google Chrome extension to calculate finances",
 	"main": "index.html",

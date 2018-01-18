@@ -1,5 +1,6 @@
 form.active-form {
   display: block; }
+
 form fieldset {
   border: none;
   border-radius: 5px;
@@ -258,5 +259,3 @@ body {
 
 .main-footer {
   grid-area: -2 / 1 / -1 / -1; }
-
-/*# sourceMappingURL=index.css.map */
