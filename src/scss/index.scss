@@ -177,10 +177,33 @@ body {
 
 			select {
 				height: 2rem;
-				margin-bottom: 0.5rem;
+				margin-top: 0.5rem;
 				padding-left: 0.75rem;
 				border-radius: 3px;
 				opacity: 0.8;
+			}
+
+			button {
+				// flex: 1;
+
+				height: 2rem;
+				display: inline-block;
+				cursor: pointer;
+				margin-top: 0.5rem;
+				// padding: 0.3rem 0.6rem;
+				border: none;
+				box-shadow: 2px 2px 3px 0 rgba(0, 0, 0, 0.5);
+				font-size: 0.8rem;
+				text-align: center;
+			}
+
+			.reset-default {
+				background: rgba(222, 0, 6, 0.8);
+				color: #fff;
+
+				&:hover {
+					background: rgb(222, 0, 6);
+				}
 			}
 		}
 	}

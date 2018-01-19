@@ -28,6 +28,7 @@
 
 		li {
 			display: flex;
+			justify-content: flex-start;
 			align-items: center;
 			padding-bottom: 0.5rem;
 		}
@@ -59,22 +60,23 @@
 
 	#data-display-list {
 		.percentage-display {
-			width: 2rem;
+			width: 4rem;
 			display: inline-block;
 			text-align: end;
 			padding-right: 0.5rem;
 		}
 
 		.title-display {
-			width: 250px;
+			flex: 10;
 			display: inline-block;
 			margin-left: 0.5rem;
 		}
 
 		.value-display {
 			font-weight: bold;
-			width: 3rem;
+			width: 10rem;
 			text-align: end;
+			padding-right:1rem;
 		}
 	}
 }

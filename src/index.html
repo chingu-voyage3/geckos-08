@@ -40,6 +40,27 @@
 
 					<sidebar>
 
+						<ul class="budget-nav">
+
+							<!-- Add li elements in budgetCategories.js -->
+
+							<!--<li class="budget-nav-add-item">
+								<form name="add-category">
+									<i class="fa fa-plus-square" aria-hidden="true">
+										<input type="text" placeholder="Add Category">
+									</i>
+								</form>
+							</li>-->
+
+							<li class="budget-nav-add-item" data-idx="-1">
+								<a href="#">
+									<i class="fa fa-plus-square" aria-hidden="true"></i>
+									<span>Add Category</span>
+								</a>
+							</li>
+
+						</ul>
+
 						<select class="budget-currencies">
 							<option value="USD">United States Dollar (USD)</option>
 							<option value="ALL">Albania Lek (ALL)</option>
@@ -155,26 +176,7 @@
 							<option value="LTC">Litecoin (LTC)</option>
 						</select>
 
-						<ul class="budget-nav">
-
-							<!-- Add li elements in budgetCategories.js -->
-
-							<!--<li class="budget-nav-add-item">
-								<form name="add-category">
-									<i class="fa fa-plus-square" aria-hidden="true">
-										<input type="text" placeholder="Add Category">
-									</i>
-								</form>
-							</li>-->
-
-							<li class="budget-nav-add-item" data-idx="-1">
-								<a href="#">
-									<i class="fa fa-plus-square" aria-hidden="true"></i>
-									<span>Add Category</span>
-								</a>
-							</li>
-
-						</ul>
+						<button class="reset-default">Reset to Defaults</button>
 
 					</sidebar>
 
@@ -206,7 +208,6 @@
 							<hr class="hr-style">
 
 							<div class="delete">
-								<button class="reset-default">Reset to Defaults</button>
 								<button class="delete-category">Delete Category</button>
 							</div>
 
@@ -251,13 +252,13 @@
 		<script type="text/javascript" src="js/budgetForms.js"></script>
 		<script type="text/javascript" src="js/budgetInput.js"></script>
 		<script type="text/javascript" src="js/budgetCalculations.js"></script>
+		<script type="text/javascript" src="js/budgetCurrencies.js"></script>
 
 		<script src="https://d3js.org/d3.v4.min.js"></script>
 		<script type="text/javascript" src="js/barChart.js"></script>
 		<script type="text/javascript" src="js/pieChart.js"></script>
 		<script type="text/javascript" src="js/chartManager.js"></script>
 		<script type="text/javascript" src="js/dataDisplayList.js"></script>
-		<script type="text/javascript" src="js/budgetCurrencies.js"></script>
 		<script type="text/javascript" src="js/index.js"></script>
 
 		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
