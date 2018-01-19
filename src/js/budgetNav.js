@@ -195,5 +195,6 @@ budgetApp.nav = {
 
 		// Refresh form
 		budgetApp.forms.updateForm();
+		budgetApp.dataDisplayList.draw();
 	},
 };
