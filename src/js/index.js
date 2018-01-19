@@ -96,6 +96,7 @@ budgetApp.listeners = {
 	);
 
 	budgetApp.storage.init();
+	budgetApp.nav.setCurrency();
 }),
 	(budgetApp.onReady = () => {
 		// Initialize listeners

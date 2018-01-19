@@ -207,6 +207,9 @@ budgetApp.forms = {
 				// populate default categories
 				budgetApp.storage.init();
 				budgetApp.input.updateBtns();
+				// set default currency
+				budgetApp.currency = `USD`;
+				budgetApp.nav.currencyDropdown.value = budgetApp.currency;
 
 				// Success message
 				swal('Poof! The default configuration has been restored.', {
