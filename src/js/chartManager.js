@@ -7,8 +7,6 @@ var budgetApp = budgetApp || {};
 budgetApp.chartManager = {
 	barChartBtn : document.getElementById('bar-chart-btn'),
 	pieChartBtn : document.getElementById('pie-chart-btn'),
-
-	// activeChart : `barChart`,
 	activeChart : `bar`,
 
 	// removes svg from DOM
