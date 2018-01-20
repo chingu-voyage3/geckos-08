@@ -39,8 +39,11 @@ budgetApp.dataDisplayList = (function() {
 			// percentage
 			let percentageDisplay = document.createElement('span');
 			percentageDisplay.classList.add('percentage-display');
-			percentageDisplay.textContent =
-				((dataPercentages[index] || 0) * 100).toFixed(0) + '%';
+			percentageDisplay.innerHTML =
+				`${((dataPercentages[index] || 0) * 100).toFixed(0) }
+				<span>
+					%
+				</span>`;
 			listItem.append(percentageDisplay);
 
 			// color circle
