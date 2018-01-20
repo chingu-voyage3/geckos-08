@@ -20,6 +20,7 @@ budgetApp.listeners = {
 	validateInput   : budgetApp.input.validateInput,
 	drawDisplayList : budgetApp.dataDisplayList.draw,
 	deleteCategory  : budgetApp.forms.deleteCategoryHandler,
+	resetToDefault  : budgetApp.forms.resetToDefaultHandler,
 	deleteInput     : budgetApp.input.deleteInputHandler,
 	drawChart       : budgetApp.chartManager.draw,
 	changeCurrency  : budgetApp.nav.changeCurrency,
@@ -57,9 +58,15 @@ budgetApp.listeners = {
 	budgetApp.forms.addItemBtn.addEventListener(`click`, listeners.addItem);
 
 	// Register delete link listener
-	budgetApp.forms.deleteLink.addEventListener(
+	budgetApp.forms.deleteButton.addEventListener(
 		`click`,
 		listeners.deleteCategory
+	);
+
+	// Register reset to default listener
+	budgetApp.forms.defaultButton.addEventListener(
+		`click`,
+		listeners.resetToDefault
 	);
 
 	// Register storage listeners
@@ -89,6 +96,7 @@ budgetApp.listeners = {
 	);
 
 	budgetApp.storage.init();
+	budgetApp.nav.setCurrency();
 }),
 	(budgetApp.onReady = () => {
 		// Initialize listeners

@@ -1,9 +1,6 @@
 budgetApp.dataDisplayList = (function() {
 	let colors = budgetApp.storage.getcolors();
 	let dataDisplayList = document.getElementById('data-display-list');
-	let currencySign = '$';
-	// TODO: getting an error, possibly scope related?
-	//let currencySign = `${budgetApp.currencies[budgetApp.currency]}`;
 	let data = null;
 
 	function getDataPercentages(data) {
@@ -67,8 +64,13 @@ budgetApp.dataDisplayList = (function() {
 
 			// value
 			let valueDisplay = document.createElement('span');
+
 			valueDisplay.classList.add('value-display');
-			valueDisplay.textContent = currencySign + data.value;
+			valueDisplay.innerHTML =
+				`<span>
+					${budgetApp.currencies[budgetApp.currency] }
+				</span>
+				${data.value}`;
 			listItem.append(valueDisplay);
 		});
 	}

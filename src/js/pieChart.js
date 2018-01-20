@@ -22,7 +22,7 @@ budgetApp.pieChart = {
 			.attr('width', chartWidth)
 			.attr('height', chartHeight)
 			.style('background', 'rgba(0, 0, 0, 0.4)')
-			.style('border-radius', '5px')
+			.style('border-radius', '3px')
 			.style('margin', '12px')
 			.append('g')
 			.attr(

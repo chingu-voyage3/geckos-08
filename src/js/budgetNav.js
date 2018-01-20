@@ -186,6 +186,13 @@ budgetApp.nav = {
 			});
 	},
 
+	setCurrency() {
+		chrome.storage.sync.get('currency', function(obj) {
+			budgetApp.nav.currencyDropdown.value = obj.currency || `USD`;
+			budgetApp.currency = obj.currency;
+		});
+	},
+
 	changeCurrency(e) {
 		// Get select value
 		const currency = String(e.target.value);
@@ -193,7 +200,9 @@ budgetApp.nav = {
 		// Update currency
 		budgetApp.currency = currency;
 
-		// Refresh form
+		// Refresh formchrome.
+		chrome.storage.sync.set({currency: budgetApp.currency});
 		budgetApp.forms.updateForm();
+		budgetApp.dataDisplayList.draw();
 	},
 };

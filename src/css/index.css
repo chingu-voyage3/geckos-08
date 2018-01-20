@@ -12,16 +12,20 @@ form fieldset {
     color: #fdfdfd;
     font: bold 1.5rem 'Lato', sans-serif;
     text-align: center;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); }
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+    white-space: nowrap; }
   form fieldset label div {
     display: flex;
     flex-direction: column;
-    align-items: flex-end; }
+    align-items: stretch; }
     form fieldset label div:last-of-type {
       flex-direction: row;
       justify-content: space-between; }
+    form fieldset label div span {
+      font-size: 1rem;
+      color: #666; }
   form fieldset label:not(:last-of-type) p {
-    border-radius: 5px;
+    border-radius: 3px;
     margin: .7rem auto;
     padding: 0.25rem 0.25rem 0.25rem .75rem; }
   form fieldset label:not(:last-of-type) div {
@@ -29,27 +33,31 @@ form fieldset {
     align-items: center; }
   form fieldset label:not(:last-of-type) i {
     color: #666;
+    font-size: 1rem;
     margin-left: 0.3rem;
     padding: 0 0.25rem;
-    transition: 0.5s color, 0.5s text-shadow; }
+    transition: 0.2s color, 0.2s text-shadow; }
     form fieldset label:not(:last-of-type) i:last-of-type:hover {
       color: rgba(255, 0, 0, 0.5);
       cursor: pointer;
       text-shadow: 0 0 2px white; }
   form fieldset label:last-of-type p {
-    border-radius: 5px;
+    border-radius: 3px;
     padding: 0.25rem;
     text-align: center; }
   form fieldset label:last-of-type input[type="text"] {
     border-radius: 5px;
     padding-left: 0.25rem;
-    width: 10rem; }
+    width: 10rem;
+    margin: 0 0.4rem; }
   form fieldset label:last-of-type button {
-    width: 5rem; }
+    width: 5rem;
+    border-radius: 0;
+    box-shadow: 2px 2px 3px 0 rgba(0, 0, 0, 0.5); }
   form fieldset label:last-of-type .max-alert {
     display: block;
     color: red;
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     margin: 0.3rem 0 0 0.3rem; }
   form fieldset label:last-of-type .hidden {
     display: none; }
@@ -63,10 +71,10 @@ form fieldset {
       margin: 0; }
   form fieldset p {
     color: #f6f6f6;
-    font-size: 0.8rem;
+    font-size: .85rem;
     background: rgba(0, 0, 0, 0.25); }
   form fieldset input:focus {
-    box-shadow: 0 0 2px 2px #529EB7;
+    box-shadow: 0 0 2px 2px #529eb7;
     outline: none; }
   form fieldset input:valid {
     color: green; }
@@ -75,45 +83,57 @@ form fieldset {
     position: relative; }
   form fieldset .add-item-btn {
     border: none;
-    border-radius: 5px;
     box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
     font: 0.7rem 'Lato', sans-serif;
     color: #fdfdfd;
-    background: #7cc0f7; }
+    background: rgba(61, 209, 93, 0.8);
+    margin: 0 0.4rem;
+    color: rgba(0, 0, 0, 0.75); }
     form fieldset .add-item-btn:hover {
-      cursor: pointer; }
+      cursor: pointer;
+      background: #3dd15d; }
   form fieldset .delete {
     display: flex;
-    justify-content: flex-end;
-    margin-top: 1rem; }
+    justify-content: center; }
+    form fieldset .delete button {
+      flex: 1;
+      display: inline-block;
+      cursor: pointer;
+      margin: 0 0.4rem;
+      padding: 0.3rem 0.6rem;
+      border: none;
+      box-shadow: 2px 2px 3px 0 rgba(0, 0, 0, 0.5);
+      font-size: 0.85rem;
+      text-align: center; }
     form fieldset .delete .delete-category {
+      background: rgba(255, 255, 255, 0.8);
       color: #de0006; }
+      form fieldset .delete .delete-category:hover {
+        background: white; }
   form fieldset .hr-style {
     border-top: 3px double rgba(253, 253, 253, 0.5);
-    margin-top: 0.7rem; }
+    margin: 0.75rem 0; }
   form fieldset .nav-btns {
     display: flex;
     justify-content: center;
-    margin-top: 0.8rem; }
+    margin-top: 0.85rem; }
     form fieldset .nav-btns .nav-btn {
-      background: transparent;
+      color: rgba(0, 0, 0, 0.75);
       border: none;
-      border-radius: 4px;
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
-      color: #fff;
+      box-shadow: 2px 2px 3px 0 rgba(0, 0, 0, 0.5);
       cursor: pointer;
       display: inline-block;
-      font-size: 0.8rem;
+      font-size: 0.85rem;
       margin: 0 0.4rem;
       padding: 0.3rem 0.6rem;
       text-align: center;
-      width: 7rem; }
+      flex: 1; }
     form fieldset .nav-btns .hidden {
       visibility: hidden; }
     form fieldset .nav-btns .next {
-      background-color: rgba(48, 166, 74, 0.8); }
+      background: rgba(124, 192, 247, 0.8); }
       form fieldset .nav-btns .next:hover {
-        background-color: #30a64a; }
+        background: #7cc0f7; }
     form fieldset .nav-btns .previous {
       background-color: rgba(253, 192, 47, 0.8); }
       form fieldset .nav-btns .previous:hover {
@@ -136,26 +156,44 @@ form fieldset {
       margin: 0 0.75rem; }
       .budget-display ul button:hover {
         cursor: pointer; }
+    .budget-display ul li {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      padding-bottom: 0.5rem; }
   .budget-display #chart-selection-list {
     display: flex;
     justify-content: space-between; }
     .budget-display #chart-selection-list button {
       flex: 1;
       border: none;
-      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+      box-shadow: 2px 2px 3px 0 rgba(0, 0, 0, 0.5);
       padding: 0.3rem 0.6rem;
       font-size: 1rem;
       color: white;
-      background: rgba(48, 166, 74, 0.6); }
-  .budget-display #data-display-list .percentage-display {
-    width: 30px;
-    display: inline-block; }
-  .budget-display #data-display-list .title-display {
-    width: 250px;
-    display: inline-block;
-    margin-left: 12px; }
-  .budget-display #data-display-list .value-display {
-    font-weight: bold; }
+      background: rgba(124, 192, 247, 0.8); }
+      .budget-display #chart-selection-list button i {
+        color: rgba(0, 0, 0, 0.75); }
+      .budget-display #chart-selection-list button:hover {
+        background: #7cc0f7; }
+  .budget-display #data-display-list {
+    font-size: .85rem; }
+    .budget-display #data-display-list .percentage-display {
+      width: 4rem;
+      display: inline-block;
+      text-align: end;
+      padding-right: 0.5rem; }
+    .budget-display #data-display-list .title-display {
+      flex: 10;
+      display: inline-block;
+      margin-left: 0.5rem; }
+    .budget-display #data-display-list .value-display {
+      font-weight: bold;
+      width: 10rem;
+      text-align: end;
+      padding-right: 1rem; }
+      .budget-display #data-display-list .value-display span {
+        color: #666; }
 
 *,
 *:before,
@@ -224,9 +262,9 @@ body {
           .content .budget-input sidebar ul li:not(:last-of-type) {
             border-bottom: 1px solid #888; }
           .content .budget-input sidebar ul li:first-of-type a {
-            border-radius: 5px 5px 0 0; }
+            border-radius: 3px 3px 0 0; }
           .content .budget-input sidebar ul li:last-of-type a {
-            border-radius: 0 0 5px 5px; }
+            border-radius: 0 0 3px 3px; }
           .content .budget-input sidebar ul li a {
             display: flex;
             justify-content: flex-start;
@@ -254,8 +292,25 @@ body {
               background: -webkit-linear-gradient(top, rgba(242, 249, 254, 0.7) 0%, rgba(214, 240, 253, 0.7) 100%);
               background: linear-gradient(to bottom, rgba(242, 249, 254, 0.7) 0%, rgba(214, 240, 253, 0.7) 100%); }
       .content .budget-input sidebar select {
+        height: 2rem;
         margin-top: 0.5rem;
+        padding-left: 0.75rem;
+        border-radius: 3px;
         opacity: 0.8; }
+      .content .budget-input sidebar button {
+        height: 2rem;
+        display: inline-block;
+        cursor: pointer;
+        margin-top: 0.5rem;
+        border: none;
+        box-shadow: 2px 2px 3px 0 rgba(0, 0, 0, 0.5);
+        font-size: 0.85rem;
+        text-align: center; }
+      .content .budget-input sidebar .reset-default {
+        background: rgba(222, 0, 6, 0.8);
+        color: #fff; }
+        .content .budget-input sidebar .reset-default:hover {
+          background: #de0006; }
 
 .main-footer {
   grid-area: -2 / 1 / -1 / -1; }
