@@ -29,6 +29,11 @@ form {
 					flex-direction: row;
 					justify-content: space-between;
 				}
+
+				span {
+					font-size: 1rem;
+					color: #666;
+				}
 			}
 
 			&:not(:last-of-type) {
@@ -45,6 +50,7 @@ form {
 
 				i {
 					color: #666;
+					font-size: 1rem;
 					margin-left: 0.3rem;
 					padding: 0 0.25rem;
 					transition: 0.2s color, 0.2s text-shadow;
@@ -82,7 +88,7 @@ form {
 				.max-alert {
 					display: block;
 					color: red;
-					font-size: 0.8rem;
+					font-size: 0.85rem;
 					margin: 0.3rem 0 0 0.3rem;
 				}
 
@@ -107,7 +113,7 @@ form {
 
 		p {
 			color: #f6f6f6;
-			font-size: 0.8rem;
+			font-size: .85rem;
 			background: rgba(0, 0, 0, 0.25);
 		}
 
@@ -155,7 +161,7 @@ form {
 				padding: 0.3rem 0.6rem;
 				border: none;
 				box-shadow: 2px 2px 3px 0 rgba(0, 0, 0, 0.5);
-				font-size: 0.8rem;
+				font-size: 0.85rem;
 				text-align: center;
 			}
 
@@ -187,7 +193,7 @@ form {
 			display: flex;
 			justify-content: center;
 
-			margin-top: 0.8rem;
+			margin-top: 0.85rem;
 
 			.nav-btn {
 				color: rgba(0, 0, 0, 0.75);
@@ -195,7 +201,7 @@ form {
 				box-shadow: 2px 2px 3px 0 rgba(0, 0, 0, 0.5);
 				cursor: pointer;
 				display: inline-block;
-				font-size: 0.8rem;
+				font-size: 0.85rem;
 				margin: 0 0.4rem;
 				padding: 0.3rem 0.6rem;
 				text-align: center;

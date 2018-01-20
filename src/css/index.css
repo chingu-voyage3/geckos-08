@@ -21,6 +21,9 @@ form fieldset {
     form fieldset label div:last-of-type {
       flex-direction: row;
       justify-content: space-between; }
+    form fieldset label div span {
+      font-size: 1rem;
+      color: #666; }
   form fieldset label:not(:last-of-type) p {
     border-radius: 3px;
     margin: .7rem auto;
@@ -30,6 +33,7 @@ form fieldset {
     align-items: center; }
   form fieldset label:not(:last-of-type) i {
     color: #666;
+    font-size: 1rem;
     margin-left: 0.3rem;
     padding: 0 0.25rem;
     transition: 0.2s color, 0.2s text-shadow; }
@@ -53,7 +57,7 @@ form fieldset {
   form fieldset label:last-of-type .max-alert {
     display: block;
     color: red;
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     margin: 0.3rem 0 0 0.3rem; }
   form fieldset label:last-of-type .hidden {
     display: none; }
@@ -67,7 +71,7 @@ form fieldset {
       margin: 0; }
   form fieldset p {
     color: #f6f6f6;
-    font-size: 0.8rem;
+    font-size: .85rem;
     background: rgba(0, 0, 0, 0.25); }
   form fieldset input:focus {
     box-shadow: 0 0 2px 2px #529eb7;
@@ -99,7 +103,7 @@ form fieldset {
       padding: 0.3rem 0.6rem;
       border: none;
       box-shadow: 2px 2px 3px 0 rgba(0, 0, 0, 0.5);
-      font-size: 0.8rem;
+      font-size: 0.85rem;
       text-align: center; }
     form fieldset .delete .delete-category {
       background: rgba(255, 255, 255, 0.8);
@@ -112,14 +116,14 @@ form fieldset {
   form fieldset .nav-btns {
     display: flex;
     justify-content: center;
-    margin-top: 0.8rem; }
+    margin-top: 0.85rem; }
     form fieldset .nav-btns .nav-btn {
       color: rgba(0, 0, 0, 0.75);
       border: none;
       box-shadow: 2px 2px 3px 0 rgba(0, 0, 0, 0.5);
       cursor: pointer;
       display: inline-block;
-      font-size: 0.8rem;
+      font-size: 0.85rem;
       margin: 0 0.4rem;
       padding: 0.3rem 0.6rem;
       text-align: center;
@@ -172,20 +176,24 @@ form fieldset {
         color: rgba(0, 0, 0, 0.75); }
       .budget-display #chart-selection-list button:hover {
         background: #7cc0f7; }
-  .budget-display #data-display-list .percentage-display {
-    width: 4rem;
-    display: inline-block;
-    text-align: end;
-    padding-right: 0.5rem; }
-  .budget-display #data-display-list .title-display {
-    flex: 10;
-    display: inline-block;
-    margin-left: 0.5rem; }
-  .budget-display #data-display-list .value-display {
-    font-weight: bold;
-    width: 10rem;
-    text-align: end;
-    padding-right: 1rem; }
+  .budget-display #data-display-list {
+    font-size: .85rem; }
+    .budget-display #data-display-list .percentage-display {
+      width: 4rem;
+      display: inline-block;
+      text-align: end;
+      padding-right: 0.5rem; }
+    .budget-display #data-display-list .title-display {
+      flex: 10;
+      display: inline-block;
+      margin-left: 0.5rem; }
+    .budget-display #data-display-list .value-display {
+      font-weight: bold;
+      width: 10rem;
+      text-align: end;
+      padding-right: 1rem; }
+      .budget-display #data-display-list .value-display span {
+        color: #666; }
 
 *,
 *:before,
@@ -296,7 +304,7 @@ body {
         margin-top: 0.5rem;
         border: none;
         box-shadow: 2px 2px 3px 0 rgba(0, 0, 0, 0.5);
-        font-size: 0.8rem;
+        font-size: 0.85rem;
         text-align: center; }
       .content .budget-input sidebar .reset-default {
         background: rgba(222, 0, 6, 0.8);

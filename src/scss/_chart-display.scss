@@ -59,6 +59,8 @@
 	}
 
 	#data-display-list {
+		font-size: .85rem;
+
 		.percentage-display {
 			width: 4rem;
 			display: inline-block;
@@ -77,6 +79,10 @@
 			width: 10rem;
 			text-align: end;
 			padding-right:1rem;
+
+			span {
+				color: #666;
+			}
 		}
 	}
 }

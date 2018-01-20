@@ -64,9 +64,13 @@ budgetApp.dataDisplayList = (function() {
 
 			// value
 			let valueDisplay = document.createElement('span');
+
 			valueDisplay.classList.add('value-display');
-			valueDisplay.textContent =
-				`${budgetApp.currencies[budgetApp.currency]}` + data.value;
+			valueDisplay.innerHTML =
+				`<span>
+					${budgetApp.currencies[budgetApp.currency] }
+				</span>
+				${data.value}`;
 			listItem.append(valueDisplay);
 		});
 	}
