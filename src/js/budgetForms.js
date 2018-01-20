@@ -210,6 +210,7 @@ budgetApp.forms = {
 				// set default currency
 				budgetApp.currency = `USD`;
 				budgetApp.nav.currencyDropdown.value = budgetApp.currency;
+		    chrome.storage.sync.set({currency: budgetApp.currency});
 
 				// Success message
 				swal('Poof! The default configuration has been restored.', {
