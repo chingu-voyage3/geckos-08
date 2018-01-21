@@ -1,14 +1,14 @@
-@import 'form';
-@import 'chart-display';
+@import 'header';
+@import 'budget-categories';
+@import 'budget-items';
+@import 'budget-display';
+@import 'footer';
 // $color1: #99ff99;
-// $color2: #cdcdcd;
-// $color3: #4b367c;
 
 *,
 *:before,
 *:after {
 	box-sizing: border-box;
-	// outline: 1px solid red;
 }
 
 html,
@@ -29,186 +29,9 @@ body {
 	font-family: 'Lato', sans-serif;
 }
 
-.main-header {
-	grid-area: 1 / 1 / 2 / -1;
-
-	h1 {
-		color: #fdfdfd;
-		font-size: 2.5rem;
-		text-align: center;
-		margin-left: -10%;
-		//-webkit-background-clip: text;
-		//-webkit-text-fill-color: transparent;
-		text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
-	}
-}
-
 .content {
 	display: grid;
-	grid-template: 100% / 1fr 1fr;
+	grid-template: 100% / 1fr 30% 30% 30% 1fr;
 
 	grid-area: 2 / 1 / -2 / -1;
-
-	padding: 0 10rem;
-
-	.budget-input {
-		display: grid;
-		grid-template: 100% / 1fr 1fr;
-
-		grid-area: 1 / 1 / -1 / 2;
-
-		.budget-input {
-			padding: 0.5rem;
-		}
-
-		.budget-categories {
-			padding: 0.75rem;
-		}
-
-		sidebar {
-			display: flex;
-			flex-direction: column;
-			flex-wrap: nowrap;
-
-			ul {
-				display: flex;
-				flex-direction: column;
-				flex-wrap: nowrap;
-				justify-content: flex-start;
-				align-content: flex-start;
-				align-items: stretch;
-
-				list-style: none;
-				background: transparent;
-				padding: 0;
-				margin: 0;
-				border-radius: 5px;
-
-				li {
-					display: flex;
-					flex-wrap: nowrap;
-					flex-basis: 3.5rem;
-					line-height: 3.5rem;
-					font-family: 'Lato', sans-serif;
-					font-size: 1.25rem;
-
-					&:not(:last-of-type) {
-						border-bottom: 1px solid #888;
-					}
-
-					&:first-of-type {
-						a {
-							border-radius: 3px 3px 0 0;
-						}
-					}
-
-					&:last-of-type {
-						a {
-							border-radius: 0 0 3px 3px;
-						}
-					}
-
-					a {
-						display: flex;
-						justify-content: flex-start;
-						align-items: center;
-						flex: 1;
-
-						padding-left: 1rem;
-						text-decoration: none;
-						color: black;
-						transition: .3s background-color;
-
-						> i {
-							padding-right: 1rem;
-							width: 2.5rem;
-							text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-						}
-
-						&.active-link {
-							// Chrome 10-25
-							background: -webkit-linear-gradient(
-								top,
-								rgba(240, 249, 255, 0.7) 0%,
-								rgba(124, 192, 247, 0.7) 51%,
-								rgba(161, 219, 255, 0.7) 100%
-							);
-							// Chrome 26+
-							background: linear-gradient(
-								to bottom,
-								rgba(240, 249, 255, 0.7) 0%,
-								rgba(124, 192, 247, 0.7) 51%,
-								rgba(161, 219, 255, 0.7) 100%
-							);
-							color: #fdfdfd;
-							cursor: default;
-							text-shadow: 1px 1px 2px rgba(0, 0, 0, .7);
-						}
-
-						&:not(.active-link) {
-							//  Chrome 26+
-							background: linear-gradient(
-								to bottom,
-								rgba(255, 255, 255, 0.7) 0%,
-								rgba(246, 246, 246, 0.7) 47%,
-								rgba(237, 237, 237, 0.7) 100%
-							);
-							color: #434343;
-							text-shadow: 1px 1px 2px rgba(255, 255, 255, 1.0);
-						}
-
-						&:hover:not(.active-link) {
-							// Chrome 10-25
-							background: -webkit-linear-gradient(
-								top,
-								rgba(242, 249, 254, 0.7) 0%,
-								rgba(214, 240, 253, 0.7) 100%
-							);
-							// Chrome 26+
-							background: linear-gradient(
-								to bottom,
-								rgba(242, 249, 254, 0.7) 0%,
-								rgba(214, 240, 253, 0.7) 100%
-							);
-						}
-					}
-				}
-			}
-
-			select {
-				height: 2rem;
-				margin-top: 0.5rem;
-				padding-left: 0.75rem;
-				border-radius: 3px;
-				opacity: 0.8;
-			}
-
-			button {
-				// flex: 1;
-
-				height: 2rem;
-				display: inline-block;
-				cursor: pointer;
-				margin-top: 0.5rem;
-				// padding: 0.3rem 0.6rem;
-				border: none;
-				box-shadow: 2px 2px 3px 0 rgba(0, 0, 0, 0.5);
-				font-size: 0.85rem;
-				text-align: center;
-			}
-
-			.reset-default {
-				background: rgba(222, 0, 6, 0.8);
-				color: #fff;
-
-				&:hover {
-					background: rgb(222, 0, 6);
-				}
-			}
-		}
-	}
-}
-
-.main-footer {
-	grid-area: -2 / 1 / -1 / -1;
 }

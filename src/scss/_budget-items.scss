@@ -1,0 +1,237 @@
+.budget-items {
+	grid-area: 1 / 3 / -1 / 4;
+
+	form {
+		&.active-form {
+			display: block;
+		}
+
+		fieldset {
+			border: none;
+			border-radius: 5px;
+			max-width: 80%;
+			margin: auto;
+
+			legend {
+				padding: 0 0.5rem;
+				border-bottom: 2px solid #c3b258;
+				color: #666;
+				font: bold 1.5rem "Julius Sans One";
+				font-variant: all-small-caps;
+				text-align: center;
+				text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+				white-space: nowrap;
+			}
+
+			label {
+				div {
+					display: flex;
+					flex-direction: column;
+					align-items: stretch;
+
+					&:last-of-type {
+						flex-direction: row;
+						justify-content: space-between;
+					}
+
+					span {
+						font-size: 1rem;
+						color: #666;
+					}
+				}
+
+				&:not(:last-of-type) {
+					p {
+						border-radius: 3px;
+						margin: .7rem auto;
+						padding: 0.25rem 0.25rem 0.25rem .75rem;
+					}
+
+					div {
+						justify-content: flex-end;
+						align-items: center;
+					}
+
+					i {
+						color: #666;
+						font-size: 1rem;
+						margin-left: 0.3rem;
+						padding: 0 0.25rem;
+						transition: 0.2s color, 0.2s text-shadow;
+
+						&:last-of-type {
+							&:hover {
+								color: rgba(255, 0, 0, 0.5);
+								cursor: pointer;
+								text-shadow: 0 0 2px white;
+							}
+						}
+					}
+				}
+
+				&:last-of-type {
+					p {
+						border-radius: 3px;
+						padding: 0.25rem;
+						text-align: center;
+					}
+
+					input[type="text"] {
+						border-radius: 5px;
+						padding-left: 0.25rem;
+						width: 10rem;
+						margin: 0 0.4rem;
+					}
+
+					button {
+						width: 5rem;
+						border-radius: 0;
+						box-shadow: 2px 2px 3px 0 rgba(0, 0, 0, 0.5);
+					}
+
+					.max-alert {
+						display: block;
+						color: red;
+						font-size: 0.85rem;
+						margin: 0.3rem 0 0 0.3rem;
+					}
+
+					.hidden {
+						display: none;
+					}
+				}
+
+				input[type="number"] {
+					border-radius: 5px;
+					font-family: monospace;
+					margin-left: 0.25rem;
+					padding-right: 0.25rem;
+
+					&::-webkit-inner-spin-button,
+					&::-webkit-outer-spin-button {
+						-webkit-appearance: none;
+						margin: 0;
+					}
+				}
+			}
+
+			p {
+				color: #f6f6f6;
+				font-size: .85rem;
+				background: rgba(0, 0, 0, 0.25);
+			}
+
+			input {
+				&:focus {
+					box-shadow: 0 0 2px 2px #529eb7;
+					outline: none;
+				}
+
+				&:valid {
+					color: green;
+				}
+			}
+
+			input[type="number"] {
+				text-align: right;
+				position: relative;
+			}
+
+			.add-item-btn {
+				border: none;
+				box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+				font: 0.7rem 'Lato', sans-serif;
+				color: #fdfdfd;
+				background: rgba(61, 209, 93, 0.8);
+				margin: 0 0.4rem;
+				color: rgba(0, 0, 0, 0.75);
+
+				&:hover {
+					cursor: pointer;
+					background: rgb(61, 209, 93);
+				}
+			}
+
+			.delete {
+				display: flex;
+				justify-content: center;
+
+				button {
+					flex: 1;
+
+					display: inline-block;
+					cursor: pointer;
+					margin: 0 0.4rem;
+					padding: 0.3rem 0.6rem;
+					border: none;
+					box-shadow: 2px 2px 3px 0 rgba(0, 0, 0, 0.5);
+					font-size: 0.85rem;
+					text-align: center;
+				}
+
+				// .reset-default {
+				// 	background: rgba(222, 0, 6, 0.8);
+				// 	color: #fff;
+
+				// 	&:hover {
+				// 		background: rgb(222, 0, 6);
+				// 	}
+				// }
+
+				.delete-category {
+					background: rgba(255, 255, 255, .8);
+					color: rgb(222, 0, 6);
+
+					&:hover {
+						background: rgb(255, 255, 255);
+					}
+				}
+			}
+
+			.hr-style {
+				border-top: 3px double rgba(253, 253, 253, 0.5);
+				margin: 0.75rem 0;
+			}
+
+			.nav-btns {
+				display: flex;
+				justify-content: center;
+
+				margin-top: 0.85rem;
+
+				.nav-btn {
+					color: rgba(0, 0, 0, 0.75);
+					border: none;
+					box-shadow: 2px 2px 3px 0 rgba(0, 0, 0, 0.5);
+					cursor: pointer;
+					display: inline-block;
+					font-size: 0.85rem;
+					margin: 0 0.4rem;
+					padding: 0.3rem 0.6rem;
+					text-align: center;
+					flex: 1;
+				}
+
+				.hidden {
+					visibility: hidden;
+				}
+
+				.next {
+					background: rgba(124, 192, 247, 0.8);
+
+					&:hover {
+						background: rgb(124, 192, 247);
+					}
+				}
+
+				.previous {
+					background-color: rgba(253, 192, 47, 0.8);
+
+					&:hover {
+						background-color: rgb(253, 192, 47);
+					}
+				}
+			}
+		}
+	}
+}

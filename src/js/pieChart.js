@@ -8,10 +8,11 @@ budgetApp.pieChart = {
 	container : document.querySelector(`#chart-container`),
 
 	draw      : function(data) {
-		const chartContainer = d3.select('.chart-container');
-		const chartWidth = budgetApp.barChart.container.clientWidth;
-		const chartHeight = 295;
 		const padding = 24;
+		const margin = 24;
+		const chartContainer = d3.select('.chart-container');
+		const chartWidth = budgetApp.barChart.container.clientWidth - margin;
+		const chartHeight = 295;
 		const radius = Math.min(chartWidth, chartHeight) / 2 - padding / 2;
 		let colors = budgetApp.storage.getcolors();
 
@@ -28,7 +29,7 @@ budgetApp.pieChart = {
 			.attr(
 				'transform',
 				'translate(' +
-					(chartWidth - padding * 2) / 2 +
+					(chartWidth - padding) / 2 +
 					',' +
 					(chartHeight - padding) / 2 +
 					')'

@@ -8,10 +8,11 @@ budgetApp.barChart = {
 	container : document.querySelector(`#chart-container`),
 
 	draw      : function(data) {
-		const chartContainer = d3.select('.chart-container');
-		const chartWidth = budgetApp.barChart.container.clientWidth;
-		const chartHeight = 295;
 		const padding = 24;
+		const margin = 24;
+		const chartContainer = d3.select('.chart-container');
+		const chartWidth = budgetApp.barChart.container.clientWidth - margin;
+		const chartHeight = 295;
 		let barWidth = 25;
 		let dataLength = data.length;
 		let colors = budgetApp.storage.getcolors();
@@ -67,7 +68,7 @@ budgetApp.barChart = {
 				'x',
 				(data, index) =>
 					chartWidth / dataLength * index +
-					(chartWidth / dataLength / 2 - barWidth - padding / 2)
+					(chartWidth / dataLength / 2 - barWidth - padding / 2) + (padding / 2)
 			)
 			.attr(
 				'y',
