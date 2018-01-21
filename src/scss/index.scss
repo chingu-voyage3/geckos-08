@@ -29,6 +29,10 @@ body {
 	font-family: 'Lato', sans-serif;
 }
 
+::-webkit-scrollbar {
+	width: 0px;  /* remove scrollbar space */
+	background: transparent;  /* optional: just make scrollbar invisible */
+
 .content {
 	display: grid;
 	grid-template: 100% / 1fr 30% 30% 30% 1fr;
