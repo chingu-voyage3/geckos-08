@@ -13,7 +13,7 @@ budgetApp.barChart = {
 		const chartContainer = d3.select('.chart-container');
 		const chartWidth = budgetApp.barChart.container.clientWidth - margin;
 		const chartHeight = 295;
-		let barWidth = 25;
+		let barWidth = 24;
 		let dataLength = data.length;
 		let colors = budgetApp.storage.getcolors();
 
