@@ -152,6 +152,14 @@ budgetApp.nav = {
 		})
 			.then((value) => {
 				if (!value) throw `No category name provided.`;
+        
+        if( value.length > 24 ) {
+          swal({
+            text : `Please limit your category name to 24 characters!`,
+            icon : 'warning' 
+          });
+          return;
+        };
 
 				const categoryName = value;
 				const categoryItems = budgetApp.storage.getCategories().length;
