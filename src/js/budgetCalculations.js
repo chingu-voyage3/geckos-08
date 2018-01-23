@@ -4,23 +4,34 @@ function getInput() {
 
 	for (var i = 0; i < Object.keys(categoryInputs).length; i++) {
 		// Add listener to budget input fields
-		categoryInputs[i].addEventListener('blur', function() {
+		categoryInputs[i].addEventListener('input', function() {
 			let index = this.getAttribute('data-idx');
 
 			// if input element's value is a num, update category's input, otherwise exit func
-			if (!Number.isNaN(this.valueAsNumber)) {
+			if (this.value === ``) {
+				budgetApp.storage.updateInputValue(
+					budgetApp.currentCategory,
+					index,
+					0
+				);
+			} else if (!Number.isNaN(this.valueAsNumber)) {
 				budgetApp.storage.updateInputValue(
 					budgetApp.currentCategory,
 					index,
 					this.valueAsNumber
 				);
 			} else {
-				console.log('input wasnt num');
+				console.log(`input wasn't a number`);
 				return;
 			}
 
 			// Recalculate category total
 			sumCategory();
+
+			// update category totals & overall income & expense totals
+			budgetApp.dataDisplayList.updateTotals();
+			// redraw dataDisplayList
+			budgetApp.dataDisplayList.draw();
 		});
 	}
 }

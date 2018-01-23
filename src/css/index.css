@@ -290,6 +290,32 @@ sidebar {
       padding-right: 1rem; }
       .budget-display #data-display-list .value-display span {
         color: #666; }
+  .budget-display .budget-totals {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 2rem;
+    font-size: 0.85rem;
+    font-weight: bold;
+    padding-right: 1.75rem;
+    padding-left: 1.75rem;
+    margin-bottom: 0.5rem;
+    text-align: end;
+    align-content: center; }
+    .budget-display .budget-totals span {
+      color: #666; }
+  .budget-display .category-total {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 2rem;
+    font-size: 0.85rem;
+    font-weight: bold;
+    padding-right: 1.75rem;
+    text-align: end;
+    align-content: center; }
+    .budget-display .category-total span {
+      color: #666; }
 
 .main-footer {
   grid-area: -2 / 1 / -1 / -1; }

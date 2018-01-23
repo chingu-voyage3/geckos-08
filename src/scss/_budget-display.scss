@@ -81,11 +81,39 @@
 		.value-display {
 			font-weight: bold;
 			text-align: end;
-			padding-right:1rem;
+			padding-right: 1rem;
 
 			span {
 				color: #666;
 			}
 		}
+	}
+
+	.budget-totals,
+	.budget-display {
+		display: flex;
+		align-items: center;
+
+		height: 2rem;
+		font-size: 0.85rem;
+		font-weight: bold;
+		padding-right: 1.75rem;
+		text-align: end;
+		align-content: center;
+
+		span {
+			color: #666;
+		}
+	}
+
+	.budget-totals {
+		justify-content: space-between;
+
+		padding-left: 1.75rem;
+		margin-bottom: 0.5rem;
+	}
+
+	.category-total {
+		justify-content: flex-end;
 	}
 }

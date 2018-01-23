@@ -18,11 +18,75 @@ budgetApp.dataDisplayList = (function() {
 		}
 	}
 
+	function updateBudgetTotals() {
+		const budgetTotals = document.querySelector(`.budget-totals`);
+		const category = budgetApp.currentCategory;
+
+		chrome.storage.sync.get(function(obj) {
+			let income = obj.categories[0].inputs.reduce((acc, curr, index) => {
+				acc += curr.value;
+				return acc;
+			}, 0);
+
+			let expenses = obj.categories
+				.map((cat, index) => {
+					if (cat.name !== `Income`) {
+						return cat.inputs.reduce((acc, curr, index) => {
+							acc += curr.value;
+							return acc;
+						}, 0);
+					} else {
+						return 0;
+					}
+				})
+				.reduce((acc, curr, index) => {
+					acc += curr;
+					return acc;
+				});
+
+			budgetTotals.innerHTML = `<div>
+					INCOME :<span> ${budgetApp.currencies[budgetApp.currency]}</span> ${income}
+				</div>
+
+				<div>
+					EXPENSES :<span> ${budgetApp.currencies[
+						budgetApp.currency
+					]}</span> ${expenses}
+				</div>`;
+		});
+	}
+
+	function updateCategoryTotal() {
+		const categoryTotal = document.querySelector(`.category-total`);
+		const category = budgetApp.currentCategory;
+
+		chrome.storage.sync.get(function(obj) {
+			let total = obj.categories[
+				category
+			].inputs.reduce((acc, curr, index) => {
+				acc += curr.value;
+				return acc;
+			}, 0);
+
+			let name = obj.categories[category].name.toUpperCase();
+
+			categoryTotal.innerHTML = `<div>
+					${name} :<span> ${budgetApp.currencies[budgetApp.currency]}</span> ${total}
+				</div>`;
+		});
+	}
+
+	function updateTotals() {
+		updateBudgetTotals();
+		updateCategoryTotal();
+	}
+
 	function draw() {
 		let data = budgetApp.storage.getCategoryByIndex(
 			budgetApp.currentCategory || 0
 		).inputs;
 		let dataPercentages = getDataPercentages(data);
+
 		dataDisplayList.style.listStyle = 'none';
 		dataDisplayList.style.padding = 0;
 		dataDisplayList.style.margin = '0px 12px 0px 12px';
@@ -39,8 +103,8 @@ budgetApp.dataDisplayList = (function() {
 			// percentage
 			let percentageDisplay = document.createElement('span');
 			percentageDisplay.classList.add('percentage-display');
-			percentageDisplay.innerHTML =
-				`${((dataPercentages[index] || 0) * 100).toFixed(0) }
+			percentageDisplay.innerHTML = `${((dataPercentages[index] || 0) *
+				100).toFixed(0)}
 				<span>
 					%
 				</span>`;
@@ -50,13 +114,13 @@ budgetApp.dataDisplayList = (function() {
 			var svg = d3
 				.select('#' + itemId)
 				.append('svg')
-				.attr('width', 30)
-				.attr('height', 30)
+				.attr('width', 32)
+				.attr('height', 32)
 				.append('g')
 				.append('circle')
-				.attr('cx', 15)
-				.attr('cy', 15)
-				.attr('r', 15)
+				.attr('cx', 16)
+				.attr('cy', 16)
+				.attr('r', 16)
 				.style('fill', colors[index]);
 
 			// title
@@ -69,16 +133,22 @@ budgetApp.dataDisplayList = (function() {
 			let valueDisplay = document.createElement('span');
 
 			valueDisplay.classList.add('value-display');
-			valueDisplay.innerHTML =
-				`<span>
-					${budgetApp.currencies[budgetApp.currency] }
+			valueDisplay.innerHTML = `<span>
+					${budgetApp.currencies[budgetApp.currency]}
 				</span>
 				${data.value}`;
 			listItem.append(valueDisplay);
+
+			// chrome.storage.sync.get(function(obj) {
+			// 	console.log(obj.categories[budgetApp.currentCategory].total);
+			// });
+
+			updateTotals();
 		});
 	}
 
 	return {
+		updateTotals,
 		draw,
 	};
 })();
