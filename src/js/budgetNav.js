@@ -29,11 +29,11 @@ budgetApp.nav = {
 		// Create icon element
 		const i = document.createElement(`i`);
 
-		// use icon if category has it or default to money
+		// use icon if category has it or default to grid
 		if (category.icon) {
 			i.className = category.icon;
 		} else {
-			i.className = 'fa fa-money';
+			i.className = 'fa fa-th';
 		}
 		i.setAttribute(`aria-hidden`, `true`);
 
@@ -161,7 +161,7 @@ budgetApp.nav = {
 				const newCategoryItem = {
 					name      : `${categoryName}`,
 					classname : `${formattedCategoryName}`,
-					icon      : 'fa fa-money',
+					icon      : 'fa fa-th',
 					form      : {
 						name      : `${formattedCategoryName}-form`,
 						classlist : `${formattedCategoryName}-form ${formattedCategoryName}`,

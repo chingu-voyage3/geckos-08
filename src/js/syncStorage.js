@@ -47,7 +47,7 @@ budgetApp.storage = (function() {
 
 	function addCategory(category) {
 		categories.push(category);
-
+		
 		callListeners();
 		syncCategories();
 	}
@@ -144,10 +144,11 @@ budgetApp.storage = (function() {
 	function writeInitialCategories() {
 		categories = [
 			{
-				name   : 'Income',
-				total  : 0,
-				icon   : 'fa fa-money',
-				inputs : [
+				name      : 'Income',
+				classname : 'income',
+				total     : 0,
+				icon      : 'fa fa-money',
+				inputs    : [
 					{
 						name  : 'Salary',
 						value : 0,
@@ -159,10 +160,11 @@ budgetApp.storage = (function() {
 				],
 			},
 			{
-				name   : 'Housing',
-				total  : 0,
-				icon   : 'fa fa-home',
-				inputs : [
+				name      : 'Housing',
+				classname : 'housing',
+				total     : 0,
+				icon      : 'fa fa-home',
+				inputs    : [
 					{
 						name  : 'Rent',
 						value : 0,
@@ -186,10 +188,11 @@ budgetApp.storage = (function() {
 				],
 			},
 			{
-				name   : 'Transportation',
-				total  : 0,
-				icon   : 'fa fa-car',
-				inputs : [
+				name      : 'Transportation',
+				classname : 'transportation',
+				total     : 0,
+				icon      : 'fa fa-car',
+				inputs    : [
 					{
 						name  : 'Lease',
 						value : 0,
@@ -209,10 +212,11 @@ budgetApp.storage = (function() {
 				],
 			},
 			{
-				name   : 'Education',
-				total  : 0,
-				icon   : 'fa fa-graduation-cap',
-				inputs : [
+				name      : 'Education',
+				classname : 'education',
+				total     : 0,
+				icon      : 'fa fa-graduation-cap',
+				inputs    : [
 					{
 						name  : 'Tuition',
 						value : 0,
@@ -228,10 +232,11 @@ budgetApp.storage = (function() {
 				],
 			},
 			{
-				name   : 'Loans & Credit Cards',
-				total  : 0,
-				icon   : 'fa fa-credit-card-alt',
-				inputs : [
+				name      : 'Loans & Credit Cards',
+				classname : 'loans-credit-cards',
+				total     : 0,
+				icon      : 'fa fa-credit-card-alt',
+				inputs    : [
 					{
 						name  : 'Loan Payment',
 						value : 0,
@@ -247,10 +252,11 @@ budgetApp.storage = (function() {
 				],
 			},
 			{
-				name   : 'Savings & Investments',
-				total  : 0,
-				icon   : 'fa fa-bank',
-				inputs : [
+				name      : 'Savings & Investments',
+				classname : 'savings-investments',
+				total     : 0,
+				icon      : 'fa fa-bank',
+				inputs    : [
 					{
 						name  : 'Retirement',
 						value : 0,
@@ -270,10 +276,11 @@ budgetApp.storage = (function() {
 				],
 			},
 			{
-				name   : 'Miscellaneous',
-				total  : 0,
-				icon   : 'fa fa-paperclip',
-				inputs : [
+				name      : 'Miscellaneous',
+				classname : 'miscellaneous',
+				total     : 0,
+				icon      : 'fa fa-paperclip',
+				inputs    : [
 					{
 						name  : 'Clothing',
 						value : 0,
