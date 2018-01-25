@@ -5,7 +5,7 @@
 	// Required
 	"manifest_version": 2,
 	"name": "Budget Board",
-	"version": "1.0",
+	"version": "1.0.0",
 
 	// Recommended
 	"description": "A budget/finance app where you can add expense categories & individual expenses and see them rendered on a graph",
@@ -26,7 +26,7 @@
 		},
 
 	// Optional
-	"author": ["Shea Fitzek", "Seong Kim", "Steven Bowen", "Jake West"],
+	"author": ["Shea Fitzek", "Seong Kim", "Jake West", "Steven Bowen"],
 	"background": {
 		"scripts": ["js/background.js"],
 		// Recommended

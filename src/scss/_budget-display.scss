@@ -90,7 +90,8 @@
 	}
 
 	.budget-totals,
-	.budget-display {
+	.budget-display,
+	.category-total {
 		display: flex;
 		align-items: center;
 
@@ -119,13 +120,12 @@
 }
 
 div.tooltip {
-    position: absolute;
-    text-align: center;
-    padding: 2px;
-		font-size: .85rem;
-		font-weight: bold;
-    background: lightsteelblue;
-    border: 0px;
-    border-radius: 8px;
-    pointer-events: none;
+	position: absolute;
+	text-align: center;
+	padding: 0 3px;
+	font-size: 0.85rem;
+	font-weight: bold;
+	background: lightsteelblue;
+	border: 0;
+	pointer-events: none;
 }

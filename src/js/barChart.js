@@ -42,11 +42,13 @@ budgetApp.barChart = {
 			.style('margin', '12px');
 
 		// append/setup tooltip div
-		let tooltip = d3.select("body").append("div")
-    .attr("class", "tooltip")
-    .style("opacity", 0)
-		.style("left", 100 + 'px')
-		.style("top", 100 + 'px');
+		let tooltip = d3
+			.select('body')
+			.append('div')
+			.attr('class', 'tooltip')
+			.style('opacity', 0)
+			.style('left', 100 + 'px')
+			.style('top', 100 + 'px');
 
 		// update existing bars
 		svg
@@ -75,7 +77,8 @@ budgetApp.barChart = {
 				'x',
 				(data, index) =>
 					chartWidth / dataLength * index +
-					(chartWidth / dataLength / 2 - barWidth - padding / 2) + (padding / 2)
+					(chartWidth / dataLength / 2 - barWidth - padding / 2) +
+					padding / 2
 			)
 			.attr(
 				'y',
@@ -87,22 +90,16 @@ budgetApp.barChart = {
 			.style('stroke-width', 1)
 			.style('stroke', 'rgba(0, 76, 0, 0.5)')
 			// tooltip on hover
-			.on("mouseover", function(d) {
+			.on('mouseover', function(d) {
 				let x = d3.event.pageX;
 				let y = d3.event.pageY - 20;
 
-        tooltip.transition()
-            .duration(200)
-            .style("opacity", .9);
-				tooltip.html(d)
-            .style("left", x + 'px')
-            .style("top", y + 'px');
+				tooltip.transition().duration(200).style('opacity', 0.9);
+				tooltip.html(d).style('left', x + 'px').style('top', y + 'px');
 			})
-      .on("mouseout", function(d) {
-        tooltip.transition()
-            .duration(500)
-            .style("opacity", 0);
-      });
+			.on('mouseout', function(d) {
+				tooltip.transition().duration(500).style('opacity', 0);
+			});
 
 		// remove extra bars
 		svg.selectAll('g').data(data).exit().remove();
