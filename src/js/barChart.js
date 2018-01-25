@@ -17,16 +17,6 @@ budgetApp.barChart = {
 		let dataLength = data.length;
 		let colors = budgetApp.storage.getcolors();
 
-		// append svg to chart container
-		const svg = d3
-			.select('#chart-container')
-			.append('svg')
-			.attr('width', chartWidth)
-			.attr('height', chartHeight)
-			.style('background', 'rgba(0, 0, 0, 0.4)')
-			.style('border-radius', '3px')
-			.style('margin', '12px');
-
 		// returns a multiplier used to scale bars based on data values
 		function calculateBarHeightMultiplier(data) {
 			let maxData = d3.max(data); // returns obj with highest val
@@ -40,6 +30,23 @@ budgetApp.barChart = {
 		}
 
 		let barHeightMultiplier = calculateBarHeightMultiplier(data);
+
+		// append svg to chart container
+		const svg = d3
+			.select('#chart-container')
+			.append('svg')
+			.attr('width', chartWidth)
+			.attr('height', chartHeight)
+			.style('background', 'rgba(0, 0, 0, 0.4)')
+			.style('border-radius', '3px')
+			.style('margin', '12px');
+
+		// append/setup tooltip div
+		let tooltip = d3.select("body").append("div")
+    .attr("class", "tooltip")
+    .style("opacity", 0)
+		.style("left", 100 + 'px')
+		.style("top", 100 + 'px');
 
 		// update existing bars
 		svg
@@ -78,7 +85,24 @@ budgetApp.barChart = {
 			.attr('height', (data) => data * barHeightMultiplier)
 			.style('fill', (data, index) => colors[index])
 			.style('stroke-width', 1)
-			.style('stroke', 'rgba(0, 76, 0, 0.5)');
+			.style('stroke', 'rgba(0, 76, 0, 0.5)')
+			// tooltip on hover
+			.on("mouseover", function(d) {
+				let x = d3.event.pageX;
+				let y = d3.event.pageY - 20;
+
+        tooltip.transition()
+            .duration(200)
+            .style("opacity", .9);
+				tooltip.html(d)
+            .style("left", x + 'px')
+            .style("top", y + 'px');
+			})
+      .on("mouseout", function(d) {
+        tooltip.transition()
+            .duration(500)
+            .style("opacity", 0);
+      });
 
 		// remove extra bars
 		svg.selectAll('g').data(data).exit().remove();
