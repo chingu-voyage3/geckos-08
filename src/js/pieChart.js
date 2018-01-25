@@ -35,6 +35,13 @@ budgetApp.pieChart = {
 					')'
 			);
 
+		// append/setup tooltip div
+		let tooltip = d3.select("body").append("div")
+    .attr("class", "tooltip")
+    .style("opacity", 0)
+		.style("left", 100 + 'px')
+		.style("top", 100 + 'px');
+
 		// inner & outer radii of the pie
 		var arc = d3.arc().innerRadius(0).outerRadius(radius);
 
@@ -51,6 +58,23 @@ budgetApp.pieChart = {
 			.enter()
 			.append('path')
 			.attr('d', arc)
-			.attr('fill', (d, i) => colors[i]);
+			.attr('fill', (d, i) => colors[i])
+			// tooltip on mouseover 
+			.on("mouseover", function(d) {
+				let x = d3.event.pageX;
+				let y = d3.event.pageY - 20;
+
+        tooltip.transition()
+            .duration(200)
+            .style("opacity", 1);
+				tooltip.html(d.value)
+            .style("left", x + 'px')
+            .style("top", y + 'px');
+			})
+      .on("mouseout", function(d) {
+        tooltip.transition()
+            .duration(500)
+            .style("opacity", 0);
+      });
 	},
 };
