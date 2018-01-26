@@ -3,7 +3,6 @@
 @import 'budget-items';
 @import 'budget-display';
 @import 'footer';
-// $color1: #99ff99;
 
 *,
 *:before,
@@ -30,8 +29,9 @@ body {
 }
 
 ::-webkit-scrollbar {
-	width: 0px;  /* remove scrollbar space */
-	background: transparent;  /* optional: just make scrollbar invisible */
+	width: 0; /* remove scrollbar space */
+	background: transparent; /* optional: just make scrollbar invisible */
+}
 
 .content {
 	display: grid;

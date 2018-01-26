@@ -47,7 +47,7 @@ budgetApp.storage = (function() {
 
 	function addCategory(category) {
 		categories.push(category);
-		
+
 		callListeners();
 		syncCategories();
 	}
