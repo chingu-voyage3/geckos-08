@@ -198,7 +198,7 @@ budgetApp.nav = {
 	setCurrency() {
 		chrome.storage.sync.get('currency', function(obj) {
 			budgetApp.nav.currencyDropdown.value = obj.currency || `USD`;
-			budgetApp.currency = obj.currency;
+			budgetApp.currency = obj.currency || `USD`;
 		});
 	},
 

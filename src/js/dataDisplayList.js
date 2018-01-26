@@ -45,12 +45,12 @@ budgetApp.dataDisplayList = (function() {
 				});
 
 			budgetTotals.innerHTML = `<div>
-					INCOME :<span> ${budgetApp.currencies[budgetApp.currency]}</span> ${income}
+					INCOME :<span> ${budgetApp.currencies[budgetApp.currency || `USD`]}</span> ${income}
 				</div>
 
 				<div>
 					EXPENSES :<span> ${budgetApp.currencies[
-						budgetApp.currency
+						budgetApp.currency || `USD`
 					]}</span> ${expenses}
 				</div>`;
 		});
@@ -71,7 +71,7 @@ budgetApp.dataDisplayList = (function() {
 			let name = obj.categories[category].name.toUpperCase();
 
 			categoryTotal.innerHTML = `<div>
-					${name} :<span> ${budgetApp.currencies[budgetApp.currency]}</span> ${total}
+					${name} :<span> ${budgetApp.currencies[budgetApp.currency || `USD`]}</span> ${total}
 				</div>`;
 		});
 	}
