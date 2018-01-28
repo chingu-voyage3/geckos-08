@@ -1,35 +1,24 @@
 {
-	// see https://developer.chrome.com/extensions
-	// and https://developer.chrome.com/extensions/manifest
-
-	// Required
 	"manifest_version": 2,
 	"name": "Budget Board",
-	"version": "1.0.0",
-
-	// Recommended
-	"description": "A budget/finance app where you can add expense categories & individual expenses and see them rendered on a graph",
+	"version": "1.0.1",
+	"description": "A budget/finance app to track income & expenses and see them rendered on a graph",
 	"icons": {
 		"16": "assets/images/icon16.png",
 		"24": "assets/images/icon48.png",
 		"32": "assets/images/icon128.png"
 	},
-
-	// Pick one (or none)
 	"browser_action": {
-		"default_icon": {	// optional
-			"16": "assets/images/icon16.png",	 // optional
-			"24": "assets/images/icon48.png",	 // optional
-			"32": "assets/images/icon128.png"	// optional
+		"default_icon": {
+			"16": "assets/images/icon16.png",
+			"24": "assets/images/icon48.png",
+			"32": "assets/images/icon128.png"
 		},
-		"default_title": "Budget Board"	// optional; shown in tooltip
-		},
-
-	// Optional
+		"default_title": "Budget Board"
+	},
 	"author": ["Shea Fitzek", "Seong Kim", "Jake West", "Steven Bowen"],
 	"background": {
 		"scripts": ["js/background.js"],
-		// Recommended
 		"persistent": false
 	},
 	"content_security_policy": "script-src 'self' https://d3js.org/d3.v4.min.js https://unpkg.com/sweetalert/dist/sweetalert.min.js; object-src 'self'",
@@ -46,6 +35,12 @@
 		"chrome_style": true,
 		"page": "options.html"
 	},
-	"permissions": ["background", "storage", "tabs", "http://*.google.com/", "https://*.google.com/"],
+	"permissions": [
+		"background",
+		"storage",
+		"tabs",
+		"http://*.google.com/",
+		"https://*.google.com/"
+	],
 	"short_name": "Budget Board"
 }
